@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2023.3.8)  8 MAR 2023 19:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.12)  12 MAR 2023 22:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **"./Project Planning Report.tex"
 (Project Planning Report.tex
-LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-09-28>
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-02-07>
 (C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
-Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
 (C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
-File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+File: size12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@section=\count186
@@ -19,49 +19,312 @@ File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 \c@subparagraph=\count190
 \c@figure=\count191
 \c@table=\count192
-\abovecaptionskip=\skip47
-\belowcaptionskip=\skip48
-\bibindent=\dimen138
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen141
+\Gin@req@width=\dimen142
+) (C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+)
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2021/07/05 v2.14 Sectioning titles
+\ttl@box=\box51
+\beforetitleunit=\skip50
+\aftertitleunit=\skip51
+\ttl@plus=\dimen143
+\ttl@minus=\dimen144
+\ttl@toksa=\toks19
+\titlewidth=\dimen145
+\titlewidthlast=\dimen146
+\titlewidthfirst=\dimen147
+)
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count193
+\Gm@cntv=\count194
+\c@Gm@tempcnt=\count195
+\Gm@bindingoffset=\dimen148
+\Gm@wd@mp=\dimen149
+\Gm@odd@mp=\dimen150
+\Gm@even@mp=\dimen151
+\Gm@layoutwidth=\dimen152
+\Gm@layoutheight=\dimen153
+\Gm@layouthoffset=\dimen154
+\Gm@layoutvoffset=\dimen155
+\Gm@dimlist=\toks20
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip52
+\f@nch@O@elh=\skip53
+\f@nch@O@erh=\skip54
+\f@nch@O@olh=\skip55
+\f@nch@O@orh=\skip56
+\f@nch@O@elf=\skip57
+\f@nch@O@erf=\skip58
+\f@nch@O@olf=\skip59
+\f@nch@O@orf=\skip60
 )
 (C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
-File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count193
-\l__pdf_internal_box=\box51
+File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count196
+\l__pdf_internal_box=\box52
 ) (Project Planning Report.aux)
 \openout1 = `"Project Planning Report.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
- [1
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
-{C:/Users/taipa/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (Project Pla
-nning Report.aux) ) 
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count197
+\scratchdimen=\dimen156
+\scratchbox=\box53
+\nofMPsegments=\count198
+\nofMParguments=\count199
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count266
+\MPscratchDim=\dimen157
+\MPnumerator=\count267
+\makeMPintoPDFobject=\count268
+\everyMPtoPDFconversion=\toks22
+)
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
+* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=418.25368pt
+* \textheight=591.5302pt
+* \oddsidemargin=17.3571pt
+* \evensidemargin=17.3571pt
+* \topmargin=-7.86334pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+<Images/University.png, id=1, 597.432pt x 240.9pt>
+File: Images/University.png Graphic file (type png)
+<use Images/University.png>
+Package pdftex.def Info: Images/University.png  used on input line 20.
+(pdftex.def)             Requested size: 238.96857pt x 96.35828pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 20.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 20.
+[1
+
+
+{C:/Users/taipa/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Images/Uni
+versity.png>] (Project Planning Report.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 4.
+)
+\tf@toc=\write3
+\openout3 = `"Project Planning Report.toc"'.
+
+ [2]
+
+Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less.
+(fancyhdr)                Please consider using the `twoside' option on input l
+ine 30.
+
+
+Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less.
+(fancyhdr)                Please consider using the `twoside' option on input l
+ine 32.
+
+
+Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less.
+(fancyhdr)                Please consider using the `twoside' option on input l
+ine 33.
+
+
+Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less.
+(fancyhdr)                Please consider using the `twoside' option on input l
+ine 34.
+
+(Sections/Aims-And-Objectives.tex
+<Images/HW-Diagram.png, id=14, 533.995pt x 412.54124pt>
+File: Images/HW-Diagram.png Graphic file (type png)
+<use Images/HW-Diagram.png>
+Package pdftex.def Info: Images/HW-Diagram.png  used on input line 6.
+(pdftex.def)             Requested size: 186.90105pt x 144.39159pt.
+<Images/HW-Diagram-Detailed.png, id=15, 1166.3575pt x 762.85pt>
+File: Images/HW-Diagram-Detailed.png Graphic file (type png)
+<use Images/HW-Diagram-Detailed.png>
+Package pdftex.def Info: Images/HW-Diagram-Detailed.png  used on input line 15.
+
+(pdftex.def)             Requested size: 408.23125pt x 267.0015pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Images/SW-Diagram.png, id=16, 794.97pt x 644.4075pt>
+File: Images/SW-Diagram.png Graphic file (type png)
+<use Images/SW-Diagram.png>
+Package pdftex.def Info: Images/SW-Diagram.png  used on input line 22.
+(pdftex.def)             Requested size: 278.24367pt x 225.546pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[1 <./Images/HW-Diagram.png>]
+
+LaTeX Warning: Text page 2 contains only floats.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[2 <./Images/HW-Diagram-Detailed.png> <./Images/SW-Diagram.png>]
+(Sections/Outcomes.tex) (Sections/Methodology-And-Schedule.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[3
+
+]
+<Images/Gantt-Chart.png, id=29, 526.96875pt x 463.7325pt>
+File: Images/Gantt-Chart.png Graphic file (type png)
+<use Images/Gantt-Chart.png>
+Package pdftex.def Info: Images/Gantt-Chart.png  used on input line 9.
+(pdftex.def)             Requested size: 421.57556pt x 370.9865pt.
+
+Overfull \hbox (3.32188pt too wide) in paragraph at lines 9--10
+ [] 
+ []
+
+)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[4 <./Images/Gantt-Chart.png>] (Project Planning Report.aux) ) 
 Here is how much of TeX's memory you used:
- 427 strings out of 475385
- 8683 string characters out of 2776908
- 347752 words of memory out of 3000000
- 21889 multiletter control sequences out of 15000+600000
- 469557 words of font info for 29 fonts, out of 8000000 for 9000
+ 2462 strings out of 476339
+ 41311 string characters out of 5788119
+ 1856340 words of memory out of 5000000
+ 22879 multiletter control sequences out of 15000+600000
+ 517455 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 33i,5n,38p,148b,107s stack positions out of 10000i,1000n,20000p,200000b,80000s
-<C:/Users/taipa/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb>
-Output written on "Project Planning Report.pdf" (1 page, 12357 bytes).
+ 57i,11n,62p,1474b,254s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/taipa/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/User
+s/taipa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+<C:/Users/taipa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+r17.pfb>
+Output written on "Project Planning Report.pdf" (6 pages, 206424 bytes).
 PDF statistics:
- 11 PDF objects out of 1000 (max. 8388607)
+ 47 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

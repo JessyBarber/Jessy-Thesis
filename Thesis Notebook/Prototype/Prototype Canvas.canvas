@@ -1,17 +1,19 @@
 {
 	"nodes":[
-		{"type":"file","file":"Prototype/Pictures/Micro Controller XYZ Connections.png","id":"ea16a056646cfb1e","x":-880,"y":-520,"width":400,"height":284},
-		{"type":"file","file":"Prototype/Pictures/Example Build.png","id":"da2aa5e18e5dcf09","x":-880,"y":-180,"width":400,"height":270},
-		{"type":"file","file":"Diary/Week 1/7-3-2023 (Tuesday).md","id":"bd60f2c09b75c034","x":-880,"y":-1120,"width":400,"height":560},
+		{"type":"file","file":"Pictures/Micro Controller XYZ Connections.png","id":"ea16a056646cfb1e","x":-880,"y":-520,"width":400,"height":284},
+		{"type":"file","file":"Pictures/Example Build.png","id":"da2aa5e18e5dcf09","x":-880,"y":-180,"width":400,"height":270},
 		{"type":"file","file":"Prototype/Documentation/Timeline.md","id":"1e4dc0b0db99ed6c","x":-440,"y":-920,"width":440,"height":300},
 		{"type":"text","text":"Australian LORA Freq Band:\n915-928 MHz\n","id":"b290845bb5d9637d","x":40,"y":-812,"width":308,"height":192},
 		{"type":"text","text":"Enclosure made from? Need to do thermal test on ABS plastic and think about ventilation","id":"94070d6cbf513ee1","x":-872,"y":140,"width":385,"height":240},
 		{"type":"text","text":"Working with about 500-600m range from bridge","id":"83f7b6409e56a0c0","x":382,"y":-752,"width":418,"height":132},
-		{"type":"text","text":"# To Do (by next week)\n- [ ] FR & NFR\n- [ ] HW high-level diagram\n- [ ] SW high-level diagram\n- [ ] Build prototype transmitter and receive at the pro gateway","id":"20950325a37ed7dc","x":840,"y":-1135,"width":621,"height":515},
-		{"type":"file","file":"Prototype/Documentation/High Level HW Diagram.svg","id":"e627cda5508adc6d","x":-440,"y":-560,"width":1644,"height":1075},
-		{"type":"text","text":"Questions: \n\nWhat am I transmitting to again? Will this be the gateway or another micro? \n\nStill need to figure out how the gateway transmits to the IOT network. ","id":"b6d37adb150b8d3d","x":-947,"y":420,"width":460,"height":496},
-		{"type":"text","text":"Packets rate \nPayload info","id":"a219cffc0c61b551","x":-717,"y":933,"width":221,"height":130},
-		{"type":"file","file":"Prototype/Documentation/High Level HW Diagram 2.svg","id":"96c9c0f37c3994b1","x":1240,"y":-560,"width":2017,"height":1075}
+		{"type":"file","file":"Prototype/Documentation/Requirements.md","id":"55ff0e35e7572619","x":840,"y":-1020,"width":760,"height":400},
+		{"type":"file","file":"Prototype/Documentation/High Level HW Diagram.svg","id":"96c9c0f37c3994b1","x":-440,"y":-520,"width":1389,"height":1075},
+		{"type":"file","file":"Prototype/Documentation/High Level HW Detailed.svg","id":"e627cda5508adc6d","x":1160,"y":-520,"width":1644,"height":1075},
+		{"type":"file","file":"Prototype/Documentation/High Level SW Diagram.svg","id":"d3d16d75d88ee861","x":1160,"y":640,"width":1644,"height":1332},
+		{"type":"file","file":"Prototype/Documentation/Project Planning Report.md","id":"eafbd9ccf4dd0f0c","x":2880,"y":-520,"width":1000,"height":2196}
 	],
-	"edges":[]
+	"edges":[
+		{"id":"1372263bfa059bfe","fromNode":"96c9c0f37c3994b1","fromSide":"right","toNode":"e627cda5508adc6d","toSide":"left"},
+		{"id":"563bc2c0abce14dd","fromNode":"96c9c0f37c3994b1","fromSide":"right","toNode":"d3d16d75d88ee861","toSide":"left"}
+	]
 }

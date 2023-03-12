@@ -1,0 +1,71 @@
+{
+  "scanned": true,
+  "reminders": {
+    "Diary/Due Dates.md": [
+      {
+        "title": "Project Planning Report 📅",
+        "time": "2023-03-17",
+        "rowNumber": 0
+      },
+      {
+        "title": "GSAFE 📅",
+        "time": "2023-03-17",
+        "rowNumber": 1
+      },
+      {
+        "title": "Interview Task (Part A) 📅",
+        "time": "2023-04-02",
+        "rowNumber": 2
+      },
+      {
+        "title": "Interview Task (Part B) 📅",
+        "time": "2023-05-14",
+        "rowNumber": 3
+      },
+      {
+        "title": "Professional Competencies Task 📅",
+        "time": "2023-05-28",
+        "rowNumber": 4
+      },
+      {
+        "title": "Final Project Report 📅",
+        "time": "2023-06-05",
+        "rowNumber": 5
+      },
+      {
+        "title": "Conduct of Program 📅",
+        "time": "2023-06-05",
+        "rowNumber": 6
+      },
+      {
+        "title": "Project Expo (Poster and Technical Defence) 📅",
+        "time": "2023-06-06",
+        "rowNumber": 7
+      },
+      {
+        "title": "Professional Practice Log Book 📅",
+        "time": "2023-06-11",
+        "rowNumber": 8
+      }
+    ]
+  },
+  "debug": false,
+  "settings": {
+    "reminderTime": "09:00",
+    "laters": "In 30 minutes\nIn 1 hour\nIn 3 hours\nTomorrow\nNext week",
+    "useSystemNotification": false,
+    "autoCompleteTrigger": "(@",
+    "primaryReminderFormat": "ReminderPluginReminderFormat",
+    "enableReminderPluginReminderFormat": true,
+    "dateFormat": "DD-MM-YYYY",
+    "dateTimeFormat": "HH:mm DD-MM-YYYY",
+    "strictDateFormat": false,
+    "linkDatesToDailyNotes": false,
+    "enableTasksPluginReminderFormat": false,
+    "useCustomEmojiForTasksPlugin": false,
+    "removeTagsForTasksPlugin": false,
+    "enableKanbanPluginReminderFormat": false,
+    "editDetectionSec": 10,
+    "reminderCheckIntervalSec": 5
+  }
+}

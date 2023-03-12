@@ -4,47 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "1feb3d9a1c2a06fe",
+        "id": "06dea5ebcda29d92",
         "type": "tabs",
         "children": [
           {
-            "id": "23920a13e62a0fd3",
+            "id": "fb4f0c9d7c1dd767",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Diary/Week 1/8-3-2023 (Wednesday).md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "9a7de2e0493e8ef6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Diary/Week 1/9-3-2023 (Thursday).md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0d7bbabd27a9fd79",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Diary/Week 1/9-3-2023 (Thursday).md",
+                "file": "Prototype/Documentation/Timeline.md",
                 "mode": "preview",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -58,22 +33,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "762475214ba4e8ff",
-            "type": "leaf",
-            "state": {
-              "type": "file-explorer",
-              "state": {
-                "sortOrder": "alphabetical"
-              }
-            }
-          },
-          {
             "id": "197a01aa55161ba6",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#Aims",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -89,12 +54,24 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "9eae41512b6a8ce2",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "09cd19064404e87c",
@@ -103,36 +80,8 @@
       {
         "id": "662f2587e42bc132",
         "type": "tabs",
+        "dimension": 37.78846153846154,
         "children": [
-          {
-            "id": "562f909996de7c81",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "Diary/Week 1/9-3-2023 (Thursday).md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
-          },
-          {
-            "id": "f16f41a0ff2827d2",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "Diary/Week 1/9-3-2023 (Thursday).md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
-          },
           {
             "id": "f0ea6e816e9952fc",
             "type": "leaf",
@@ -145,20 +94,34 @@
             }
           },
           {
-            "id": "fa46cb9faad97fd2",
+            "id": "928f13298f46b070",
             "type": "leaf",
             "state": {
-              "type": "outline",
-              "state": {
-                "file": "Diary/Week 1/9-3-2023 (Thursday).md"
-              }
+              "type": "calendar",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "b37ba493fcaeb97b",
+        "type": "tabs",
+        "dimension": 62.21153846153846,
+        "children": [
+          {
+            "id": "09c5111fc9d78e84",
+            "type": "leaf",
+            "state": {
+              "type": "reminder-list",
+              "state": {}
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 519.5,
     "collapsed": true
   },
   "left-ribbon": {
@@ -171,17 +134,30 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0d7bbabd27a9fd79",
+  "active": "fb4f0c9d7c1dd767",
   "lastOpenFiles": [
-    "Prototype/Prototype Canvas.canvas",
-    "Prototype/Pictures/Example Build.png",
-    "Prototype/Pictures/Micro Controller XYZ Connections.png",
     "Prototype/Documentation/Timeline.md",
     "Prototype/Documentation/Requirements.md",
-    "Diary/Week 1/9-3-2023 (Thursday).md",
-    "Diary/Week 1/8-3-2023 (Wednesday).md",
-    "Diary/Week 1/7-3-2023 (Tuesday).md",
+    "Prototype/Prototype Canvas.canvas",
+    "Prototype/Documentation/High Level SW Diagram.svg",
+    "Prototype/Documentation/High Level HW Diagram.svg",
+    "Prototype/Documentation/High Level HW Detailed.svg",
+    "Diary/Week 2/15-3-2023 (Wednesday).md",
+    "Diary/Week 2/14-3-2023 (Tuesday).md",
+    "Diary/Week 2/13-3-2023 (Monday).md",
+    "Diary/Week 1/12-3-2023 (Sunday).md",
+    "Diary/Due Dates.md",
     "Diary/Week 1/10-3-2023 (Friday).md",
+    "Diary/Week 1/9-3-2023 (Thursday).md",
+    "Diary/Week 1/7-3-2023 (Tuesday).md",
+    "Prototype/Documentation/Project Planning Report.md",
+    "Untitled.md",
+    "Pictures/Micro Controller XYZ Connections.png",
+    "Pictures/Example Build.png",
+    "Prototype/Documentation/High Level SW Diagram.md",
+    "Diary/Week 1/8-3-2023 (Wednesday).md",
+    "Diary/Week 2/17-3-2023 (Friday).md",
+    "Diary/Week 2",
     "Untitled.canvas"
   ]
 }

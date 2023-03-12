@@ -1,8 +1,43 @@
 \documentclass[12pt]{article}
 
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage[a4paper]{geometry}
+\usepackage{fancyhdr}
+
+\title{
+{Project Planning Report}\\
+{\large School of Engineering and Built Environment}\\
+{\large Griffith University}\\
+{\includegraphics[scale=0.4]{Images/University.png}}
+}
+\author{Jessy Barber}
+\date{17 March 2023}
+
 \begin{document} 
 
-Project Planning Report
+\clearpage\maketitle
+\thispagestyle{empty}
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[LE,LO]{Project Planning Report}
+\fancyfoot{}
+\fancyfoot[LE,LO]{Section \thesection}
+\fancyfoot[CE,CO]{Jessy Barber}
+\fancyfoot[RE,RO]{\thepage}
+
+\newpage
+\input{Sections/Aims-And-Objectives}
+\clearpage
+\input{Sections/Outcomes}
+\input{Sections/Methodology-And-Schedule}
 
 
 \end{document}

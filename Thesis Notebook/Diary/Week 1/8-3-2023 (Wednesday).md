@@ -1,5 +1,5 @@
 # To Do 
-- [ ] Week 0 - Lecture
+- [x] Week 0 - Lecture
 - [x] Setup project repo
 
 # Notes 
