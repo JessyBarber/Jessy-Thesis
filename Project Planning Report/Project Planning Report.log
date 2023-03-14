@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.12)  12 MAR 2023 22:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.12)  14 MAR 2023 23:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -100,43 +100,113 @@ Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 \f@nch@O@olf=\skip59
 \f@nch@O@orf=\skip60
 )
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
+\LTleft=\skip61
+\LTright=\skip62
+\LTpre=\skip63
+\LTpost=\skip64
+\LTchunksize=\count196
+\LTcapwidth=\dimen156
+\LT@head=\box52
+\LT@firsthead=\box53
+\LT@foot=\box54
+\LT@lastfoot=\box55
+\LT@gbox=\box56
+\LT@cols=\count197
+\LT@rows=\count198
+\c@LT@tables=\count199
+\c@LT@chunks=\count266
+\LT@p@ftn=\toks21
+)
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen157
+\ar@mcellbox=\box57
+\extrarowheight=\dimen158
+\NC@list=\toks22
+\extratabsurround=\skip65
+\backup@length=\skip66
+\ar@cellbox=\box58
+)
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2e.sty
+Package: ragged2e 2023/02/22 v3.3 ragged2e Package
+\CenteringLeftskip=\skip67
+\RaggedLeftLeftskip=\skip68
+\RaggedRightLeftskip=\skip69
+\CenteringRightskip=\skip70
+\RaggedLeftRightskip=\skip71
+\RaggedRightRightskip=\skip72
+\CenteringParfillskip=\skip73
+\RaggedLeftParfillskip=\skip74
+\RaggedRightParfillskip=\skip75
+\JustifyingParfillskip=\skip76
+\CenteringParindent=\skip77
+\RaggedLeftParindent=\skip78
+\RaggedRightParindent=\skip79
+\JustifyingParindent=\skip80
+)
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
+\everycr=\toks23
+\minrowclearance=\skip81
+\rownum=\count267
+)
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+)
 (C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count196
-\l__pdf_internal_box=\box52
+\l__color_backend_stack_int=\count268
+\l__pdf_internal_box=\box59
 ) (Project Planning Report.aux)
 \openout1 = `"Project Planning Report.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
 
 (C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count197
-\scratchdimen=\dimen156
-\scratchbox=\box53
-\nofMPsegments=\count198
-\nofMParguments=\count199
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count266
-\MPscratchDim=\dimen157
-\MPnumerator=\count267
-\makeMPintoPDFobject=\count268
-\everyMPtoPDFconversion=\toks22
+\scratchcounter=\count269
+\scratchdimen=\dimen159
+\scratchbox=\box60
+\nofMPsegments=\count270
+\nofMParguments=\count271
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count272
+\MPscratchDim=\dimen160
+\MPnumerator=\count273
+\makeMPintoPDFobject=\count274
+\everyMPtoPDFconversion=\toks25
 )
 (C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -185,23 +255,23 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 <Images/University.png, id=1, 597.432pt x 240.9pt>
 File: Images/University.png Graphic file (type png)
 <use Images/University.png>
-Package pdftex.def Info: Images/University.png  used on input line 20.
+Package pdftex.def Info: Images/University.png  used on input line 26.
 (pdftex.def)             Requested size: 238.96857pt x 96.35828pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 20.
+(Font)              <14.4> on input line 26.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 20.
+(Font)              <7> on input line 26.
 [1
 
 
 {C:/Users/taipa/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Images/Uni
 versity.png>] (Project Planning Report.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 4.
+(Font)              <12> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 4.
+(Font)              <8> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 4.
+(Font)              <6> on input line 2.
 )
 \tf@toc=\write3
 \openout3 = `"Project Planning Report.toc"'.
@@ -211,27 +281,27 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 30.
+ine 36.
 
 
 Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 32.
+ine 38.
 
 
 Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 33.
+ine 39.
 
 
 Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 34.
+ine 40.
 
-(Sections/Aims-And-Objectives.tex
+(Sections/Project-Background.tex) (Sections/Aims-And-Objectives.tex
 <Images/HW-Diagram.png, id=14, 533.995pt x 412.54124pt>
 File: Images/HW-Diagram.png Graphic file (type png)
 <use Images/HW-Diagram.png>
@@ -255,7 +325,6 @@ Package pdftex.def Info: Images/SW-Diagram.png  used on input line 22.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -277,7 +346,160 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [2 <./Images/HW-Diagram-Detailed.png> <./Images/SW-Diagram.png>]
-(Sections/Outcomes.tex) (Sections/Methodology-And-Schedule.tex
+Overfull \hbox (1.82158pt too wide) in paragraph at lines 34--34
+[]|\OT1/cmr/bx/n/12 Status| 
+ []
+
+
+Underfull \hbox (badness 1127) in paragraph at lines 36--36
+[]|\OT1/cmr/m/n/12 [FR-1] The trans-
+ []
+
+
+Underfull \hbox (badness 1242) in paragraph at lines 36--36
+\OT1/cmr/m/n/12 shall com-mu-ni-cate
+ []
+
+
+Underfull \hbox (badness 1024) in paragraph at lines 36--36
+\OT1/cmr/m/n/12 at a fre-quency of
+ []
+
+
+Underfull \hbox (badness 2680) in paragraph at lines 36--36
+\OT1/cmr/m/n/12 is 915-930MHz so the
+ []
+
+
+Underfull \hbox (badness 2941) in paragraph at lines 36--37
+\OT1/cmr/m/n/12 ing packet trans-mi-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+\OT1/cmr/m/n/12 ad-ver-tised to op-er-ate
+ []
+
+
+Underfull \hbox (badness 5446) in paragraph at lines 38--38
+\OT1/cmr/m/n/12 only need to op-er-ate
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+\OT1/cmr/m/n/12 ap-prox-i-mately up to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+\OT1/cmr/m/n/12 in-te-gra-tion test-ing by
+ []
+
+
+Underfull \hbox (badness 1675) in paragraph at lines 38--39
+\OT1/cmr/m/n/12 not-ing the dis-tance at
+ []
+
+
+Underfull \hbox (badness 7186) in paragraph at lines 40--40
+\OT1/cmr/m/n/12 be-tween at least
+ []
+
+
+Underfull \hbox (badness 7415) in paragraph at lines 40--40
+\OT1/cmr/m/n/12 at least three sen-sor
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+[]|\OT1/cmr/m/n/12 The iden-ti-fi-ca-tion of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+\OT1/cmr/m/n/12 be iden-ti-fied trough
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+\OT1/cmr/m/n/12 in-te-gra-tion test-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+\OT1/cmr/m/n/12 and ob-serv-ing packet
+ []
+
+
+Underfull \hbox (badness 1354) in paragraph at lines 42--42
+\OT1/cmr/m/n/12 ered by so-lar en-
+ []
+
+
+Underfull \hbox (badness 1237) in paragraph at lines 42--42
+\OT1/cmr/m/n/12 a so-lar bat-tery sys-tem
+ []
+
+
+Underfull \hbox (badness 8170) in paragraph at lines 42--42
+\OT1/cmr/m/n/12 ca-pa-ble of sup-port-ing
+ []
+
+
+Underfull \hbox (badness 2088) in paragraph at lines 42--42
+\OT1/cmr/m/n/12 always-on low pow-ered
+ []
+
+
+Underfull \hbox (badness 1675) in paragraph at lines 46--46
+\OT1/cmr/m/n/12 ex-posed on the bridge
+ []
+
+
+Underfull \hbox (badness 3179) in paragraph at lines 46--47
+[]|\OT1/cmr/m/n/12 The en-clo-sure will be
+ []
+
+
+Underfull \hbox (badness 4001) in paragraph at lines 46--47
+\OT1/cmr/m/n/12 de-signed with weather
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--48
+\OT1/cmr/m/n/12 tem-per-a-ture and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--48
+\OT1/cmr/m/n/12 hu-mid-ity sen-sors
+ []
+
+
+Underfull \hbox (badness 1675) in paragraph at lines 48--48
+\OT1/cmr/m/n/12 and trans-mit this
+ []
+
+
+Underfull \hbox (badness 1728) in paragraph at lines 48--48
+\OT1/cmr/m/n/12 will be use-ful to field
+ []
+
+
+Underfull \hbox (badness 1629) in paragraph at lines 48--48
+\OT1/cmr/m/n/12 test the ther-mal re-sis-
+ []
+
+
+Underfull \hbox (badness 1033) in paragraph at lines 48--49
+\OT1/cmr/m/n/12 be ex-am-ined in a lab.
+ []
+
+
+Overfull \hbox (22.97166pt too wide) in alignment at lines 32--52
+ [] [] [] [] 
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -286,18 +508,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3
+[3]) (Sections/Outcomes.tex) (Sections/Methodology-And-Schedule.tex
 
-]
-<Images/Gantt-Chart.png, id=29, 526.96875pt x 463.7325pt>
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[4]
+<Images/Gantt-Chart.png, id=32, 526.96875pt x 463.7325pt>
 File: Images/Gantt-Chart.png Graphic file (type png)
 <use Images/Gantt-Chart.png>
-Package pdftex.def Info: Images/Gantt-Chart.png  used on input line 9.
+Package pdftex.def Info: Images/Gantt-Chart.png  used on input line 10.
 (pdftex.def)             Requested size: 421.57556pt x 370.9865pt.
 
-Overfull \hbox (3.32188pt too wide) in paragraph at lines 9--10
+Overfull \hbox (3.32188pt too wide) in paragraph at lines 10--11
  [] 
  []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 )
 
@@ -308,23 +540,167 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[4 <./Images/Gantt-Chart.png>] (Project Planning Report.aux) ) 
+[5]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[6 <./Images/Gantt-Chart.png>] (Sections/Risk-Assessment.tex
+Overfull \hbox (11.69522pt too wide) in paragraph at lines 6--6
+[]|\OT1/cmr/bx/n/12 Catastrophic
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--6
+[]|\OT1/cmr/bx/n/12 Major
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--6
+[]|\OT1/cmr/bx/n/12 Moderate
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--6
+[]|\OT1/cmr/bx/n/12 Minor
+ []
+
+
+Overfull \hbox (8.0216pt too wide) in paragraph at lines 6--6
+[]|\OT1/cmr/bx/n/12 Insignificant
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--7
+[]|\OT1/cmr/bx/n/12 Almost
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--7
+\OT1/cmr/bx/n/12 Cer-tain
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--7
+[]|\OT1/cmr/bx/n/12 Medium
+ []
+
+
+Underfull \hbox (badness 3568) in paragraph at lines 7--7
+[]|\OT1/cmr/bx/n/12 Very Low
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--8
+[]|\OT1/cmr/bx/n/12 Medium
+ []
+
+
+Underfull \hbox (badness 3568) in paragraph at lines 8--8
+[]|\OT1/cmr/bx/n/12 Very Low
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--9
+[]|\OT1/cmr/bx/n/12 Possible
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--9
+[]|\OT1/cmr/bx/n/12 Medium
+ []
+
+
+Underfull \hbox (badness 3568) in paragraph at lines 9--9
+[]|\OT1/cmr/bx/n/12 Very Low
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--10
+[]|\OT1/cmr/bx/n/12 Unlikely
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--10
+[]|\OT1/cmr/bx/n/12 Medium
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--10
+[]|\OT1/cmr/bx/n/12 Medium
+ []
+
+
+Underfull \hbox (badness 3568) in paragraph at lines 10--10
+[]|\OT1/cmr/bx/n/12 Very Low
+ []
+
+
+Underfull \hbox (badness 3568) in paragraph at lines 10--10
+[]|\OT1/cmr/bx/n/12 Very Low
+ []
+
+
+Underfull \hbox (badness 3568) in paragraph at lines 11--11
+[]|\OT1/cmr/bx/n/12 Very Low
+ []
+
+
+Underfull \hbox (badness 3568) in paragraph at lines 11--11
+[]|\OT1/cmr/bx/n/12 Very Low
+ []
+
+
+Overfull \hbox (40.65843pt too wide) in alignment at lines 4--14
+ [] [] [] [] [] [] 
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[7
+
+]
+Overfull \hbox (32.12253pt too wide) in alignment at lines 37--51
+ [] [] [] [] [] [] 
+ []
+
+) (Sections/Ethics.tex) (Sections/References.tex)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[8
+
+] (Project Planning Report.aux) ) 
 Here is how much of TeX's memory you used:
- 2462 strings out of 476339
- 41311 string characters out of 5788119
- 1856340 words of memory out of 5000000
- 22879 multiletter control sequences out of 15000+600000
+ 3327 strings out of 476339
+ 54611 string characters out of 5788119
+ 1872340 words of memory out of 5000000
+ 23708 multiletter control sequences out of 15000+600000
  517455 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,11n,62p,1474b,254s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/taipa/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/User
-s/taipa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-<C:/Users/taipa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-r17.pfb>
-Output written on "Project Planning Report.pdf" (6 pages, 206424 bytes).
+ 57i,11n,62p,1474b,293s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/taipa/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/taipa/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/taipa/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on "Project Planning Report.pdf" (10 pages, 221442 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
+ 61 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

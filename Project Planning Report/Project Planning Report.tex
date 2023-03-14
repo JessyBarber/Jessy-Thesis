@@ -5,12 +5,18 @@
 \usepackage{titlesec}
 \usepackage[a4paper]{geometry}
 \usepackage{fancyhdr}
+%% Tables %%
+\usepackage{longtable}
+\usepackage{array,ragged2e}
+\usepackage[table]{xcolor}
+
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
 
 \title{
 {Project Planning Report}\\
 {\large School of Engineering and Built Environment}\\
 {\large Griffith University}\\
-{\includegraphics[scale=0.4]{Images/University.png}}
+{\includegraphics[scale=0.4]{Images/University.png}}		
 }
 \author{Jessy Barber}
 \date{17 March 2023}
@@ -34,10 +40,13 @@
 \fancyfoot[RE,RO]{\thepage}
 
 \newpage
+\input{Sections/Project-Background}
 \input{Sections/Aims-And-Objectives}
-\clearpage
 \input{Sections/Outcomes}
 \input{Sections/Methodology-And-Schedule}
-
+\clearpage
+\input{Sections/Risk-Assessment}
+\input{Sections/Ethics}
+\input{Sections/References}
 
 \end{document}
