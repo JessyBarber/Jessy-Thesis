@@ -1,13 +1,13 @@
 #include <Wire.h>
 #include <arduinoFFT.h>
 #include <MKRWAN.h>
-#include <LoRa.h>
+// #include <LoRa.h>
 
 #define SAMPLES 256 // number of samples to use for FFT
 #define SAMPLING_FREQ 200 // sampling frequency in Hz
-#define ACCELEROMETER_PIN_X A0
-#define ACCELEROMETER_PIN_Y A1
-#define ACCELEROMETER_PIN_Z A2
+#define ACCELEROMETER_PIN_X A1
+#define ACCELEROMETER_PIN_Y A2
+#define ACCELEROMETER_PIN_Z A3
 
 LoRaModem modem; // create LoRa modem object
 arduinoFFT FFT; // create FFT object
@@ -87,10 +87,11 @@ void loop() {
   Serial.println(averageFrequencyY);
     Serial.print("Average Frequency Z: ");
   Serial.println(averageFrequencyZ);
+  /*
   LoRa. beginPacket();
   LoRa.print(averageFrequencyX);
   LoRa.print(averageFrequencyY);
   LoRa.print(averageFrequencyZ);
-  LoRa.endPacket();
-  delay(10000); // wait for 10 seconds
+  LoRa.endPacket();*/
+  //delay(10000); // wait for 10 seconds
 }

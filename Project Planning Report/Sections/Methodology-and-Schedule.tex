@@ -1,19 +1,38 @@
 \section{Methodology And Project Schedule}
 \subsection{Project Methodology}
-This project is fundamentally a design project and so the design will heavily depend on the system functional and non-functional requirements as defined in table \ref{tab:FRandNFR}. These requirements will be verified through experimental analysis using both the mechanical and electrical engineering laboratories, and the Griffith footbridge. The experimental verification methods include integration testing, environmental testing and field testing. The testing methods required to validate each requirement is also defined in table \ref{tab:FRandNFR}. Additional to these requirements, closed loop testing will provide experimental analysis to verify that the accelerometers, temperature sensors, ADC conversion, packet transmission and retrieval meet the design requirements of the system. Testing will also be conducted on the designed enclosure to ensure the system is sufficiently weather proofed against heat and rain.  
 
+The project methodology will define the process of verifying the project objectives and outcomes. The first methodology explicitly describes the verification process for the system prototype and how the corresponding objectives and requirements will be satisfied. The first objective will be satisfied through integration testing of the selected components. A test application will be created containing a test sender and listener program. This will send an arbitrary packet of information between a single sensor node and the gateway. This objective is verified once the payload has successfully been uploaded to the TNN cloud. The second objective will be satisfied through integration testing by integrating an accelerometer into the system. For this objective to be achieved, the test application will include an FFT to discretize the analog input. This objective is verified once the accelerometer data has been uploaded to the TNN cloud. The third objective will be satisfied through integration testing by further editing the test application and integrating another two sensor nodes into the system. The packets transmitted by the sensor nodes must include their respective identification which will be used to identify the packets at the gateway. This objective is verified when the data on the TNN cloud specifies its respective sensor node. The first and second prototype system requirement can be satisfied through field testing by verifying that project objectives one, two and three are achievable with a distance of 600m between the furthest sensor node and the gateway. Requirement three can be verified through experimental testing by creating a test application to send known analog inputs. The requirement is met when the digital data received by the gateway is the expected value after FFT.\\\\
+The second methodology explicitly describes the verification process for version one of the system and how the corresponding objectives and requirements will be satisfied. The fourth objective will be satisfied through theoretical and field testing. The theoretical testing will be achieved by completing power calculations for the sensor node and the field testing will be achieved by verifying that the sensor nodes can be sufficiently powered. This objective is verified once version one system requirement one is satisfied and there is an uninterrupted hourly transmission of packets. The fifth objective will be satisfied through integration testing by implementing the system on a PCB carrier board instead of a breadboard. For this objective to be achieved, all previous objectives must be re-verified. The sixth objective will be satisfied through environmental testing of the 3D-printed enclosure. The primary environmental testing will be to verify the integrity of the enclosure under heavy rain conditions. Once version one of the system has been integrated into the enclosure, temperature sensors will be included to measure the temperature of the embedded electronics. The software will be updated to include the average system temperature in each packet. This objective, and system version one requirements two and three are satisfied once project objectives one to four are validated in the environmental testing. Requirement four can be verified through field testing by observing the data uploaded to the TNN cloud over a specified period of time. If the data is uploaded and stored in the cloud as expected, then this requirement is satisfied. 
+
+\clearpage
 \subsection{Tasks and Schedule}
-Figure \ref{fig:GanttChart} displays the rough timeline for the completion of this project. This timeline also includes professional practice deadlines. 
+Figure \ref{fig:GanttChart} presents the projected timeline for the completion of this project.
 
 \begin{figure}[h!]
 \center
-\includegraphics[scale=0.8]{Images/Gantt-Chart.png}
+\includegraphics[scale=0.95, angle=90, origin=c]{Images/Gantt-chart.png}
 \caption{Project Timeline Gantt Chart}
 \label{fig:GanttChart}
 \end{figure}
 
+\clearpage
 \subsection{Resources}
+The hardware for the prototype phase of the project has been supplied by the university. This includes 2 x MKR WAN 1300, 1 x MKR WAN 1310, 1 x Arduino Pro Gateway, 3 x accelerometer, 3 x dipole antennas. 
 
+Additional costs will be required when system version 1 is reached which include temperature sensors, ABS printing filament, PCB, solar panel and battery. A rough estimate of the costs for each sensor node is shown in table \ref{tab:BOM}. 
 
+\begin{longtable}{| c | c | c | c |}
+\hline
+\textbf{Item}& \textbf{Estimated Cost}& \textbf{Supplier}& \textbf{Lead Time}\\\hline
+Temperature Sensor& \$7.00& Jaycar& ~1 Day\\\hline
+PCB& \$20.00 & TBC& ~1 Week\\\hline
+ABS Filament& \$25.00& Jaycar& ~1 Day\\\hline
+Solar Panel with Battery& \$10.00&Core Electronics& ~1 Week\\\hline
+\textbf{Total}&\$62& &2 Weeks, 2 Days\\\hline
+\caption{Estimated Costs Per Sensor Node}
+\label{tab:BOM}
+\end{longtable}
+
+The equipment in the Griffith electrical and mechanical labs will be utilized to build and test system version 1. Equipment includes power supply, soldering station, oscilloscope, multi-meter and an experimental vibrating beam setup. A personal 3D-printer will be used to manufacture the enclosures. Software will be written in the Arduino IDE, and the Arduino TNN cloud website will be used to access data from the gateway. 3D modeling for the enclosures will be completed in Onshape and CAD design for the PCB will be completed in Altium Designer.  
 
 

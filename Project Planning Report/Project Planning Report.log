@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.12)  14 MAR 2023 23:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.12)  17 MAR 2023 17:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -100,6 +100,10 @@ Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 \f@nch@O@olf=\skip59
 \f@nch@O@orf=\skip60
 )
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/comment\comment.sty
+\CommentStream=\write3
+
+Excluding comment 'comment')
 (C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \LTleft=\skip61
@@ -169,44 +173,141 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+) (C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pdfpages.sty
+Package: pdfpages 2022/12/19 v0.5x Insert pages of external PDF documents (AM)
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count268
+\calc@Bcount=\count269
+\calc@Adimen=\dimen159
+\calc@Bdimen=\dimen160
+\calc@Askip=\skip82
+\calc@Bskip=\skip83
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count270
+\calc@Cskip=\skip84
+)
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
+Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
+\ESO@tempdima=\dimen161
+\ESO@tempdimb=\dimen162
+)
+\AM@pagewidth=\dimen163
+\AM@pageheight=\dimen164
+\AM@fboxrule=\dimen165
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def
+File: pppdftex.def 2022/12/19 v0.5x Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count271
+\AM@pagebox=\box59
+\AM@global@opts=\toks24
+\AM@pagecnt=\count272
+\AM@toc@title=\toks25
+\AM@lof@heading=\toks26
+\c@AM@survey=\count273
+\AM@templatesizebox=\box60
+) (C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip85
+\bibsep=\skip86
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count274
+)
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjustbox.sty
+Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+\XKV@toks=\toks27
+\XKV@tempa@toks=\toks28
+)
+\XKV@depth=\count275
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/collectbox\collectbox.s
+ty
+Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
+\collectedbox=\box61
+)
+\tc@llx=\dimen166
+\tc@lly=\dimen167
+\tc@urx=\dimen168
+\tc@ury=\dimen169
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen170
+\adjbox@Height=\dimen171
+\adjbox@Depth=\dimen172
+\adjbox@Totalheight=\dimen173
+\adjbox@pwidth=\dimen174
+\adjbox@pheight=\dimen175
+\adjbox@pdepth=\dimen176
+\adjbox@ptotalheight=\dimen177
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count276
+) (C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box62
+\sift@deathcycles=\count277
+\@vwid@loff=\dimen178
+\@vwid@roff=\dimen179
+)) Excluding 'comment' comment.
 (C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count268
-\l__pdf_internal_box=\box59
+\l__color_backend_stack_int=\count278
+\l__pdf_internal_box=\box63
 ) (Project Planning Report.aux)
 \openout1 = `"Project Planning Report.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
 
 (C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count269
-\scratchdimen=\dimen159
-\scratchbox=\box60
-\nofMPsegments=\count270
-\nofMParguments=\count271
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count272
-\MPscratchDim=\dimen160
-\MPnumerator=\count273
-\makeMPintoPDFobject=\count274
-\everyMPtoPDFconversion=\toks25
+\scratchcounter=\count279
+\scratchdimen=\dimen180
+\scratchbox=\box64
+\nofMPsegments=\count280
+\nofMParguments=\count281
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count282
+\MPscratchDim=\dimen181
+\MPnumerator=\count283
+\makeMPintoPDFobject=\count284
+\everyMPtoPDFconversion=\toks30
 )
 (C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -252,286 +353,132 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nom
+etadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
+
+(C:\Users\taipa\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
 <Images/University.png, id=1, 597.432pt x 240.9pt>
 File: Images/University.png Graphic file (type png)
 <use Images/University.png>
-Package pdftex.def Info: Images/University.png  used on input line 26.
+Package pdftex.def Info: Images/University.png  used on input line 67.
 (pdftex.def)             Requested size: 238.96857pt x 96.35828pt.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 26.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 26.
+
 [1
 
-
 {C:/Users/taipa/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Images/Uni
-versity.png>] (Project Planning Report.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 2.
-)
-\tf@toc=\write3
-\openout3 = `"Project Planning Report.toc"'.
-
- [2]
+versity.png>] Excluding 'comment' comment.
 
 Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 36.
+ine 80.
 
 
 Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 38.
+ine 82.
 
 
 Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 39.
+ine 83.
 
 
 Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
 less.
 (fancyhdr)                Please consider using the `twoside' option on input l
-ine 40.
+ine 84.
 
-(Sections/Project-Background.tex) (Sections/Aims-And-Objectives.tex
-<Images/HW-Diagram.png, id=14, 533.995pt x 412.54124pt>
+(Sections/Project-Background.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[1] (Sections/Aims-And-Objectives.tex
+<Images/HW-Diagram.png, id=15, 533.995pt x 413.545pt>
 File: Images/HW-Diagram.png Graphic file (type png)
 <use Images/HW-Diagram.png>
-Package pdftex.def Info: Images/HW-Diagram.png  used on input line 6.
-(pdftex.def)             Requested size: 186.90105pt x 144.39159pt.
-<Images/HW-Diagram-Detailed.png, id=15, 1166.3575pt x 762.85pt>
+Package pdftex.def Info: Images/HW-Diagram.png  used on input line 7.
+(pdftex.def)             Requested size: 266.99684pt x 206.77199pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[2
+
+ <./Images/HW-Diagram.png>]
+<Images/HW-Diagram-Detailed.png, id=20, 1166.3575pt x 792.9625pt>
 File: Images/HW-Diagram-Detailed.png Graphic file (type png)
 <use Images/HW-Diagram-Detailed.png>
-Package pdftex.def Info: Images/HW-Diagram-Detailed.png  used on input line 15.
+Package pdftex.def Info: Images/HW-Diagram-Detailed.png  used on input line 24.
 
-(pdftex.def)             Requested size: 408.23125pt x 267.0015pt.
+(pdftex.def)             Requested size: 443.22046pt x 301.32887pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Images/SW-Diagram.png, id=16, 794.97pt x 644.4075pt>
-File: Images/SW-Diagram.png Graphic file (type png)
-<use Images/SW-Diagram.png>
-Package pdftex.def Info: Images/SW-Diagram.png  used on input line 22.
-(pdftex.def)             Requested size: 278.24367pt x 225.546pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[1 <./Images/HW-Diagram.png>]
-
-LaTeX Warning: Text page 2 contains only floats.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[2 <./Images/HW-Diagram-Detailed.png> <./Images/SW-Diagram.png>]
-Overfull \hbox (1.82158pt too wide) in paragraph at lines 34--34
-[]|\OT1/cmr/bx/n/12 Status| 
- []
-
-
-Underfull \hbox (badness 1127) in paragraph at lines 36--36
-[]|\OT1/cmr/m/n/12 [FR-1] The trans-
- []
-
-
-Underfull \hbox (badness 1242) in paragraph at lines 36--36
-\OT1/cmr/m/n/12 shall com-mu-ni-cate
- []
-
-
-Underfull \hbox (badness 1024) in paragraph at lines 36--36
-\OT1/cmr/m/n/12 at a fre-quency of
- []
-
-
-Underfull \hbox (badness 2680) in paragraph at lines 36--36
-\OT1/cmr/m/n/12 is 915-930MHz so the
- []
-
-
-Underfull \hbox (badness 2941) in paragraph at lines 36--37
-\OT1/cmr/m/n/12 ing packet trans-mi-tion
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--38
-\OT1/cmr/m/n/12 ad-ver-tised to op-er-ate
- []
-
-
-Underfull \hbox (badness 5446) in paragraph at lines 38--38
-\OT1/cmr/m/n/12 only need to op-er-ate
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--38
-\OT1/cmr/m/n/12 ap-prox-i-mately up to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
-\OT1/cmr/m/n/12 in-te-gra-tion test-ing by
- []
-
-
-Underfull \hbox (badness 1675) in paragraph at lines 38--39
-\OT1/cmr/m/n/12 not-ing the dis-tance at
- []
-
-
-Underfull \hbox (badness 7186) in paragraph at lines 40--40
-\OT1/cmr/m/n/12 be-tween at least
- []
-
-
-Underfull \hbox (badness 7415) in paragraph at lines 40--40
-\OT1/cmr/m/n/12 at least three sen-sor
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
-[]|\OT1/cmr/m/n/12 The iden-ti-fi-ca-tion of
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
-\OT1/cmr/m/n/12 be iden-ti-fied trough
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
-\OT1/cmr/m/n/12 in-te-gra-tion test-ing
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
-\OT1/cmr/m/n/12 and ob-serv-ing packet
- []
-
-
-Underfull \hbox (badness 1354) in paragraph at lines 42--42
-\OT1/cmr/m/n/12 ered by so-lar en-
- []
-
-
-Underfull \hbox (badness 1237) in paragraph at lines 42--42
-\OT1/cmr/m/n/12 a so-lar bat-tery sys-tem
- []
-
-
-Underfull \hbox (badness 8170) in paragraph at lines 42--42
-\OT1/cmr/m/n/12 ca-pa-ble of sup-port-ing
- []
-
-
-Underfull \hbox (badness 2088) in paragraph at lines 42--42
-\OT1/cmr/m/n/12 always-on low pow-ered
- []
-
-
-Underfull \hbox (badness 1675) in paragraph at lines 46--46
-\OT1/cmr/m/n/12 ex-posed on the bridge
- []
-
-
-Underfull \hbox (badness 3179) in paragraph at lines 46--47
-[]|\OT1/cmr/m/n/12 The en-clo-sure will be
- []
-
-
-Underfull \hbox (badness 4001) in paragraph at lines 46--47
-\OT1/cmr/m/n/12 de-signed with weather
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--48
-\OT1/cmr/m/n/12 tem-per-a-ture and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--48
-\OT1/cmr/m/n/12 hu-mid-ity sen-sors
- []
-
-
-Underfull \hbox (badness 1675) in paragraph at lines 48--48
-\OT1/cmr/m/n/12 and trans-mit this
- []
-
-
-Underfull \hbox (badness 1728) in paragraph at lines 48--48
-\OT1/cmr/m/n/12 will be use-ful to field
- []
-
-
-Underfull \hbox (badness 1629) in paragraph at lines 48--48
-\OT1/cmr/m/n/12 test the ther-mal re-sis-
- []
-
-
-Underfull \hbox (badness 1033) in paragraph at lines 48--49
-\OT1/cmr/m/n/12 be ex-am-ined in a lab.
- []
-
-
-Overfull \hbox (22.97166pt too wide) in alignment at lines 32--52
- [] [] [] [] 
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[3]) (Sections/Outcomes.tex) (Sections/Methodology-And-Schedule.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[4]
-<Images/Gantt-Chart.png, id=32, 526.96875pt x 463.7325pt>
-File: Images/Gantt-Chart.png Graphic file (type png)
-<use Images/Gantt-Chart.png>
-Package pdftex.def Info: Images/Gantt-Chart.png  used on input line 10.
-(pdftex.def)             Requested size: 421.57556pt x 370.9865pt.
-
-Overfull \hbox (3.32188pt too wide) in paragraph at lines 10--11
+Overfull \hbox (24.96678pt too wide) in paragraph at lines 24--25
  [] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
 
-)
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[3 <./Images/HW-Diagram-Detailed.png>]
+<Images/SW-Diagram.png, id=25, 995.72pt x 835.12pt>
+File: Images/SW-Diagram.png Graphic file (type png)
+<use Images/SW-Diagram.png>
+Package pdftex.def Info: Images/SW-Diagram.png  used on input line 31.
+(pdftex.def)             Requested size: 378.37753pt x 317.34889pt.
+) (Sections/Outcomes.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[4
+
+ <./Images/SW-Diagram.png>]) (Sections/Methodology-And-Schedule.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--6
+
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -549,7 +496,40 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[6 <./Images/Gantt-Chart.png>] (Sections/Risk-Assessment.tex
+[6]
+<Images/Gantt-chart.png, id=37, 518.6878pt x 428.35031pt>
+File: Images/Gantt-chart.png Graphic file (type png)
+<use Images/Gantt-chart.png>
+Package pdftex.def Info: Images/Gantt-chart.png  used on input line 13.
+(pdftex.def)             Requested size: 492.75063pt x 406.93048pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[7
+
+ <./Images/Gantt-chart.png>]
+Overfull \hbox (20.7502pt too wide) in alignment at lines 24--34
+ [] [] [] [] 
+ []
+
+)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[8
+
+] (Sections/Risk-Assessment.tex
 Overfull \hbox (11.69522pt too wide) in paragraph at lines 6--6
 []|\OT1/cmr/bx/n/12 Catastrophic
  []
@@ -667,14 +647,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[7
+[9
 
-]
-Overfull \hbox (32.12253pt too wide) in alignment at lines 37--51
- [] [] [] [] [] [] 
+] Excluding 'comment' comment.
+<Images/Risks.png, id=49, 833.36343pt x 781.41937pt>
+File: Images/Risks.png Graphic file (type png)
+<use Images/Risks.png>
+Package pdftex.def Info: Images/Risks.png  used on input line 57.
+(pdftex.def)             Requested size: 500.02191pt x 468.85524pt.
+
+Overfull \hbox (50.60156pt too wide) in paragraph at lines 57--58
+ [][] 
  []
 
-) (Sections/Ethics.tex) (Sections/References.tex)
+) (Sections/Ethics.tex) (Project Planning Report.bbl
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -683,24 +669,35 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[8
+[10
 
-] (Project Planning Report.aux) ) 
+ <./Images/Risks.png>])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[11] (Project Planning Report.aux) ) 
 Here is how much of TeX's memory you used:
- 3327 strings out of 476339
- 54611 string characters out of 5788119
- 1872340 words of memory out of 5000000
- 23708 multiletter control sequences out of 15000+600000
- 517455 words of font info for 49 fonts, out of 8000000 for 9000
+ 5757 strings out of 476339
+ 97419 string characters out of 5788119
+ 1873340 words of memory out of 5000000
+ 26075 multiletter control sequences out of 15000+600000
+ 515094 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,11n,62p,1474b,293s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/taipa/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/taipa/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/taipa/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on "Project Planning Report.pdf" (10 pages, 221442 bytes).
+ 69i,11n,65p,1909b,347s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\taipa\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/taipa/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/taipa/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/taipa/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/ta
+ipa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on "Project Planning Report.pdf" (12 pages, 483596 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
+ 79 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

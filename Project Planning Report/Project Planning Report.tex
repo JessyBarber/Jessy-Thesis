@@ -5,30 +5,74 @@
 \usepackage{titlesec}
 \usepackage[a4paper]{geometry}
 \usepackage{fancyhdr}
+\usepackage{comment}
 %% Tables %%
 \usepackage{longtable}
 \usepackage{array,ragged2e}
 \usepackage[table]{xcolor}
+\usepackage{pdfpages}
+\usepackage[numbers]{natbib}
+
+\usepackage[export]{adjustbox}
 
 \newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
 
-\title{
-{Project Planning Report}\\
-{\large School of Engineering and Built Environment}\\
+\begin{comment}
+\title{{\large School of Engineering and Built Environment}\\
 {\large Griffith University}\\
+{\large 6002ENG - Industry Affiliates Program}\\
+{\textbf{Monitoring the Health of the Griffith Footbridge Using LoRaWAN Technology}}\\
 {\includegraphics[scale=0.4]{Images/University.png}}		
 }
-\author{Jessy Barber}
+\end{comment}
+
+\author{Jessy Barber, s5138877}
 \date{17 March 2023}
+
+
 
 \begin{document} 
 
+\begin{titlepage}
+\vspace*{1cm}
+\noindent\textbf{\large{School of Engineering and Built Environment}}
+\newline
+\textbf{\large{Griffith university}}
+\vspace*{1cm}
+\newline
+\textbf{\large{6002ENG - Industry Affiliates Program}}\\
+\vspace*{1cm}
+\newline
+\begin{centering}
+	\textbf{\LARGE{Structural Health Monitoring of the Griffith Footbridge Using
+ LoRaWAN Technology}}
+\end{centering}	
+\vspace*{2cm}
+\newline
+\textbf{\large{Jessy Barber, s5138877}}
+\vspace*{1cm}
+\newline
+\hspace*{5cm}
+\emph{Date of Submission Trimester 1, 17 March 2023}
+\vspace*{2cm}
+\newline
+\textbf{\large{Academic Supervisor: Yong Zhu}}
+\vspace*{1cm}
+\newline
+\emph{A report submitted in partial fulfillment of the degree Bachelor of Engineering (Honours)}
+\vspace*{1cm}
+\newline
+\footnotesize{The copyright on this report is held by the author and/or the IAP Industry Partner. Permission has been granted to Griffith University to keep a reference copy of this report.}
+\newline
+\includegraphics[scale=0.4, right]{Images/University.png}
+\end{titlepage}
+\begin{comment}
 \clearpage\maketitle
 \thispagestyle{empty}
 \newpage
 \thispagestyle{empty}
 \tableofcontents
-
+\end{comment}
 \newpage
 \pagenumbering{arabic}
 \pagestyle{fancy}
@@ -41,12 +85,15 @@
 
 \newpage
 \input{Sections/Project-Background}
+\clearpage
 \input{Sections/Aims-And-Objectives}
 \input{Sections/Outcomes}
 \input{Sections/Methodology-And-Schedule}
 \clearpage
 \input{Sections/Risk-Assessment}
 \input{Sections/Ethics}
-\input{Sections/References}
+%\input{Sections/References}
+\bibliographystyle{IEEEtran}
+\bibliography{References}
 
 \end{document}
