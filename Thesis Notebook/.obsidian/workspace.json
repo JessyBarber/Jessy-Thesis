@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Diary/Week 3/22-3-2023 (Wednesday).md",
+                "file": "Diary/Week 3/23-3-2023 (Thursday).md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0b349647f1f6ea7b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Diary/Week 3/24-3-2023 (Friday).md",
                 "mode": "preview",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -106,7 +119,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Diary/Week 3/22-3-2023 (Wednesday).md",
+                "file": "Diary/Week 3/24-3-2023 (Friday).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +136,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Diary/Week 3/22-3-2023 (Wednesday).md",
+                "file": "Diary/Week 3/24-3-2023 (Friday).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": false
               }
@@ -135,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Diary/Week 3/22-3-2023 (Wednesday).md"
+                "file": "Diary/Week 3/24-3-2023 (Friday).md"
               }
             }
           }
@@ -171,9 +184,21 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e5a26fc55a110e8b",
+  "active": "0b349647f1f6ea7b",
   "lastOpenFiles": [
     "Diary/Week 3/23-3-2023 (Thursday).md",
+    "Diary/Week 3/24-3-2023 (Friday).md",
+    "Diary/Week 2/17-3-2023 (Friday).md",
+    "Diary/Due Dates.md",
+    "Diary/Week 2/16-3-2023 (Thursday).md",
+    "Diary/Week 2/15-3-2023 (Wednesday).md",
+    "Diary/Week 2/14-3-2023 (Tuesday).md",
+    "Diary/Week 2/13-3-2023 (Monday).md",
+    "Diary/Week 1/12-3-2023 (Sunday).md",
+    "Diary/Week 1/10-3-2023 (Friday).md",
+    "Diary/Week 1/9-3-2023 (Thursday).md",
+    "Diary/Week 1/8-3-2023 (Wednesday).md",
+    "Diary/Week 1/7-3-2023 (Tuesday).md",
     "Diary/Week 3/22-3-2023 (Wednesday).md",
     "Prototype/Documentation/Requirements.md",
     "Prototype/Documentation/Risks.md",
@@ -181,14 +206,8 @@
     "Prototype/Prototype Canvas.canvas",
     "Pictures/Micro Controller XYZ Connections.png",
     "Pictures/Example Build.png",
-    "Diary/Due Dates.md",
-    "Diary/Week 2/17-3-2023 (Friday).md",
-    "Diary/Week 2/16-3-2023 (Thursday).md",
-    "Diary/Week 2/15-3-2023 (Wednesday).md",
-    "Diary/Week 2/14-3-2023 (Tuesday).md",
     "Prototype/Documentation/High Level SW Diagram.svg",
     "Diary/Week 3",
-    "Diary/Week 2/13-3-2023 (Monday).md",
     "Prototype/Documentation/High Level HW Detailed.svg",
     "Pictures/Pasted image 20230316201012.png",
     "Pictures/Pasted image 20230316201021.png",
@@ -196,11 +215,6 @@
     "Prototype/Documentation/Acronyms.md",
     "Prototype/Documentation/High Level HW Diagram.svg",
     "Prototype/Documentation/Project Planning Report.md",
-    "Diary/Week 1/12-3-2023 (Sunday).md",
-    "Diary/Week 1/10-3-2023 (Friday).md",
-    "Diary/Week 1/9-3-2023 (Thursday).md",
-    "Diary/Week 1/7-3-2023 (Tuesday).md",
-    "Diary/Week 1/8-3-2023 (Wednesday).md",
     "Pictures/Unconfirmed 358153.crdownload",
     "Prototype/Documentation/High Level SW Diagram.md",
     "Diary/Week 2",

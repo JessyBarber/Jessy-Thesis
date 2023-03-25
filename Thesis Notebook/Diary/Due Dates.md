@@ -1,5 +1,5 @@
 - [x] Project Planning Report 📅 (@17-03-2023) ✅ 2023-03-22
-- [ ] GSAFE 📅 (@17-03-2023)
+- [x] GSAFE 📅 (@17-03-2023)
 - [ ] Interview Task (Part A) 📅 (@02-04-2023)
 - [ ] Interview Task (Part B) 📅 (@14-05-2023)
 - [ ] Professional Competencies Task 📅 (@28-05-2023)
