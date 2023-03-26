@@ -9,7 +9,7 @@
 # Notes
 - For meeting I want to have at least 75% of the project planning report in a good state
 - 100% need the requirements and Gsafe
-- [ ] Meeting next Friday ⏳ (@15:00 24-03-2023)
+- [x] Meeting next Friday ⏳ (@15:00 24-03-2023)
 
 # Questions for Meeting
 - Ethics

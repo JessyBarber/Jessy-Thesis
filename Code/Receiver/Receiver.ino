@@ -1,28 +1,26 @@
-#include <MKRWAN.h>
-
-LoRaModem LoRa;
-
-// LoRa settings
-#define LORA_BAND    915E6  // frequency band
-#define LORA_SF      7       // spreading factor
-#define LORA_CR      5       // coding rate
-
-namespace TNN {
-  static const
-}
+#include "Receiver.h"
 
 void setup() {
-  // initialize the LoRa modem
-  LoRaModem.begin(LORA_BAND);
-  LoRaModem.setSpreadingFactor(LORA_SF);
-  LoRaModem.setCodingRate4(LORA_CR);
-  
-  // wait for the module to join the network
-  while (!LoRaModem.isJoined()) {
-    delay(10000);
+  //Initialise Serial connection
+  Serial.begin(9600);
+  //Initialise LoRa Connection
+  if (!LoRa.begin(915E6)) {
+    Serial.println("Starting LoRa failed!");
+    while (1);
   }
+  Serial.println("LoRa Modem Started");
 }
 
 void loop() {
-  // do something with received packets
+  //Retrieve the packet size 
+  int packetSize = LoRa.parsePacket();
+  if (packetSize) {
+    String frequencyString = "";
+    while(LoRa.available()) {
+      frequencyString += (char)LoRa.read();
+    }
+    double averageFreq = frequencyString.toDouble();
+    Serial.print("Received Average Frequency: ");
+    Serial.println(averageFreq);
+  }
 }

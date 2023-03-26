@@ -37,7 +37,10 @@ int readAxis(int axis){
   return analogRead(axis);
 }
 
-void printAxis(int axis){
-  Serial.println(analogRead(axis));
+void printAxis(char label, int axis){
+  // Serial.println("%c = %d",&label, readAxis(axis));
+  Serial.print(label);
+  Serial.print("= \t");
+  Serial.println(readAxis(axis));
   // Serial.print("\t");
 }
