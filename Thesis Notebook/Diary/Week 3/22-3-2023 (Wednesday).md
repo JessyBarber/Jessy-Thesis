@@ -1,7 +1,7 @@
 # To Do 
 - [x] IAP lecture 📅 (@23:59 22-03-2023) ✅ 2023-03-22
 - [x] Resubmit GSAFE 📅 (@16:00 22-03-2023) ✅ 2023-03-22
-- [x] Initial Prototype 📅 (@14:00 24-03-2023)
+- [ ] Initial Prototype 📅 (@14:00 24-03-2023)
 	- [x] Follow instructions ✅ 2023-03-22
 	- [x] Review existing Arduino code ✅ 2023-03-24
 	- [ ] Develop transmitter Arduino code 
