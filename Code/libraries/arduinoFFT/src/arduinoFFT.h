@@ -110,7 +110,11 @@ public:
              double samplingFrequency);
   /* Destructor */
   ~arduinoFFT(void);
+  /* Variables */
+  // double *_vReal; 
   /* Functions */
+  // double* getVReal();
+
   uint8_t Revision(void);
   uint8_t Exponent(uint16_t value);
 

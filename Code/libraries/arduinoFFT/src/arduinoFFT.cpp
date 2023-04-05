@@ -38,6 +38,10 @@ arduinoFFT::~arduinoFFT(void) {
   // Destructor
 }
 
+// double* arduinoFFT::getVReal() {
+//   return this->_vReal;
+// }
+
 uint8_t arduinoFFT::Revision(void) { return (FFT_LIB_REV); }
 
 void arduinoFFT::Compute(double *vReal, double *vImag, uint16_t samples,
@@ -137,6 +141,7 @@ void arduinoFFT::Compute(double *vReal, double *vImag, uint16_t samples,
   double c2 = 0.0;
   uint16_t l2 = 1;
   for (uint8_t l = 0; (l < power); l++) {
+    // Serial.println("Here");
     uint16_t l1 = l2;
     l2 <<= 1;
     double u1 = 1.0;

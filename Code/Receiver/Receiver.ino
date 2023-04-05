@@ -12,15 +12,48 @@ void setup() {
 }
 
 void loop() {
-  //Retrieve the packet size 
   int packetSize = LoRa.parsePacket();
   if (packetSize) {
-    String frequencyString = "";
-    while(LoRa.available()) {
-      frequencyString += (char)LoRa.read();
+    byte buffer[1100];
+    // double buffer[sample_n * sizeof(double)];
+    // int len = LoRa.readBytes(buffer, sizeof(buffer));
+    // double data[sample_n];
+    // memcpy(data, &buffer, sizeof(data));
+
+    // Serial.print("Received Data: ");
+    // for (int i = 0; i < sizeof(data) / sizeof(double); i++) {
+    //   Serial.print(data[i]);
+    //   Serial.print(" ");
+    // }
+    // Serial.println();
+    Serial.print("Received packet of size ");
+    Serial.println(packetSize);
+    for (int i = 0; i < packetSize; i++) {
+      buffer[i] = LoRa.read();
     }
-    double averageFreq = frequencyString.toDouble();
-    Serial.print("Received Average Frequency: ");
-    Serial.println(averageFreq);
+
+    int numDoubles = packetSize / sizeof(double);
+    double decoded[numDoubles];
+    memcpy(&decoded, buffer, packetSize);
+
+    for (int i = 0; i < numDoubles; i++) {
+      Serial.println(decoded[i]);
+    }
   }
+
+
+
+
+
+  // //Retrieve the packet size 
+  // int packetSize = LoRa.parsePacket();
+  // if (packetSize) {
+  //   String frequencyString = "";
+  //   while(LoRa.available()) {
+  //     frequencyString += (char)LoRa.read();
+  //   }
+  //   double averageFreq = frequencyString.toDouble();
+  //   Serial.print("Received Average Frequency: ");
+  //   Serial.println(averageFreq);
+  // }
 }
