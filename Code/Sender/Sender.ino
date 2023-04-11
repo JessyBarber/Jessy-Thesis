@@ -34,7 +34,8 @@ void loop() {
     real_x_axis[i] = analogRead(x_axis);
     real_y_axis[i] = analogRead(y_axis);
     real_z_axis[i] = analogRead(z_axis);
-    delayMicroseconds(1000 / sample_rate);
+    // delayMicroseconds(1000 / sample_rate);
+    delay(delay_rate);
   }
 
   //SAMPLE ACCEL DATA
@@ -44,12 +45,11 @@ void loop() {
     zAccel[i] = (real_z_axis[i] * vRef / (adc_resolution - 1) - z_zero);
   }
 
-  // Serial.print(findMax(real_x_axis));
-  // Serial.print(" ");
-  // Serial.print(findMax(real_y_axis));
-  // Serial.print(" ");
-  // Serial.print(findMax(real_z_axis));
-  // Serial.print(" ");
+  Serial.print(findMax(xAccel));
+  Serial.print(" ");
+  Serial.print(findMax(yAccel));
+  Serial.print(" ");
+  Serial.println(findMax(zAccel));
 
   // deMean(real_x_axis);
   // deMean(real_y_axis);

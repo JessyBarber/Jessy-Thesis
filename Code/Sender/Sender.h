@@ -22,8 +22,10 @@ const double y_zero = 0.41;
 const double z_zero = 0.50;
 
 //FFT Values
-const uint16_t sample_n = 128; //MUST BE EXP 2
-const int sample_rate = 200;
+const int sample_rate = 2; //Want to capture 2Hz then need at least 4Hz 
+const int sampling_time = 10; //Seconds -> 4 * 10 = 40 -> chose exponent 32
+const uint16_t sample_n = 64; //MUST BE EXP 2
+const double delay_rate = (1/sampling_rate) * 1000; //For delay function -> T = 1/f 
 //Definine window type and direction for FFT
 #define window_type FFT_WIN_TYP_HAMMING
 #define FFT_dir FFT_FORWARD
