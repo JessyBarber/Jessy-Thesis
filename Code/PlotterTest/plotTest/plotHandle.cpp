@@ -1,4 +1,4 @@
-#include "Sender.h"
+#include "plotter.h"
 
 void deMean(double *axis_data) {
   double total = 0;

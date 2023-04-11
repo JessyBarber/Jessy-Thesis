@@ -13,46 +13,103 @@ void setup() {
       ;
   }
   Serial.println("LoRa Modem Started");
-  //Set the FFT windowing type and direction
-  //Definitions in header file
-  // setWindowing();
-
-  // FFT.Windowing(window_type, FFT_dir);
 }
 
 void loop() {
-  double real_x_axis[sample_n] {};
-  // double sample_x_axis[sample_n] {};
-  double imag_x_axis[sample_n] {};
+  //FFT SAMPLING
+  double real_x_axis[sample_n]{};
+  double imag_x_axis[sample_n]{};
+  double real_y_axis[sample_n]{};
+  double imag_y_axis[sample_n]{};
+  double real_z_axis[sample_n]{};
+  double imag_z_axis[sample_n]{};
 
-  for (int i = 0; i < sample_n; i++){
-    // sample_x_axis[i] = analogRead(x_axis);
+  //ACCEL SAMPLING
+  double xAccel[sample_n] {};
+  double yAccel[sample_n] {};
+  double zAccel[sample_n] {};
+
+  //SAMPLE RAW DATA
+  for (int i = 0; i < sample_n; i++) {
     real_x_axis[i] = analogRead(x_axis);
-    delayMicroseconds(1000/sample_rate);
+    real_y_axis[i] = analogRead(y_axis);
+    real_z_axis[i] = analogRead(z_axis);
+    delayMicroseconds(1000 / sample_rate);
   }
 
-  arduinoFFT xFFT(real_x_axis, imag_x_axis, sample_n, sample_rate);
-  Serial.println("Creating window");
+  //SAMPLE ACCEL DATA
+  for (int i = 0; i < sample_n; i++) {
+    xAccel[i] = (real_x_axis[i] * vRef / (adc_resolution - 1) - x_zero);
+    yAccel[i] = (real_y_axis[i] * vRef / (adc_resolution - 1) - y_zero);
+    zAccel[i] = (real_z_axis[i] * vRef / (adc_resolution - 1) - z_zero);
+  }
+
+  // Serial.print(findMax(real_x_axis));
+  // Serial.print(" ");
+  // Serial.print(findMax(real_y_axis));
+  // Serial.print(" ");
+  // Serial.print(findMax(real_z_axis));
+  // Serial.print(" ");
+
+  // deMean(real_x_axis);
+  // deMean(real_y_axis);
+  // deMean(real_z_axis);
+
+  //COMPUTE FFT
+  arduinoFFT xFFT(xAccel, imag_x_axis, sample_n, sample_rate);
+  arduinoFFT yFFT(yAccel, imag_y_axis, sample_n, sample_rate);
+  arduinoFFT zFFT(zAccel, imag_z_axis, sample_n, sample_rate);
+
   xFFT.Windowing(window_type, FFT_dir);
-  Serial.println("Computing");
+  yFFT.Windowing(window_type, FFT_dir);
+  zFFT.Windowing(window_type, FFT_dir);
+
   xFFT.Compute(FFT_dir);
-  Serial.println("Converting to Magnitude");
+  yFFT.Compute(FFT_dir);
+  zFFT.Compute(FFT_dir);
+
   xFFT.ComplexToMagnitude();
+  yFFT.ComplexToMagnitude();
+  zFFT.ComplexToMagnitude();
 
-  for (int i = 0; i < sample_n; i++){
-    Serial.println(real_x_axis[i]);
-  }
+  // //PRINTING MAX FFTS VALS
+  // Serial.print(findMax(xAccel));
+  // Serial.print(" ");
+  // Serial.print(findMax(yAccel));
+  // Serial.print(" ");
+  // Serial.println(findMax(zAccel));
 
-  uint8_t bytes[sizeof(real_x_axis)];
-  for (int i = 0; i < sizeof(real_x_axis); i += sizeof(double)) {
-    double val = real_x_axis[i / sizeof(double)];
-    memcpy(&bytes[i], &val, sizeof(double));
-  }
+  //SEND DATA PACKETS 
+  double data1 = findMax(xAccel);
+  double data2 = findMax(yAccel);
+  double data3 = findMax(zAccel);
+  // uint8_t bytes[sizeof(double) * 3]; //sending 3 x doubles which are max accel vals
+  // uint8_t buffer[packetSize];
+  // memcpy(buffer, &data1, sizeof(double));
+  // memcpy(buffer + sizeof(double), &data2, sizeof(double));
+  // memcpy(buffer + 2 * sizeof(double), &data3, sizeof(double));
+  
+
+
+  // uint8_t bytes[sizeof(real_x_axis)];
+  // for (int i = 0; i < sizeof(real_x_axis); i += sizeof(double)) {
+  //   double val = real_x_axis[i / sizeof(double)];
+  //   memcpy(&bytes[i], &val, sizeof(double));
+  // }
+
+  LoRa.beginPacket();
+  // LoRa.write(buffer, packetSize);
+  LoRa.write((uint8_t*)&data1, sizeof(data1));
+  LoRa.write((uint8_t*)&data2, sizeof(data2));  
+  LoRa.write((uint8_t*)&data3, sizeof(data3));
+  LoRa.endPacket();
+
+  // delay(10000);
+}
+
+
 
   // memcpy(bytes, &real_x_axis, sizeof(real_x_axis));
-  LoRa.beginPacket();
-  LoRa.write(bytes, sizeof(real_x_axis));
-  LoRa.endPacket();
 
   // double* vReal = xFFT.getVReal();
   // for(int i = 0; i < sample_n; i++) {
@@ -60,8 +117,6 @@ void loop() {
   // }
 
 
-
-  delay(10000);
 
 
   // FFT.Compute()
@@ -123,7 +178,6 @@ void loop() {
   // LoRa.print(average_x_axis);
   // LoRa.print(average_y_axis);
   // LoRa.print(average_z_axis);
-  // LoRa.endPacket();
+  // LoRa.es
   // //10 second delay
   // delay(10000);
-}

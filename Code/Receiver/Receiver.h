@@ -4,7 +4,8 @@
 #include <MKRWAN.h>
 #include <LoRa.h>
 
-const uint16_t sample_n = 128;
-const int sample_rate = 1000;
+//FFT Values
+const uint16_t sample_n = 128; //MUST BE EXP 2
+const int sample_rate = 200;
 
 #endif

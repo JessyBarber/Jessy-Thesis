@@ -1,14 +1,12 @@
-#ifndef Sender_h
-#define Sender_h
+#ifndef PLOTTER_H
+#define PLOTTER_H
 
 #include "Arduino.h"
-#include <algorithm>
-#include <math.h>
 #include <MKRWAN.h>
 #include <arduinoFFT.h>
 #include <LoRa.h>
 #include <stdio.h>
-#include <iostream> 
+#include <algorithm> 
 
 //Accelerometer Values
 const int x_axis = A1;
@@ -28,14 +26,11 @@ const int sample_rate = 200;
 #define window_type FFT_WIN_TYP_HAMMING
 #define FFT_dir FFT_FORWARD
 
-//Transmission Values 
-const int packetSize = 3 * sizeof(double);
-
 //Sensor.cpp
 int readAxis(int axis);
 void printAxis(char label, int axis);
 
-//FFT.cpp
+//plotHandle
 void deMean(double *axis_data);
 double findMax(double arr[]);
 
