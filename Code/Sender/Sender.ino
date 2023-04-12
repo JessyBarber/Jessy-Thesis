@@ -29,14 +29,19 @@ void loop() {
   double yAccel[sample_n] {};
   double zAccel[sample_n] {};
 
+  // long int t1 = millis();
   //SAMPLE RAW DATA
   for (int i = 0; i < sample_n; i++) {
     real_x_axis[i] = analogRead(x_axis);
     real_y_axis[i] = analogRead(y_axis);
     real_z_axis[i] = analogRead(z_axis);
-    // delayMicroseconds(1000 / sample_rate);
-    delay(delay_rate);
+    delay(sample_interval);
   }
+  // long int t2 = millis();
+  // Serial.print("Time taken: "); Serial.print((t2-t1)/1000); Serial.println(" s");
+
+  //-------------------- DEBUGGING --------------------
+  //-------------------- DEBUGGING --------------------
 
   //SAMPLE ACCEL DATA
   for (int i = 0; i < sample_n; i++) {
@@ -45,12 +50,14 @@ void loop() {
     zAccel[i] = (real_z_axis[i] * vRef / (adc_resolution - 1) - z_zero);
   }
 
-  Serial.print(findMax(xAccel));
-  Serial.print(" ");
-  Serial.print(findMax(yAccel));
-  Serial.print(" ");
-  Serial.println(findMax(zAccel));
+  // //PRINT MAX ACCEL VALS
+  // Serial.print(findMax(xAccel));
+  // Serial.print(" ");
+  // Serial.print(findMax(yAccel));
+  // Serial.print(" ");
+  // Serial.println(findMax(zAccel));
 
+  //DEMEAN DATA -> NOT USED
   // deMean(real_x_axis);
   // deMean(real_y_axis);
   // deMean(real_z_axis);
@@ -72,6 +79,15 @@ void loop() {
   yFFT.ComplexToMagnitude();
   zFFT.ComplexToMagnitude();
 
+  //PRINT ALL FFT VALS -> FOR PLOTTING FFT PEAKS
+  for (int i = 0; i < sample_n; i++) {
+    Serial.print(xAccel[i]);
+    Serial.print(" ");
+    Serial.print(yAccel[i]);
+    Serial.print(" ");
+    Serial.println(zAccel[i]);
+  }
+
   // //PRINTING MAX FFTS VALS
   // Serial.print(findMax(xAccel));
   // Serial.print(" ");
@@ -83,13 +99,6 @@ void loop() {
   double data1 = findMax(xAccel);
   double data2 = findMax(yAccel);
   double data3 = findMax(zAccel);
-  // uint8_t bytes[sizeof(double) * 3]; //sending 3 x doubles which are max accel vals
-  // uint8_t buffer[packetSize];
-  // memcpy(buffer, &data1, sizeof(double));
-  // memcpy(buffer + sizeof(double), &data2, sizeof(double));
-  // memcpy(buffer + 2 * sizeof(double), &data3, sizeof(double));
-  
-
 
   // uint8_t bytes[sizeof(real_x_axis)];
   // for (int i = 0; i < sizeof(real_x_axis); i += sizeof(double)) {
@@ -97,6 +106,7 @@ void loop() {
   //   memcpy(&bytes[i], &val, sizeof(double));
   // }
 
+  //TRANSMIT LORA PACKET
   LoRa.beginPacket();
   // LoRa.write(buffer, packetSize);
   LoRa.write((uint8_t*)&data1, sizeof(data1));
@@ -106,78 +116,3 @@ void loop() {
 
   // delay(10000);
 }
-
-
-
-  // memcpy(bytes, &real_x_axis, sizeof(real_x_axis));
-
-  // double* vReal = xFFT.getVReal();
-  // for(int i = 0; i < sample_n; i++) {
-  //   Serial.println(vReal[i]);
-  // }
-
-
-
-
-  // FFT.Compute()
-
-  //Need to sample the data on each axis
-  //Initialise structures to hold sampled data of length sample size
-  // double sample_x_axis[sample_n];
-  // double sample_y_axis[sample_n];
-  // double sample_z_axis[sample_n];
-  // //Initialise imaginary array to zeros
-  // double vImag_x[sample_n] = {};
-  // double vImag_y[sample_n] = {};
-  // double vImag_z[sample_n] = {};
-  // //Initialise average axis values
-  // double average_x_axis = 0;
-  // double average_y_axis = 0;
-  // double average_z_axis = 0;
-  //Sample each axis
-  // for (int i = 0; i < sample_n; i++) {
-  //   sample_x_axis[i] = readAxis(x_axis);
-  //   sample_y_axis[i] = readAxis(y_axis);
-  //   sample_z_axis[i] = readAxis(z_axis);
-  //   //Period
-  //   delay(1000 / sample_freq);
-  // }
-  //Need to create an object in scope for each axis
-  //Previous intialisation is deprecated -> need to define with vreal and vimag now
-  // arduinoFFT xFFT(sample_x_axis, vImag_x, sample_n, sample_freq);
-  // arduinoFFT yFFT(sample_y_axis, vImag_y, sample_n, sample_freq);
-  // arduinoFFT zFFT(sample_z_axis, vImag_z, sample_n, sample_freq);
-  // //Non-empty method is now deprecated
-  // xFFT.ComplexToMagnitude();
-  // yFFT.ComplexToMagnitude();
-  // zFFT.ComplexToMagnitude();
-  // //Find the magnitude of FFT
-  // for (int i = 0; i < (sample_n/2); i++) {
-  //   double mag_x = 2 * sqrt(pow(sample_x_axis[i], 2) + pow(vImag_x[i], 2)) / sample_n;
-  //   double mag_y = 2 * sqrt(pow(sample_y_axis[i], 2) + pow(vImag_y[i], 2)) / sample_n;
-  //   double mag_z = 2 * sqrt(pow(sample_z_axis[i], 2) + pow(vImag_z[i], 2)) / sample_n;
-  //   double freq = (i * sample_freq) / sample_n;
-  //   // Serial.print("freq\t=\t");
-  //   // Serial.println(freq);
-  //   // Serial.print("mag\t=\t");
-  //   // Serial.print(mag_x);
-  //   // Serial.print("\t");
-  //   // Serial.print(mag_y);
-  //   // Serial.print("\t");
-  //   // Serial.println(mag_z);
-  //   average_x_axis += mag_x;
-  //   average_y_axis += mag_y;
-  //   average_z_axis += mag_z;
-  // }
-  // //Calculating the average magnitudes
-  // average_x_axis /= (sample_n / 2);
-  // average_y_axis /= (sample_n / 2);
-  // average_z_axis /= (sample_n / 2);
-  // //Packaging axis data and sending over LoRa
-  // LoRa.beginPacket();
-  // LoRa.print(average_x_axis);
-  // LoRa.print(average_y_axis);
-  // LoRa.print(average_z_axis);
-  // LoRa.es
-  // //10 second delay
-  // delay(10000);
