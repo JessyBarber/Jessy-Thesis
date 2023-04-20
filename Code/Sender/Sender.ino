@@ -1,5 +1,11 @@
 #include "Sender.h"
 
+extern "C" char* sbrk(int incr);
+int freeSRAM() {
+  char top;
+  return &top - reinterpret_cast<char*>(sbrk(0));
+}
+
 void setup() {
   // //Initialise Serial connection
   // Serial.begin(9600);
@@ -27,10 +33,23 @@ void loop() {
   double real_z_axis[sample_n]{};
   double imag_z_axis[sample_n]{};
 
-  //ACCEL SAMPLING
+  //ACCELERATION SAMPLING
   double xAccel[sample_n] {};
   double yAccel[sample_n] {};
   double zAccel[sample_n] {};
+
+  //VELOCITY SAPLING
+  double xVel[sample_n] {};
+  double yVel[sample_n] {};
+  double zVel[sample_n] {};
+
+  //DISPLACEMENT SAMPLING
+  double xDisp[sample_n] {};
+  double yDisp[sample_n] {};
+  double zDisp[sample_n] {};
+
+  //Sample interval in seconds for integration
+  double dt = sample_interval / 1000;
 
   // long int t1 = millis();
   //SAMPLE RAW DATA
@@ -42,9 +61,6 @@ void loop() {
   }
   // long int t2 = millis();
   // Serial.print("Time taken: "); Serial.print((t2-t1)/1000); Serial.println(" s");
-
-  //-------------------- DEBUGGING --------------------
-  //-------------------- DEBUGGING --------------------
 
   //SAMPLE ACCEL DATA
   for (int i = 0; i < sample_n; i++) {
@@ -61,43 +77,48 @@ void loop() {
     zAccel[i] = ((voltageZ - z_zero) / sensitivity) - 1.0; // subtract Earth's gravity
   }
 
-  // // PRINT RAW ACCEL VALUES
-  // for (int i = 0; i < sample_n; i++) {
-  //   Serial.print(xAccel[i]);
-  //   Serial.print(" ");
-  //   Serial.print(yAccel[i]);
-  //   Serial.print(" ");
-  //   Serial.println(zAccel[i]);
-  // }
+  //CONVERT ACCELERATION FROM G'S TO M/S/S
+  addGravity(xAccel);
+  addGravity(yAccel);
+  addGravity(zAccel);
 
-  //FIND AND PRINT MAX ACCEL VALS
-  double maxXAccel = findMax(xAccel);
-  double maxYAccel = findMax(yAccel);
-  double maxZAccel = findMax(zAccel);
+  // //REMOVE BIAS
+  // double accel_x_bias = findAvg(xAccel);
+  // double accel_y_bias = findAvg(yAccel);
+  // double accel_z_bias = findAvg(zAccel);
 
-  // Serial.print(maxXAccel);
-  // Serial.print(" ");
-  // Serial.print(maxYAccel);
-  // Serial.print(" ");
-  // Serial.println(maxZAccel);
+  // removeBias(xAccel, accel_x_bias);
+  // removeBias(yAccel, accel_y_bias);
+  // removeBias(zAccel, accel_z_bias);
 
-  //DEMEAN DATA -> NOT USED
-  // deMean(real_x_axis);
-  // deMean(real_y_axis);
-  // deMean(real_z_axis);
+  // //FIND VELOCITY
+  // integrate(xAccel, dt, xVel);
+  // integrate(yAccel, dt, yVel);
+  // integrate(zAccel, dt, zVel);
 
-  // ---------- UNDER CONSTRUCTION ----------
-  // // Lowpass filter
-  // double filteredXAccel[sample_n] {};
-  // double filteredYAccel[sample_n] {};
-  // double filteredZAccel[sample_n] {};
+  // //REMOVE DRIFT 
+  // double vel_x_drift = findAvg(xVel);
+  // double vel_y_drift = findAvg(yVel);
+  // double vel_z_drift = findAvg(zVel);
 
-  // int filterWindowSize = 5; // Adjust this value based on the noise characteristics of your signal
+  // removeBias(xVel, vel_x_drift);
+  // removeBias(yVel, vel_y_drift);
+  // removeBias(zVel, vel_z_drift);
 
-  // lowPassFilter(xAccel, filteredXAccel, filterWindowSize);
-  // lowPassFilter(yAccel, filteredYAccel, filterWindowSize);
-  // lowPassFilter(zAccel, filteredZAccel, filterWindowSize);
-  // ---------- UNDER CONSTRUCTION ----------
+  // //FIND DISPLACEMENT
+  // integrate(xVel, dt, xDisp);
+  // integrate(yVel, dt, yDisp);
+  // integrate(zVel, dt, zDisp);
+
+  //FIND MAX ACCELERATION VALS
+  double maxAccelX = findMax(xAccel);
+  double maxAccelY = findMax(yAccel);
+  double maxAccelZ = findMax(zAccel);
+
+  // //FIND MAX DISPLACEMENT VALS
+  // double maxDispX = findMax(xDisp);
+  // double maxDispY = findMax(yDisp);
+  // double maxDispZ = findMax(zDisp);
 
   //COMPUTE FFT
   arduinoFFT xFFT(xAccel, imag_x_axis, sample_n, sample_rate);
@@ -116,71 +137,32 @@ void loop() {
   yFFT.ComplexToMagnitude();
   zFFT.ComplexToMagnitude();
 
-  // //PRINT ALL FFT VALS -> FOR PLOTTING FFT PEAKS
-  // for (int i = 0; i < sample_n; i++) {
-  //   Serial.print(xAccel[i]);
-  //   Serial.print(" ");
-  //   Serial.print(yAccel[i]);
-  //   Serial.print(" ");
-  //   Serial.println(zAccel[i]);
-  // }
-
-  // //PRINTING MAX FFTS VALS
-  // Serial.print(findMax(xAccel));
-  // Serial.print(" ");
-  // Serial.print(findMax(yAccel));
-  // Serial.print(" ");
-  // Serial.println(findMax(zAccel));
-
-  // ---------- UNDER CONSTRUCTION ----------
-  // // CONVERTING MAX INDEX TO ACTUAL FREQ
-  // double threshold = 0.2;
-  // int maxIndexX = findMaxIndex(xAccel, threshold);
-  // int maxIndexY = findMaxIndex(yAccel, threshold);
-  // int maxIndexZ = findMaxIndex(zAccel, threshold);
-
   int maxIndexX = findMaxIndex(xAccel);
   int maxIndexY = findMaxIndex(yAccel);
   int maxIndexZ = findMaxIndex(zAccel);
 
-  double frequencyX = maxIndexX * ((double)sample_rate / sample_n);
-  double frequencyY = maxIndexY * ((double)sample_rate / sample_n);
-  double frequencyZ = maxIndexZ * ((double)sample_rate / sample_n);
+  double frequencyX = maxIndexX * ((double)sample_rate / (double)sample_n);
+  double frequencyY = maxIndexY * ((double)sample_rate / (double)sample_n);
+  double frequencyZ = maxIndexZ * ((double)sample_rate / (double)sample_n);
 
-  Serial.print("Frequency X: ");
-  Serial.println(frequencyX);
-  Serial.print("Frequency Y: ");
-  Serial.println(frequencyY);
-  Serial.print("Frequency Z: ");
-  Serial.println(frequencyZ);
+  int available_sram = freeSRAM();
+  Serial.print("Available SRAM: ");
+  Serial.println(available_sram);
 
-  // Serial.print(frequencyX);
-  // Serial.print(" ");
-  // Serial.print(frequencyY);
-  // Serial.print(" ");
-  // Serial.println(frequencyZ);
-
-
-  // ---------- UNDER CONSTRUCTION ----------
-
-  // //SEND DATA PACKETS 
-  // double data1 = findMax(xAccel);
-  // double data2 = findMax(yAccel);
-  // double data3 = findMax(zAccel);
-
-  // uint8_t bytes[sizeof(real_x_axis)];
-  // for (int i = 0; i < sizeof(real_x_axis); i += sizeof(double)) {
-  //   double val = real_x_axis[i / sizeof(double)];
-  //   memcpy(&bytes[i], &val, sizeof(double));
-  // }
-
-  //TRANSMIT LORA PACKET
+  //Send Frequency, Acceleration & Displacement
+  // TRANSMIT LORA PACKET
   LoRa.beginPacket();
-  // LoRa.write(buffer, packetSize);
   LoRa.write((uint8_t*)&frequencyX, sizeof(frequencyX));
   LoRa.write((uint8_t*)&frequencyY, sizeof(frequencyY));  
   LoRa.write((uint8_t*)&frequencyZ, sizeof(frequencyZ));
-  LoRa.endPacket();
 
+  LoRa.write((uint8_t*)&maxAccelX, sizeof(maxAccelX));
+  LoRa.write((uint8_t*)&maxAccelY, sizeof(maxAccelY));
+  LoRa.write((uint8_t*)&maxAccelZ, sizeof(maxAccelZ));
+
+  LoRa.write((uint8_t*)&maxDispX, sizeof(maxDispX));
+  LoRa.write((uint8_t*)&maxDispY, sizeof(maxDispY));
+  LoRa.write((uint8_t*)&maxDispZ, sizeof(maxDispZ));
+  LoRa.endPacket();
   // delay(10000);
 }

@@ -1,18 +1,13 @@
 #include "Sender.h"
 
-void deMean(double *axis_data) {
-  double total = 0;
-  for (int i = 0; i < sample_n; i++) {
-    total += axis_data[i];
-  }   
-  total /= sample_n;
-  for (int i = 0; i < sample_n; i++) {
-    axis_data[i] -= total;
-  }
-}
-
 double findMax(double arr[]) {
   return *std::max_element(arr, arr+sample_n);
+}
+
+void addGravity(double arr[]) {
+  for (int i = 0; i < sample_n; i++) {
+    arr[i] *= g;
+  }
 }
 
 // void lowPassFilter(double *input, double *output, int windowSize) {
@@ -30,7 +25,7 @@ double findMax(double arr[]) {
 // }
 
 int findMaxIndex(double arr[]) {
-  int maxIndex = 0;
+  int maxIndex = 1;
   for (int i = 1; i < sample_n / 2; i++) { // Only need to search the first half of the array
     if (arr[i] > arr[maxIndex]) {
       maxIndex = i;
@@ -39,15 +34,24 @@ int findMaxIndex(double arr[]) {
   return maxIndex;
 }
 
-// int findMaxIndex(double *v, double threshold) {
-//   int maxIndex = 0;
-//   double maxValue = v[0];
+double findAvg(double arr[]) {
+  double sum = 0.0;
+  for (int i = 0; i < sample_n; i++) {
+    sum += arr[i];
+  }
+  return sum / sample_n;
+}
 
-//   for (int i = 1; i < sample_n / 2; i++) {
-//     if ((v[i] > maxValue) && (i * ((double)sample_rate / sample_n) > threshold)) {
-//       maxValue = v[i];
-//       maxIndex = i;
-//     }
-//   }
-//   return maxIndex;
-// }
+void removeBias(double arr[], double bias) { 
+  for (int i = 0; i < sample_n; i++) {
+    arr[i] -= bias;
+  }
+}
+
+void integrate(const double arr[], double dt, double integrated[]) {
+  double sum = 0.0;
+  for (int i = 0; i < sample_n; i++) {
+    sum += arr[i] * dt;
+    integrated[i] = sum;
+  }
+}
