@@ -1,10 +1,10 @@
 #include "Sender.h"
 
-extern "C" char* sbrk(int incr);
-int freeSRAM() {
-  char top;
-  return &top - reinterpret_cast<char*>(sbrk(0));
-}
+// extern "C" char* sbrk(int incr);
+// int freeSRAM() {
+//   char top;
+//   return &top - reinterpret_cast<char*>(sbrk(0));
+// }
 
 void setup() {
   // //Initialise Serial connection
@@ -77,6 +77,13 @@ void loop() {
     zAccel[i] = ((voltageZ - z_zero) / sensitivity) - 1.0; // subtract Earth's gravity
   }
 
+  for(int i = 0; i < sample_n; i++) {
+    Serial.print(xAccel[i]);
+    Serial.print(" ");
+    Serial.print(yAccel[i]);
+    Serial.print(" ");
+    Serial.println(zAccel[i]);
+  }
   //CONVERT ACCELERATION FROM G'S TO M/S/S
   addGravity(xAccel);
   addGravity(yAccel);
@@ -145,9 +152,9 @@ void loop() {
   double frequencyY = maxIndexY * ((double)sample_rate / (double)sample_n);
   double frequencyZ = maxIndexZ * ((double)sample_rate / (double)sample_n);
 
-  int available_sram = freeSRAM();
-  Serial.print("Available SRAM: ");
-  Serial.println(available_sram);
+  // int available_sram = freeSRAM();
+  // Serial.print("Available SRAM: ");
+  // Serial.println(available_sram);
 
   //Send Frequency, Acceleration & Displacement
   // TRANSMIT LORA PACKET
@@ -160,9 +167,9 @@ void loop() {
   LoRa.write((uint8_t*)&maxAccelY, sizeof(maxAccelY));
   LoRa.write((uint8_t*)&maxAccelZ, sizeof(maxAccelZ));
 
-  LoRa.write((uint8_t*)&maxDispX, sizeof(maxDispX));
-  LoRa.write((uint8_t*)&maxDispY, sizeof(maxDispY));
-  LoRa.write((uint8_t*)&maxDispZ, sizeof(maxDispZ));
+  // LoRa.write((uint8_t*)&maxDispX, sizeof(maxDispX));
+  // LoRa.write((uint8_t*)&maxDispY, sizeof(maxDispY));
+  // LoRa.write((uint8_t*)&maxDispZ, sizeof(maxDispZ));
   LoRa.endPacket();
   // delay(10000);
 }

@@ -33,27 +33,27 @@ void loop() {
     LoRa.readBytes((uint8_t*)&receviedAccelY, sizeof(receviedAccelY));
     LoRa.readBytes((uint8_t*)&receviedAccelZ, sizeof(receviedAccelZ));
 
-    LoRa.readBytes((uint8_t*)&receivedDispX, sizeof(receivedDispX));
-    LoRa.readBytes((uint8_t*)&receivedDispY, sizeof(receivedDispY));
-    LoRa.readBytes((uint8_t*)&receivedDispZ, sizeof(receivedDispZ));
+    // LoRa.readBytes((uint8_t*)&receivedDispX, sizeof(receivedDispX));
+    // LoRa.readBytes((uint8_t*)&receivedDispY, sizeof(receivedDispY));
+    // LoRa.readBytes((uint8_t*)&receivedDispZ, sizeof(receivedDispZ));
 
-    // Serial.print("Received Data: ");
-    Serial.print(receivedFreqX); 
-    Serial.print(" ");
-    Serial.print(receivedFreqY);
-    Serial.print(" ");
-    Serial.print(receivedFreqZ);
-    Serial.print(" ");
     Serial.print(receviedAccelX); 
     Serial.print(" ");
     Serial.print(receviedAccelY);
     Serial.print(" ");
     Serial.print(receviedAccelZ);
     Serial.print(" ");
-    Serial.print(receivedDispX); 
+    Serial.print(receivedFreqX); 
     Serial.print(" ");
-    Serial.print(receivedDispY);
+    Serial.print(receivedFreqY);
     Serial.print(" ");
-    Serial.println(receivedDispZ);
+    Serial.println(receivedFreqZ);
+    // Serial.print(" ");
+    // Serial.print(" ");
+    // Serial.print(receivedDispX); 
+    // Serial.print(" ");
+    // Serial.print(receivedDispY);
+    // Serial.print(" ");
+    // Serial.println(receivedDispZ);
   }
 }
