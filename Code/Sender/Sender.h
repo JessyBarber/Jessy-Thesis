@@ -33,8 +33,8 @@ static const double z_zero = 0.134546;
 //---------- Accelerometer Values ----------
 
 //---------- FFT Values ----------
-static const int sample_rate = 20; //Want to capture 2Hz then need at least 4Hz but x 10 to get 20Hz
-static const uint16_t sample_n = 256; //MUST BE EXP 2
+static const int sample_rate = 4; //Want to capture 2Hz then need at least 4Hz but x 10 to get 20Hz
+static const uint16_t sample_n = 32; //MUST BE EXP 2
 static constexpr double sample_interval = ((1.0/sample_rate) * 1000); //Gives sample interval in milliseconds
 //To sample for 10 seconds -> N = 10/T = 10/(1/20) = 200 sampleszx
 

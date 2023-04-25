@@ -144,13 +144,17 @@ void loop() {
   yFFT.ComplexToMagnitude();
   zFFT.ComplexToMagnitude();
 
-  int maxIndexX = findMaxIndex(xAccel);
-  int maxIndexY = findMaxIndex(yAccel);
-  int maxIndexZ = findMaxIndex(zAccel);
+  // int maxIndexX_FFT = findMaxIndex(xFFT.MajorPeak());
+  // int maxIndexY_FFT = findMaxIndex(yFFT.MajorPeak());
+  // int maxIndexZ_FFT = findMaxIndex(zFFT.MajorPeak());
 
-  double frequencyX = maxIndexX * ((double)sample_rate / (double)sample_n);
-  double frequencyY = maxIndexY * ((double)sample_rate / (double)sample_n);
-  double frequencyZ = maxIndexZ * ((double)sample_rate / (double)sample_n);
+  double frequencyX = xFFT.MajorPeak();
+  double frequencyY = yFFT.MajorPeak();
+  double frequencyZ = zFFT.MajorPeak();
+
+  // double frequencyX = maxIndexX_FFT * ((double)sample_rate / (double)sample_n);
+  // double frequencyY = maxIndexY_FFT * ((double)sample_rate / (double)sample_n);
+  // double frequencyZ = maxIndexZ_FFT * ((double)sample_rate / (double)sample_n);
 
   // int available_sram = freeSRAM();
   // Serial.print("Available SRAM: ");
