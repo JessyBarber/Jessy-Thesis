@@ -21,9 +21,9 @@ void loop() {
     double receviedAccelY;
     double receviedAccelZ;
 
-    double receivedDispX;
-    double receivedDispY;
-    double receivedDispZ;
+    // double receivedDispX;
+    // double receivedDispY;
+    // double receivedDispZ;
 
     LoRa.readBytes((uint8_t*)&receivedFreqX, sizeof(receivedFreqX));
     LoRa.readBytes((uint8_t*)&receivedFreqY, sizeof(receivedFreqY));
@@ -37,17 +37,18 @@ void loop() {
     // LoRa.readBytes((uint8_t*)&receivedDispY, sizeof(receivedDispY));
     // LoRa.readBytes((uint8_t*)&receivedDispZ, sizeof(receivedDispZ));
 
-    Serial.print(receviedAccelX); 
-    Serial.print(" ");
-    Serial.print(receviedAccelY);
-    Serial.print(" ");
-    Serial.print(receviedAccelZ);
-    Serial.print(" ");
     Serial.print(receivedFreqX); 
     Serial.print(" ");
     Serial.print(receivedFreqY);
     Serial.print(" ");
-    Serial.println(receivedFreqZ);
+    Serial.print(receivedFreqZ);              
+    Serial.print(" ");
+    Serial.print(receviedAccelX); 
+    Serial.print(" ");
+    Serial.print(receviedAccelY);
+    Serial.print(" ");
+    Serial.println(receviedAccelZ);
+
     // Serial.print(" ");
     // Serial.print(" ");
     // Serial.print(receivedDispX); 

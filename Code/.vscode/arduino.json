@@ -1,0 +1,6 @@
+{
+    "sketch": "FFT_testing\\fft_test\\fft_test.ino",
+    "board": "arduino:samd:mkrwan1300",
+    "port": "COM3",
+    "output": "../build"
+}

@@ -1,0 +1,67 @@
+// extern "C" char* sbrk(int incr);
+// int freeSRAM() {
+//   char top;
+//   return &top - reinterpret_cast<char*>(sbrk(0));
+// }
+
+// while (!Serial)
+//   ;
+// Serial.println("Starting Serial Success");
+// //Initialise LoRa connection
+// if (!LoRa.begin(915E6)) {
+//   Serial.println("Starting LoRa failed!");
+//   while (1)
+//     ;
+// }
+// Serial.println("LoRa Modem Started");
+//Initialise LoRa connection
+// LoRa.setFrequency(915E6);
+
+// //VELOCITY SAPLING
+// // double xVel[sample_n] {};
+// // double yVel[sample_n] {};
+// double zVel[sample_n] {};
+
+// //DISPLACEMENT SAMPLING
+// // double xDisp[sample_n] {};
+// // double yDisp[sample_n] {};
+// double zDisp[sample_n] {};
+
+// //Sample interval in seconds for integration
+// double dt = sample_interval / 1000;
+
+// //FIND VELOCITY
+// integrate(xAccel, dt, xVel);
+// integrate(yAccel, dt, yVel);
+// integrate(zAccel, dt, zVel);
+
+// //REMOVE DRIFT 
+// double vel_x_drift = findAvg(xVel);
+// double vel_y_drift = findAvg(yVel);
+// double vel_z_drift = findAvg(zVel);
+
+// removeBias(xVel, vel_x_drift);
+// removeBias(yVel, vel_y_drift);
+// removeBias(zVel, vel_z_drift);
+
+// //FIND DISPLACEMENT
+// integrate(xVel, dt, xDisp);
+// integrate(yVel, dt, yDisp);
+// integrate(zVel, dt, zDisp);
+
+// //FIND MAX DISPLACEMENT VALS
+// double maxDispX = findMax(xDisp);
+// double maxDispY = findMax(yDisp);
+// double maxDispZ = findMax(zDisp);
+
+// int maxIndexX_FFT = findMaxIndex(xFFT.MajorPeak());
+// int maxIndexY_FFT = findMaxIndex(yFFT.MajorPeak());
+// int maxIndexZ_FFT = findMaxIndex(zFFT.MajorPeak());
+
+// double frequencyX = maxIndexX_FFT * ((double)sample_rate / (double)sample_n);
+// double frequencyY = maxIndexY_FFT * ((double)sample_rate / (double)sample_n);
+// double frequencyZ = maxIndexZ_FFT * ((double)sample_rate / (double)sample_n);
+
+// int available_sram = freeSRAM();
+// Serial.print("Available SRAM: ");
+// Serial.println(available_sram);

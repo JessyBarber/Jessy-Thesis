@@ -1,136 +1,119 @@
 #include "Sender.h"
 
-// extern "C" char* sbrk(int incr);
-// int freeSRAM() {
-//   char top;
-//   return &top - reinterpret_cast<char*>(sbrk(0));
-// }
+double xZero = 0.0; double yZero = 0.0; double zZero = 0.0;
 
 void setup() {
   // //Initialise Serial connection
-  // Serial.begin(9600);
-  // while (!Serial)
-  //   ;
-  // Serial.println("Starting Serial Success");
-  // //Initialise LoRa connection
-  // if (!LoRa.begin(915E6)) {
-  //   Serial.println("Starting LoRa failed!");
-  //   while (1)
-  //     ;
-  // }
-  // Serial.println("LoRa Modem Started");
-  //Initialise LoRa connection
+  Serial.begin(9600);
   LoRa.begin(915E6);
-  // LoRa.setFrequency(915E6);
+  callibrate(256, xZero, yZero, zZero);
 }
 
 void loop() {
-  //FFT SAMPLING
-  double real_x_axis[sample_n]{};
-  double imag_x_axis[sample_n]{};
-  double real_y_axis[sample_n]{};
-  double imag_y_axis[sample_n]{};
-  double real_z_axis[sample_n]{};
-  double imag_z_axis[sample_n]{};
+  // ---------- VARIABLES ----------
+  // FFT SAMPLING
+  double real_x_axis[sample_n]{}; double imag_x_axis[sample_n]{};
+  double real_y_axis[sample_n]{}; double imag_y_axis[sample_n]{};
+  double real_z_axis[sample_n]{}; double imag_z_axis[sample_n]{};
+  
+  // ACCELERATION SAMPLING
+  double xAccel[sample_n]{}; double yAccel[sample_n]{}; double zAccel[sample_n]{};
 
-  //ACCELERATION SAMPLING
-  double xAccel[sample_n] {};
-  double yAccel[sample_n] {};
-  double zAccel[sample_n] {};
+  // VELOCITY SAMPLING
+  double xVel[sample_n]{}; double yVel[sample_n]{}; double zVel[sample_n]{};
 
-  //VELOCITY SAPLING
-  double xVel[sample_n] {};
-  double yVel[sample_n] {};
-  double zVel[sample_n] {};
+  // DISPLACEMENT SAMPLING
+  double xDisp[sample_n]{}; double yDisp[sample_n]{}; double zDisp[sample_n]{};
 
-  //DISPLACEMENT SAMPLING
-  double xDisp[sample_n] {};
-  double yDisp[sample_n] {};
-  double zDisp[sample_n] {};
+  // MAXIMUM ACCELERATION
+  double maxAccelX = 0.0; double maxAccelY = 0.0; double maxAccelZ = 0.0;
 
-  //Sample interval in seconds for integration
-  double dt = sample_interval / 1000;
+  // MAXIMUM DISPLACEMENT
+  double maxDispX = 0.0; double maxDispY = 0.0; double maxDispZ = 0.0;
 
-  // long int t1 = millis();
-  //SAMPLE RAW DATA
-  for (int i = 0; i < sample_n; i++) {
-    real_x_axis[i] = analogRead(x_axis);
-    real_y_axis[i] = analogRead(y_axis);
-    real_z_axis[i] = analogRead(z_axis);
-    delay(sample_interval);
-  }
-  // long int t2 = millis();
-  // Serial.print("Time taken: "); Serial.print((t2-t1)/1000); Serial.println(" s");
+  // MAXIMUM FREQUENCY
+  double xFreq = 0.0; double yFreq = 0.0; double zFreq = 0.0;
+  // ---------- VARIABLES ----------
 
-  //SAMPLE ACCEL DATA
-  for (int i = 0; i < sample_n; i++) {
-    // xAccel[i] = (real_x_axis[i] * vRef / (adc_resolution - 1) - x_zero);
-    // yAccel[i] = (real_y_axis[i] * vRef / (adc_resolution - 1) - y_zero);
-    // zAccel[i] = (real_z_axis[i] * vRef / (adc_resolution - 1) - z_zero);
+  // ---------- CALLIBRATE ACCELEROMETER ----------
+  // callibrate(256, xZero, yZero, zZero);
+  // ---------- CALLIBRATE ACCELEROMETER ----------
+  
+  // ---------- SAMPLE RAW DATA ----------
+  readRawData(real_x_axis, real_y_axis, real_z_axis);
+  // ---------- SAMPLE RAW DATA ----------
 
-    double voltageX = real_x_axis[i] * vRef / (adc_resolution - 1);
-    double voltageY = real_y_axis[i] * vRef / (adc_resolution - 1);
-    double voltageZ = real_z_axis[i] * vRef / (adc_resolution - 1);
+  // ---------- TURN RAW DATA INTO ACCELERATION (m/s/s) ----------
+  processRawData(xAccel, yAccel, zAccel, real_x_axis, real_y_axis, real_z_axis,
+                 xZero, yZero, zZero);
+  // ---------- TURN RAW DATA INTO ACCELERATION (m/s/s) ----------
 
-    xAccel[i] = (voltageX - x_zero) / sensitivity;
-    yAccel[i] = (voltageY - y_zero) / sensitivity;
-    zAccel[i] = ((voltageZ - z_zero) / sensitivity) - 1.0; // subtract Earth's gravity
-  }
+  // ---------- REMOVE DC BIAS ----------
+  // removeBias(xAccel);
+  // removeBias(yAccel);
+  // removeBias(zAccel);
+  // ---------- REMOVE DC BIAS ----------
 
-  for(int i = 0; i < sample_n; i++) {
-    Serial.print(xAccel[i]);
-    Serial.print(" ");
-    Serial.print(yAccel[i]);
-    Serial.print(" ");
-    Serial.println(zAccel[i]);
-  }
-  //CONVERT ACCELERATION FROM G'S TO M/S/S
-  addGravity(xAccel);
-  addGravity(yAccel);
-  addGravity(zAccel);
+  // ---------- REMOVE HIGH FREQUENCIES ----------
+  // double alpha = 0.1;
+  lowPassFilter(xAccel, 0.1);
+  lowPassFilter(yAccel, 0.1);
+  lowPassFilter(zAccel, 0.05);
+  // ---------- REMOVE HIGH FREQUENCIES ----------
 
-  // //REMOVE BIAS
-  // double accel_x_bias = findAvg(xAccel);
-  // double accel_y_bias = findAvg(yAccel);
-  // double accel_z_bias = findAvg(zAccel);
+  // ---------- FIND MAX ACCELERATION ----------
+  maxAccelX = findMax(xAccel);
+  maxAccelY = findMax(yAccel);
+  maxAccelZ = findMax(zAccel);
+  // ---------- FIND MAX ACCELERATION ----------
 
-  // removeBias(xAccel, accel_x_bias);
-  // removeBias(yAccel, accel_y_bias);
-  // removeBias(zAccel, accel_z_bias);
+  // ---------- CALCULATE VELOCITY ----------
+  // integrate(xAccel, yAccel, zAccel, xVel, yVel, zVel);
+  // ---------- CALCULATE VELOCITY ----------
 
-  // //FIND VELOCITY
-  // integrate(xAccel, dt, xVel);
-  // integrate(yAccel, dt, yVel);
-  // integrate(zAccel, dt, zVel);
+  // ---------- CALCULATE DISPLACEMENT ----------
+  // integrate(xVel, yVel, zVel, xDisp, yDisp, zDisp);
+  // ---------- CALCULATE DISPLACEMENT ----------
 
-  // //REMOVE DRIFT 
-  // double vel_x_drift = findAvg(xVel);
-  // double vel_y_drift = findAvg(yVel);
-  // double vel_z_drift = findAvg(zVel);
+  // ---------- FIND MAX DISPLACEMENT ----------
+  // maxDispX = findMax(xDisp);
+  // maxDispY = findMax(yDisp);
+  // maxDispZ = findMax(zDisp);
+  // ---------- FIND MAX DISPLACEMENT ----------
 
-  // removeBias(xVel, vel_x_drift);
-  // removeBias(yVel, vel_y_drift);
-  // removeBias(zVel, vel_z_drift);
+  // ---------- TEST FUNCTIONS ----------
+  // genSineWave(xAccel);
+  // genSineWave(yAccel);
+  // genSineWave(zAccel);
+  // genZeroWave(xAccel);
+  // genZeroWave(yAccel);
+  // genZeroWave(zAccel);
+  // ---------- TEST FUNCTIONS ----------
 
-  // //FIND DISPLACEMENT
-  // integrate(xVel, dt, xDisp);
-  // integrate(yVel, dt, yDisp);
-  // integrate(zVel, dt, zDisp);
+  // ---------- SERIAL PRINT MAX ACCELERATION (m/s/s) ----------
+  // printAxisValues(maxAccelX, maxAccelY, maxAccelZ);
+  // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
 
-  //FIND MAX ACCELERATION VALS
-  double maxAccelX = findMax(xAccel);
-  double maxAccelY = findMax(yAccel);
-  double maxAccelZ = findMax(zAccel);
+  // ---------- SERIAL PRINT MAX DISPLACEMENT (m) ----------
+  // printAxisValues(maxDispX, maxDispY, maxDispZ);
+  // ---------- SERIAL PRINT MAX ACCELERATION (m/s/s) ----------
 
-  // //FIND MAX DISPLACEMENT VALS
-  // double maxDispX = findMax(xDisp);
-  // double maxDispY = findMax(yDisp);
-  // double maxDispZ = findMax(zDisp);
+  // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
+  printAxisValues(xAccel, yAccel, zAccel);
+  // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
 
-  //COMPUTE FFT
-  arduinoFFT xFFT(xAccel, imag_x_axis, sample_n, sample_rate);
-  arduinoFFT yFFT(yAccel, imag_y_axis, sample_n, sample_rate);
-  arduinoFFT zFFT(zAccel, imag_z_axis, sample_n, sample_rate);
+  // ---------- SERIAL PRINT VELOCITY (m/s) ----------
+  // printAxisValues(xVel, yVel, zVel);
+  // ---------- SERIAL PRINT ACCELERATION (m/s) ----------
+  // delay(1000);
+  // ---------- SERIAL PRINT DISPLACEMENT (m) ----------
+  // printAxisValues(xDisp, yDisp, zDisp);
+  // ---------- SERIAL PRINT DISPLACEMENT (m) ----------
+
+  // ---------- COMPUTE FFT ----------
+  arduinoFFT xFFT(xAccel, imag_x_axis, sample_n, sampling_rate);
+  arduinoFFT yFFT(yAccel, imag_y_axis, sample_n, sampling_rate);
+  arduinoFFT zFFT(zAccel, imag_z_axis, sample_n, sampling_rate);
 
   xFFT.Windowing(window_type, FFT_dir);
   yFFT.Windowing(window_type, FFT_dir);
@@ -143,29 +126,29 @@ void loop() {
   xFFT.ComplexToMagnitude();
   yFFT.ComplexToMagnitude();
   zFFT.ComplexToMagnitude();
+  // ---------- COMPUTE FFT ----------
 
-  // int maxIndexX_FFT = findMaxIndex(xFFT.MajorPeak());
-  // int maxIndexY_FFT = findMaxIndex(yFFT.MajorPeak());
-  // int maxIndexZ_FFT = findMaxIndex(zFFT.MajorPeak());
+  // ---------- FIND HIGHEST FREQUENCY ----------
+  xFreq = xFFT.MajorPeak();
+  yFreq = yFFT.MajorPeak();
+  zFreq = zFFT.MajorPeak();
+  // ---------- FIND HIGHEST FREQUENCY ----------
 
-  double frequencyX = xFFT.MajorPeak();
-  double frequencyY = yFFT.MajorPeak();
-  double frequencyZ = zFFT.MajorPeak();
+  // ---------- CONVERT NAN TO 0 ----------
+  checkNan(xFreq);
+  checkNan(yFreq);
+  checkNan(zFreq);
+  // ---------- CONVERT NAN TO 0 ----------
 
-  // double frequencyX = maxIndexX_FFT * ((double)sample_rate / (double)sample_n);
-  // double frequencyY = maxIndexY_FFT * ((double)sample_rate / (double)sample_n);
-  // double frequencyZ = maxIndexZ_FFT * ((double)sample_rate / (double)sample_n);
+  // ---------- SERIAL PRINT FREQUENCY ----------
+  // printAxisFreq(xFreq, yFreq, zFreq);
+  // ---------- SERIAL PRINT FREQUENCY ----------
 
-  // int available_sram = freeSRAM();
-  // Serial.print("Available SRAM: ");
-  // Serial.println(available_sram);
-
-  //Send Frequency, Acceleration & Displacement
-  // TRANSMIT LORA PACKET
+ // ---------- TRANSMIT LORA PACKET ----------
   LoRa.beginPacket();
-  LoRa.write((uint8_t*)&frequencyX, sizeof(frequencyX));
-  LoRa.write((uint8_t*)&frequencyY, sizeof(frequencyY));  
-  LoRa.write((uint8_t*)&frequencyZ, sizeof(frequencyZ));
+  LoRa.write((uint8_t*)&xFreq, sizeof(xFreq));
+  LoRa.write((uint8_t*)&yFreq, sizeof(yFreq));  
+  LoRa.write((uint8_t*)&zFreq, sizeof(zFreq));
 
   LoRa.write((uint8_t*)&maxAccelX, sizeof(maxAccelX));
   LoRa.write((uint8_t*)&maxAccelY, sizeof(maxAccelY));
@@ -175,5 +158,7 @@ void loop() {
   // LoRa.write((uint8_t*)&maxDispY, sizeof(maxDispY));
   // LoRa.write((uint8_t*)&maxDispZ, sizeof(maxDispZ));
   LoRa.endPacket();
+  // ---------- TRANSMIT LORA PACKET ----------
+
   // delay(10000);
 }
