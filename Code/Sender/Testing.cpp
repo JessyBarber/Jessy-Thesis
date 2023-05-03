@@ -12,22 +12,22 @@ void genZeroWave(double arr[]) {
     }
 }
 
-void printAxisValues(double xAccel[], double yAccel[], double zAccel[]) {
+void printAxisValues(double xVal[], double yVal[], double zVal[]) {
     for (int i = 0; i < sample_n; i++) {
-        Serial.print(xAccel[i]);
+        Serial.print(xVal[i]);
         Serial.print(" ");
-        Serial.print(yAccel[i]);
+        Serial.print(yVal[i]);
         Serial.print(" ");
-        Serial.println(zAccel[i]);
+        Serial.println(zVal[i]);
     }
 }
 
-void printAxisFreq(double xFreq, double yFreq, double zFreq) {
-    Serial.print(xFreq);
+void printAxisVal(double xVal, double yVal, double zVal) {
+    Serial.print(xVal);
     Serial.print(" ");
-    Serial.print(yFreq);
+    Serial.print(yVal);
     Serial.print(" ");
-    Serial.println(zFreq);
+    Serial.println(zVal);
 }
 
 void printAxisValueSingle(double accel[]) {
@@ -66,12 +66,14 @@ void callibrate (int callibration_samples, double& xZero, double& yZero, double&
     offsetY /= callibration_samples;
     offsetZ /= callibration_samples;
 
-    Serial.print("Offset X: ");
-    Serial.println(offsetX, 6);
-    Serial.print("Offset Y: ");
-    Serial.println(offsetY, 6);
-    Serial.print("Offset ccoffsetZ: ");
-    Serial.println(offsetZ, 6);
+    // ---------- MUST BE TURNED OFF IF PWR IS BATTERY ----------
+    // Serial.print("Offset X: ");
+    // Serial.println(offsetX, 6);
+    // Serial.print("Offset Y: ");
+    // Serial.println(offsetY, 6);
+    // Serial.print("Offset ccoffsetZ: ");
+    // Serial.println(offsetZ, 6);
+    // ---------- MUST BE TURNED OFF IF PWR IS BATTERY ----------
 
     xZero = offsetX;
     yZero = offsetY;

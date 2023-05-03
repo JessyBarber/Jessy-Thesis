@@ -21,22 +21,10 @@ static const int z_axis = A3;
 static const int adc_resolution = 4096; //12 BIT ADC
 static const double g = 9.81;
 const double noiseThreshold = 0.1;
-// 3.3 V
-const double vRef = 3.3; //3.3V reference / supply
+// CALIBRATION
+// const double vRef = 3.3; //3.3V reference / supply
+const double vRef = 3.0; // BATTERY CONNECTION
 static const double sensitivity = 0.33; //330 mV/g at 3.3V
-// const double x_zero = 0.386719;
-// const double y_zero = 0.386719;
-// const double z_zero = 0.134546;
-const double x_zero = -3.74;
-const double y_zero = -3.76;
-const double z_zero = -4.49;
-// // 3.0 V 
-// const double vRef = 3.0;
-// const double sensitivity = 0.298125;
-// const double x_zero = 0.151611;
-// const double y_zero = 0.149414;
-// const double z_zero = -0.120850;
-
 //---------- Accelerometer Values ----------
 
 //---------- FFT Values ----------
@@ -63,7 +51,8 @@ static constexpr uint16_t window_size = (1.0/maxFreq) * sampling_rate;
 //---------- LoRa ----------
 
 // ---------- FUNCTIONS ----------
-double findMax(double arr[]);
+// double findMax(double arr[]);s
+double findMaxAbs(const double data[]);
 // void lowPassFilter(double *input, double *output, int windowSize);
 // void lowPassFilter(double arr[]);
 void lowPassFilter(double *data, double alpha);
@@ -84,9 +73,9 @@ void integrate(const double xIn[], const double yIn[], const double zIn[],
 void genSineWave(double arr[]);
 void genZeroWave(double arr[]);
 void printAxisValues(double xAccel[], double yAccel[], double zAccel[]);
-void printAxisFreq(double xFreq, double yFreq, double zFreq);
+void printAxisVal(double xFreq, double yFreq, double zFreq);
 void printAxisValueSingle(double accel[]);
-void callibrate (int callibration_samples, double& xZero, double& yZero, double& zZero);
+void callibrate(int callibration_samples, double& xZero, double& yZero, double& zZero);
 void checkNan(double& freq);
 // ---------- TEST FUNCTIONS ----------
 

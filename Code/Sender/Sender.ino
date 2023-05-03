@@ -35,10 +35,6 @@ void loop() {
   double xFreq = 0.0; double yFreq = 0.0; double zFreq = 0.0;
   // ---------- VARIABLES ----------
 
-  // ---------- CALLIBRATE ACCELEROMETER ----------
-  // callibrate(256, xZero, yZero, zZero);
-  // ---------- CALLIBRATE ACCELEROMETER ----------
-  
   // ---------- SAMPLE RAW DATA ----------
   readRawData(real_x_axis, real_y_axis, real_z_axis);
   // ---------- SAMPLE RAW DATA ----------
@@ -55,30 +51,39 @@ void loop() {
   // ---------- REMOVE DC BIAS ----------
 
   // ---------- REMOVE HIGH FREQUENCIES ----------
-  // double alpha = 0.1;
   lowPassFilter(xAccel, 0.1);
   lowPassFilter(yAccel, 0.1);
-  lowPassFilter(zAccel, 0.05);
+  lowPassFilter(zAccel, 0.1);
   // ---------- REMOVE HIGH FREQUENCIES ----------
 
+  // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
+  printAxisValues(xAccel, yAccel, zAccel);
+  // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
+
   // ---------- FIND MAX ACCELERATION ----------
-  maxAccelX = findMax(xAccel);
-  maxAccelY = findMax(yAccel);
-  maxAccelZ = findMax(zAccel);
+  maxAccelX = findMaxAbs(xAccel);
+  maxAccelY = findMaxAbs(yAccel);
+  maxAccelZ = findMaxAbs(zAccel);
   // ---------- FIND MAX ACCELERATION ----------
 
   // ---------- CALCULATE VELOCITY ----------
   // integrate(xAccel, yAccel, zAccel, xVel, yVel, zVel);
   // ---------- CALCULATE VELOCITY ----------
 
+  // ---------- REMOVE VELOCITY DRIFT ----------
+  // removeBias(xVel);
+  // removeBias(yVel);
+  // removeBias(zVel);
+  // ---------- REMOVE VELOCITY DRIFT ----------
+
   // ---------- CALCULATE DISPLACEMENT ----------
   // integrate(xVel, yVel, zVel, xDisp, yDisp, zDisp);
   // ---------- CALCULATE DISPLACEMENT ----------
 
   // ---------- FIND MAX DISPLACEMENT ----------
-  // maxDispX = findMax(xDisp);
-  // maxDispY = findMax(yDisp);
-  // maxDispZ = findMax(zDisp);
+  // maxDispX = findMaxAbs(xDisp);
+  // maxDispY = findMaxAbs(yDisp);
+  // maxDispZ = findMaxAbs(zDisp);
   // ---------- FIND MAX DISPLACEMENT ----------
 
   // ---------- TEST FUNCTIONS ----------
@@ -91,16 +96,12 @@ void loop() {
   // ---------- TEST FUNCTIONS ----------
 
   // ---------- SERIAL PRINT MAX ACCELERATION (m/s/s) ----------
-  // printAxisValues(maxAccelX, maxAccelY, maxAccelZ);
+  // printAxisVal(maxAccelX, maxAccelY, maxAccelZ);
   // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
 
   // ---------- SERIAL PRINT MAX DISPLACEMENT (m) ----------
-  // printAxisValues(maxDispX, maxDispY, maxDispZ);
+  // printAxisVal(maxDispX, maxDispY, maxDispZ);
   // ---------- SERIAL PRINT MAX ACCELERATION (m/s/s) ----------
-
-  // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
-  printAxisValues(xAccel, yAccel, zAccel);
-  // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
 
   // ---------- SERIAL PRINT VELOCITY (m/s) ----------
   // printAxisValues(xVel, yVel, zVel);
@@ -150,13 +151,14 @@ void loop() {
   LoRa.write((uint8_t*)&yFreq, sizeof(yFreq));  
   LoRa.write((uint8_t*)&zFreq, sizeof(zFreq));
 
+  // LoRa.write((uint8_t*)&maxDispX, sizeof(maxDispX));
+  // LoRa.write((uint8_t*)&maxDispY, sizeof(maxDispY));
+  // LoRa.write((uint8_t*)&maxDispZ, sizeof(maxDispZ));
+
   LoRa.write((uint8_t*)&maxAccelX, sizeof(maxAccelX));
   LoRa.write((uint8_t*)&maxAccelY, sizeof(maxAccelY));
   LoRa.write((uint8_t*)&maxAccelZ, sizeof(maxAccelZ));
 
-  // LoRa.write((uint8_t*)&maxDispX, sizeof(maxDispX));
-  // LoRa.write((uint8_t*)&maxDispY, sizeof(maxDispY));
-  // LoRa.write((uint8_t*)&maxDispZ, sizeof(maxDispZ));
   LoRa.endPacket();
   // ---------- TRANSMIT LORA PACKET ----------
 

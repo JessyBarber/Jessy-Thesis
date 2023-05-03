@@ -1,7 +1,18 @@
 #include "Sender.h"
 
-double findMax(double arr[]) {
-  return *std::max_element(arr, arr+sample_n);
+// double findMax(double arr[]) {
+//   return *std::max_element(arr, arr+sample_n);
+// }
+
+double findMaxAbs(const double data[]) {
+  double maxVal = 0;
+  for (int i = 0; i < sample_n; ++i) {
+    double absVal = abs(data[i]);
+    if (absVal > maxVal) {
+      maxVal = absVal;
+    }
+  }
+  return maxVal;
 }
 
 void addGravity(double arr[]) {
@@ -98,28 +109,19 @@ void processRawData(double xAccel[], double yAccel[], double zAccel[],
                     const double real_x_axis[], const double real_y_axis[], 
                     const double real_z_axis[], double xZero, double yZero, double zZero) {
   for (int i = 0; i < sample_n; i++) {
-    // // MAP VOLTAGE TO ADC LEVEL
-    // xAccel[i] = (real_x_axis[i] * vRef / (adc_resolution - 1) - x_zero);
-    // yAccel[i] = (real_y_axis[i] * vRef / (adc_resolution - 1) - y_zero);
-    // zAccel[i] = (real_z_axis[i] * vRef / (adc_resolution - 1) - z_zero);
     // CONVERT ADC LEVEL TO A VOLTAGE
-    // double voltageX = real_x_axis[i] * vRef / (adc_resolution - 1);
-    // double voltageY = real_y_axis[i] * vRef / (adc_resolution - 1);
     double voltageX = ((real_x_axis[i] * vRef) / (adc_resolution - 1));
     double voltageY = ((real_y_axis[i] * vRef) / (adc_resolution - 1));
     double voltageZ = ((real_z_axis[i] * vRef) / (adc_resolution - 1));
-    // REMOVE ZERO OFFSETS AND GRAVITY
-    // xAccel[i] = ((voltageX - x_zero) / sensitivity) * g;
-    // yAccel[i] = ((voltageY - y_zero) / sensitivity) * g;
-    // zAccel[i] = ((voltageZ - z_zero) / sensitivity) * g; // subtract Earth's gravity
+
     xAccel[i] = ((voltageX - vRef / 2) / sensitivity - xZero) * g;
     yAccel[i] = ((voltageY - vRef / 2) / sensitivity - yZero) * g;
     zAccel[i] = ((voltageZ - vRef / 2) / sensitivity - zZero - 1) * g; // Subtract gravity
 
     // Apply threshold to remove noise
-    xAccel[i] = abs(xAccel[i]) < noiseThreshold ? 0 : xAccel[i];
-    yAccel[i] = abs(yAccel[i]) < noiseThreshold ? 0 : yAccel[i];
-    zAccel[i] = abs(zAccel[i]) < noiseThreshold ? 0 : zAccel[i];
+    xAccel[i] = (abs(xAccel[i]) < noiseThreshold) ? 0 : xAccel[i];
+    yAccel[i] = (abs(yAccel[i]) < noiseThreshold) ? 0 : yAccel[i];
+    zAccel[i] = (abs(zAccel[i]) < noiseThreshold) ? 0 : zAccel[i];
   }
 }
 

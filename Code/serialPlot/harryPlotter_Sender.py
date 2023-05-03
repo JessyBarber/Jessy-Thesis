@@ -40,7 +40,7 @@ plt.plot(raw_zAccel, label="z_axis")
 # Set plot labels and legend
 plt.title("Raw Acceleration")
 plt.xlabel("Samples")
-plt.ylabel("Acceleration (G's)")
+plt.ylabel("Acceleration (m/s/s)")
 plt.legend()
 
 # Save the figure as a high-resolution PNG file
