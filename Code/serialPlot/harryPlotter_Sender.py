@@ -4,10 +4,6 @@ import os
 
 plt.close('all')
 
-raw_xAccel = []
-raw_yAccel = []
-raw_zAccel = [] 
-
 def read_log_data():
     raw_xAccel = []
     raw_yAccel = []

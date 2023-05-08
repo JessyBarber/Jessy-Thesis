@@ -67,9 +67,10 @@ void loop() {
   // ---------- FIND MAX ACCELERATION ----------
 
   // ---------- CALCULATE VELOCITY ----------
-  // integrate(xAccel, yAccel, zAccel, xVel, yVel, zVel);
+  integrate(xAccel, yAccel, zAccel, xVel, yVel, zVel);
   // ---------- CALCULATE VELOCITY ----------
 
+  // DO NOT REMOVE DRIFT FROM VELOCITY, ONLY REMOVE FROM DISPLACEMENT
   // ---------- REMOVE VELOCITY DRIFT ----------
   // removeBias(xVel);
   // removeBias(yVel);
@@ -77,23 +78,28 @@ void loop() {
   // ---------- REMOVE VELOCITY DRIFT ----------
 
   // ---------- CALCULATE DISPLACEMENT ----------
-  // integrate(xVel, yVel, zVel, xDisp, yDisp, zDisp);
+  integrate(xVel, yVel, zVel, xDisp, yDisp, zDisp);
   // ---------- CALCULATE DISPLACEMENT ----------
 
+  // ---------- REMOVE DISPLACEMENT DRIFT ----------
+  removeBias(xDisp);
+  removeBias(yDisp);
+  removeBias(zDisp);
+  // ---------- REMOVE DISPLACEMENT DRIFT ----------
+
   // ---------- FIND MAX DISPLACEMENT ----------
-  // maxDispX = findMaxAbs(xDisp);
-  // maxDispY = findMaxAbs(yDisp);
-  // maxDispZ = findMaxAbs(zDisp);
+  maxDispX = findMaxAbs(xDisp);
+  maxDispY = findMaxAbs(yDisp);
+  maxDispZ = findMaxAbs(zDisp);
   // ---------- FIND MAX DISPLACEMENT ----------
 
-  // ---------- TEST FUNCTIONS ----------
+  // -------------------- TEST FUNCTIONS --------------------
   // genSineWave(xAccel);
   // genSineWave(yAccel);
   // genSineWave(zAccel);
   // genZeroWave(xAccel);
   // genZeroWave(yAccel);
   // genZeroWave(zAccel);
-  // ---------- TEST FUNCTIONS ----------
 
   // ---------- SERIAL PRINT MAX ACCELERATION (m/s/s) ----------
   // printAxisVal(maxAccelX, maxAccelY, maxAccelZ);
@@ -110,6 +116,8 @@ void loop() {
   // ---------- SERIAL PRINT DISPLACEMENT (m) ----------
   // printAxisValues(xDisp, yDisp, zDisp);
   // ---------- SERIAL PRINT DISPLACEMENT (m) ----------
+
+  // -------------------- TEST FUNCTIONS --------------------
 
   // ---------- COMPUTE FFT ----------
   arduinoFFT xFFT(xAccel, imag_x_axis, sample_n, sampling_rate);
@@ -136,7 +144,7 @@ void loop() {
   // ---------- FIND HIGHEST FREQUENCY ----------
 
   // ---------- CONVERT NAN TO 0 ----------
-  checkNan(xFreq);
+  checkNan(xFreq); 
   checkNan(yFreq);
   checkNan(zFreq);
   // ---------- CONVERT NAN TO 0 ----------

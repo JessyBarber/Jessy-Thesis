@@ -5,14 +5,6 @@ import os
 
 plt.close('all')
 
-xFreq = []
-yFreq = []
-zFreq = [] 
-
-xAccel = []
-yAccel = []
-zAccel = []
-
 def read_log_data():
     xVar = []
     yVar = []

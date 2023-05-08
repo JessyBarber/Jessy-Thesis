@@ -22,8 +22,8 @@ static const int adc_resolution = 4096; //12 BIT ADC
 static const double g = 9.81;
 const double noiseThreshold = 0.1;
 // CALIBRATION
-// const double vRef = 3.3; //3.3V reference / supply
-const double vRef = 3.0; // BATTERY CONNECTION
+const double vRef = 3.3; //3.3V reference / supply
+// const double vRef = 3.0; // BATTERY CONNECTION
 static const double sensitivity = 0.33; //330 mV/g at 3.3V
 //---------- Accelerometer Values ----------
 
