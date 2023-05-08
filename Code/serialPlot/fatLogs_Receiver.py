@@ -4,9 +4,9 @@ import time
 import os
 
 # MAC ADDRESS
-# PORT = '/dev/tty.usbmodem1413301'
+PORT = '/dev/tty.usbmodem14401'
 # PC ADDERSS
-PORT = 'COM5'
+# PORT = 'COM5'
 BAUD_RATE = 9600
 ser = serial.Serial(PORT, BAUD_RATE, timeout=1)
 
