@@ -51,9 +51,9 @@ void loop() {
   // ---------- REMOVE DC BIAS ----------
 
   // ---------- REMOVE HIGH FREQUENCIES ----------
-  lowPassFilter(xAccel, 0.1);
-  lowPassFilter(yAccel, 0.1);
-  lowPassFilter(zAccel, 0.1);
+  // lowPassFilter(xAccel, 0.1);
+  // lowPassFilter(yAccel, 0.1);
+  // lowPassFilter(zAccel, 0.1);
   // ---------- REMOVE HIGH FREQUENCIES ----------
 
   // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
@@ -67,23 +67,23 @@ void loop() {
   // ---------- FIND MAX ACCELERATION ----------
 
   // ---------- CALCULATE VELOCITY ----------
-  // integrate(xAccel, yAccel, zAccel, xVel, yVel, zVel);
+  integrate(xAccel, yAccel, zAccel, xVel, yVel, zVel);
   // ---------- CALCULATE VELOCITY ----------
 
   // ---------- REMOVE VELOCITY DRIFT ----------
-  // removeBias(xVel);
-  // removeBias(yVel);
-  // removeBias(zVel);
+  removeBias(xVel);
+  removeBias(yVel);
+  removeBias(zVel);
   // ---------- REMOVE VELOCITY DRIFT ----------
 
   // ---------- CALCULATE DISPLACEMENT ----------
-  // integrate(xVel, yVel, zVel, xDisp, yDisp, zDisp);
+  integrate(xVel, yVel, zVel, xDisp, yDisp, zDisp);
   // ---------- CALCULATE DISPLACEMENT ----------
 
   // ---------- FIND MAX DISPLACEMENT ----------
-  // maxDispX = findMaxAbs(xDisp);
-  // maxDispY = findMaxAbs(yDisp);
-  // maxDispZ = findMaxAbs(zDisp);
+  maxDispX = findMaxAbs(xDisp);
+  maxDispY = findMaxAbs(yDisp);
+  maxDispZ = findMaxAbs(zDisp);
   // ---------- FIND MAX DISPLACEMENT ----------
 
   // ---------- TEST FUNCTIONS ----------
@@ -112,33 +112,33 @@ void loop() {
   // ---------- SERIAL PRINT DISPLACEMENT (m) ----------
 
   // ---------- COMPUTE FFT ----------
-  arduinoFFT xFFT(xAccel, imag_x_axis, sample_n, sampling_rate);
-  arduinoFFT yFFT(yAccel, imag_y_axis, sample_n, sampling_rate);
-  arduinoFFT zFFT(zAccel, imag_z_axis, sample_n, sampling_rate);
+  // arduinoFFT xFFT(xAccel, imag_x_axis, sample_n, sampling_rate);
+  // arduinoFFT yFFT(yAccel, imag_y_axis, sample_n, sampling_rate);
+  // arduinoFFT zFFT(zAccel, imag_z_axis, sample_n, sampling_rate);
 
-  xFFT.Windowing(window_type, FFT_dir);
-  yFFT.Windowing(window_type, FFT_dir);
-  zFFT.Windowing(window_type, FFT_dir);
+  // xFFT.Windowing(window_type, FFT_dir);
+  // yFFT.Windowing(window_type, FFT_dir);
+  // zFFT.Windowing(window_type, FFT_dir);
 
-  xFFT.Compute(FFT_dir);
-  yFFT.Compute(FFT_dir);
-  zFFT.Compute(FFT_dir);
+  // xFFT.Compute(FFT_dir);
+  // yFFT.Compute(FFT_dir);
+  // zFFT.Compute(FFT_dir);
 
-  xFFT.ComplexToMagnitude();
-  yFFT.ComplexToMagnitude();
-  zFFT.ComplexToMagnitude();
+  // xFFT.ComplexToMagnitude();
+  // yFFT.ComplexToMagnitude();
+  // zFFT.ComplexToMagnitude();
   // ---------- COMPUTE FFT ----------
 
   // ---------- FIND HIGHEST FREQUENCY ----------
-  xFreq = xFFT.MajorPeak();
-  yFreq = yFFT.MajorPeak();
-  zFreq = zFFT.MajorPeak();
+  // xFreq = xFFT.MajorPeak();
+  // yFreq = yFFT.MajorPeak();
+  // zFreq = zFFT.MajorPeak();
   // ---------- FIND HIGHEST FREQUENCY ----------
 
   // ---------- CONVERT NAN TO 0 ----------
-  checkNan(xFreq);
-  checkNan(yFreq);
-  checkNan(zFreq);
+  // checkNan(xFreq);
+  // checkNan(yFreq);
+  // checkNan(zFreq);
   // ---------- CONVERT NAN TO 0 ----------
 
   // ---------- SERIAL PRINT FREQUENCY ----------
@@ -147,13 +147,13 @@ void loop() {
 
  // ---------- TRANSMIT LORA PACKET ----------
   LoRa.beginPacket();
-  LoRa.write((uint8_t*)&xFreq, sizeof(xFreq));
-  LoRa.write((uint8_t*)&yFreq, sizeof(yFreq));  
-  LoRa.write((uint8_t*)&zFreq, sizeof(zFreq));
+  // LoRa.write((uint8_t*)&xFreq, sizeof(xFreq));
+  // LoRa.write((uint8_t*)&yFreq, sizeof(yFreq));  
+  // LoRa.write((uint8_t*)&zFreq, sizeof(zFreq));
 
-  // LoRa.write((uint8_t*)&maxDispX, sizeof(maxDispX));
-  // LoRa.write((uint8_t*)&maxDispY, sizeof(maxDispY));
-  // LoRa.write((uint8_t*)&maxDispZ, sizeof(maxDispZ));
+  LoRa.write((uint8_t*)&maxDispX, sizeof(maxDispX));
+  LoRa.write((uint8_t*)&maxDispY, sizeof(maxDispY));
+  LoRa.write((uint8_t*)&maxDispZ, sizeof(maxDispZ));
 
   LoRa.write((uint8_t*)&maxAccelX, sizeof(maxAccelX));
   LoRa.write((uint8_t*)&maxAccelY, sizeof(maxAccelY));

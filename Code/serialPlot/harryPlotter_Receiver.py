@@ -101,7 +101,7 @@ elif (plotType == "Disp"):
     # Set plot labels and legend
     plt.title("Maximum Displacement")
     plt.xlabel("N's")
-    plt.ylabel("Frequency (m)")
+    plt.ylabel("Displacement (m)")
     plt.legend()
 
     # Save the figure as a high-resolution PNG file
