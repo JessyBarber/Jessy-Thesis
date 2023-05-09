@@ -4,7 +4,7 @@ import time
 import os
 
 # MAC ADDRESS
-PORT = '/dev/tty.usbmodem14401'
+PORT = '/dev/tty.usbmodem141401'
 # PC ADDERSS
 # PORT = 'COM5'
 BAUD_RATE = 9600

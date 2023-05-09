@@ -20,7 +20,7 @@ static const int y_axis = A2;
 static const int z_axis = A3;
 static const int adc_resolution = 4096; //12 BIT ADC
 static const double g = 9.81;
-const double noiseThreshold = 0.1;
+const double noiseThreshold = 0.15;
 // CALIBRATION
 const double vRef = 3.3; //3.3V reference / supply
 // const double vRef = 3.0; // BATTERY CONNECTION
