@@ -4,6 +4,8 @@
 //   return *std::max_element(arr, arr+sample_n);
 // }
 
+double thresholdX = 0, thresholdY = 0, thresholdZ = 0;
+
 double findMaxAbs(const double data[]) {
   double maxVal = 0;
   for (int i = 0; i < sample_n; ++i) {
@@ -52,11 +54,22 @@ void addGravity(double arr[]) {
 //   }
 // }
 
-void lowPassFilter(double *data, double alpha) {
+void lowPassFilter(double *data) {
   double filteredData = data[0]; // Initialize with the first value of the data array
 
   for (uint16_t i = 1; i < sample_n; i++) {
-    filteredData = alpha * data[i] + (1.0 - alpha) * filteredData;
+    filteredData = LP_alpha * data[i] + (1.0 - LP_alpha) * filteredData;
+    data[i] = filteredData;
+  }
+}
+
+void highPassFilter(double *data) {
+  double filteredData = data[0]; // Initialize with the first value of the data array
+  double prevRawData = data[0]; // Keep track of the previous raw data value
+
+  for (uint16_t i = 1; i < sample_n; i++) {
+    filteredData = HP_alpha * filteredData + HP_alpha * (data[i] - prevRawData);
+    prevRawData = data[i];
     data[i] = filteredData;
   }
 }
@@ -118,10 +131,19 @@ void processRawData(double xAccel[], double yAccel[], double zAccel[],
     yAccel[i] = ((voltageY - vRef / 2) / sensitivity - yZero) * g;
     zAccel[i] = ((voltageZ - vRef / 2) / sensitivity - zZero - 1) * g; // Subtract gravity
 
-    // Apply threshold to remove noise
-    xAccel[i] = (abs(xAccel[i]) < noiseThreshold) ? 0 : xAccel[i];
-    yAccel[i] = (abs(yAccel[i]) < noiseThreshold) ? 0 : yAccel[i];
-    zAccel[i] = (abs(zAccel[i]) < noiseThreshold) ? 0 : zAccel[i];
+    // // Apply threshold to remove noise
+    xAccel[i] = (abs(xAccel[i]) <= 0.7) ? 0 : xAccel[i];
+    yAccel[i] = (abs(yAccel[i]) <= 0.9) ? 0 : yAccel[i];
+    zAccel[i] = (abs(zAccel[i]) <= 0.1) ? 0 : zAccel[i];
+    // Update thresholds with exponential moving average
+    // thresholdX = alpha * abs(xAccel[i]) + (1 - alpha) * thresholdX;
+    // thresholdY = alpha * abs(yAccel[i]) + (1 - alpha) * thresholdY;
+    // thresholdZ = alpha * abs(zAccel[i]) + (1 - alpha) * thresholdZ;
+
+    // // Apply threshold to remove noise
+    // xAccel[i] = (abs(xAccel[i]) <= thresholdX) ? 0 : xAccel[i];
+    // yAccel[i] = (abs(yAccel[i]) <= thresholdY) ? 0 : yAccel[i];
+    // zAccel[i] = (abs(zAccel[i]) <= thresholdZ) ? 0 : zAccel[i];
   }
 }
 

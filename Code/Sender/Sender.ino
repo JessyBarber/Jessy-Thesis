@@ -2,6 +2,7 @@
 
 double xZero = 0.0; double yZero = 0.0; double zZero = 0.0;
 
+
 void setup() {
   // //Initialise Serial connection
   Serial.begin(9600);
@@ -38,15 +39,13 @@ void loop() {
   // ---------- SAMPLE RAW DATA ----------
   readRawData(real_x_axis, real_y_axis, real_z_axis);
   // ---------- SAMPLE RAW DATA ----------
-
+  
   // ---------- TURN RAW DATA INTO ACCELERATION (m/s/s) ----------
   processRawData(xAccel, yAccel, zAccel, real_x_axis, real_y_axis, real_z_axis,
                  xZero, yZero, zZero);
   // ---------- TURN RAW DATA INTO ACCELERATION (m/s/s) ----------
   
-  // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
-  printAxisValues(xAccel, yAccel, zAccel);
-  // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
+
   
   // ---------- REMOVE DC BIAS ----------
   // removeBias(xAccel);
@@ -54,13 +53,9 @@ void loop() {
   // removeBias(zAccel);
   // ---------- REMOVE DC BIAS ----------
 
-  // ---------- REMOVE HIGH FREQUENCIES ----------
-  // double alpha = 0.3827;
-  double alpha = 0.3394;
-  lowPassFilter(xAccel, alpha);
-  lowPassFilter(yAccel, alpha);
-  lowPassFilter(zAccel, alpha);
-  // ---------- REMOVE HIGH FREQUENCIES ----------
+  // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
+  printAxisValues(xAccel, yAccel, zAccel);
+  // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
 
   // ---------- FIND MAX ACCELERATION ----------
   maxAccelX = findMaxAbs(xAccel);
@@ -68,8 +63,16 @@ void loop() {
   maxAccelZ = findMaxAbs(zAccel);
   // ---------- FIND MAX ACCELERATION ----------
 
+  // ---------- REMOVE HIGH FREQUENCIES ----------
+  // double alpha = 0.3827;
+  // double alpha = 0.3394;
+  lowPassFilter(xAccel);
+  lowPassFilter(yAccel);
+  lowPassFilter(zAccel);
+  // ---------- REMOVE HIGH FREQUENCIES ----------
+
   // ---------- CALCULATE VELOCITY ----------
-  // integrate(xAccel, yAccel, zAccel, xVel, yVel, zVel);
+  integrate(xAccel, yAccel, zAccel, xVel, yVel, zVel);
   // ---------- CALCULATE VELOCITY ----------
 
   // DO NOT REMOVE DRIFT FROM VELOCITY, ONLY REMOVE FROM DISPLACEMENT
@@ -80,7 +83,7 @@ void loop() {
   // ---------- REMOVE VELOCITY DRIFT ----------
 
   // ---------- CALCULATE DISPLACEMENT ----------
-  // integrate(xVel, yVel, zVel, xDisp, yDisp, zDisp);
+  integrate(xVel, yVel, zVel, xDisp, yDisp, zDisp);
   // ---------- CALCULATE DISPLACEMENT ----------
 
   // ---------- REMOVE DISPLACEMENT DRIFT ----------
@@ -89,10 +92,14 @@ void loop() {
   // removeBias(zDisp);
   // ---------- REMOVE DISPLACEMENT DRIFT ----------
 
+  highPassFilter(xDisp);
+  highPassFilter(yDisp);
+  highPassFilter(zDisp);
+
   // ---------- FIND MAX DISPLACEMENT ----------
-  // maxDispX = findMaxAbs(xDisp);
-  // maxDispY = findMaxAbs(yDisp);
-  // maxDispZ = findMaxAbs(zDisp);
+  maxDispX = findMaxAbs(xDisp);
+  maxDispY = findMaxAbs(yDisp);
+  maxDispZ = findMaxAbs(zDisp);
   // ---------- FIND MAX DISPLACEMENT ----------
 
   // -------------------- TEST FUNCTIONS --------------------
@@ -122,33 +129,33 @@ void loop() {
   // -------------------- TEST FUNCTIONS --------------------
 
   // ---------- COMPUTE FFT ----------
-  arduinoFFT xFFT(xAccel, imag_x_axis, sample_n, sampling_rate);
-  arduinoFFT yFFT(yAccel, imag_y_axis, sample_n, sampling_rate);
-  arduinoFFT zFFT(zAccel, imag_z_axis, sample_n, sampling_rate);
+  // arduinoFFT xFFT(xAccel, imag_x_axis, sample_n, sampling_rate);
+  // arduinoFFT yFFT(yAccel, imag_y_axis, sample_n, sampling_rate);
+  // arduinoFFT zFFT(zAccel, imag_z_axis, sample_n, sampling_rate);
 
-  xFFT.Windowing(window_type, FFT_dir);
-  yFFT.Windowing(window_type, FFT_dir);
-  zFFT.Windowing(window_type, FFT_dir);
+  // xFFT.Windowing(window_type, FFT_dir);
+  // yFFT.Windowing(window_type, FFT_dir);
+  // zFFT.Windowing(window_type, FFT_dir);
 
-  xFFT.Compute(FFT_dir);
-  yFFT.Compute(FFT_dir);
-  zFFT.Compute(FFT_dir);
+  // xFFT.Compute(FFT_dir);
+  // yFFT.Compute(FFT_dir);
+  // zFFT.Compute(FFT_dir);
 
-  xFFT.ComplexToMagnitude();
-  yFFT.ComplexToMagnitude();
-  zFFT.ComplexToMagnitude();
+  // xFFT.ComplexToMagnitude();
+  // yFFT.ComplexToMagnitude();
+  // zFFT.ComplexToMagnitude();
   // ---------- COMPUTE FFT ----------
 
   // ---------- FIND HIGHEST FREQUENCY ----------
-  xFreq = xFFT.MajorPeak();
-  yFreq = yFFT.MajorPeak();
-  zFreq = zFFT.MajorPeak();
+  // xFreq = xFFT.MajorPeak();
+  // yFreq = yFFT.MajorPeak();
+  // zFreq = zFFT.MajorPeak();
   // ---------- FIND HIGHEST FREQUENCY ----------
 
   // ---------- CONVERT NAN TO 0 ----------
-  checkNan(xFreq); 
-  checkNan(yFreq);
-  checkNan(zFreq);
+  // checkNan(xFreq); 
+  // checkNan(yFreq);
+  // checkNan(zFreq);
   // ---------- CONVERT NAN TO 0 ----------
 
   // ---------- SERIAL PRINT FREQUENCY ----------
@@ -157,13 +164,13 @@ void loop() {
 
  // ---------- TRANSMIT LORA PACKET ----------
   LoRa.beginPacket();
-  LoRa.write((uint8_t*)&xFreq, sizeof(xFreq));
-  LoRa.write((uint8_t*)&yFreq, sizeof(yFreq));  
-  LoRa.write((uint8_t*)&zFreq, sizeof(zFreq));
+  // LoRa.write((uint8_t*)&xFreq, sizeof(xFreq));
+  // LoRa.write((uint8_t*)&yFreq, sizeof(yFreq));  
+  // LoRa.write((uint8_t*)&zFreq, sizeof(zFreq));
 
-  // LoRa.write((uint8_t*)&maxDispX, sizeof(maxDispX));
-  // LoRa.write((uint8_t*)&maxDispY, sizeof(maxDispY));
-  // LoRa.write((uint8_t*)&maxDispZ, sizeof(maxDispZ));
+  LoRa.write((uint8_t*)&maxDispX, sizeof(maxDispX));
+  LoRa.write((uint8_t*)&maxDispY, sizeof(maxDispY));
+  LoRa.write((uint8_t*)&maxDispZ, sizeof(maxDispZ));
 
   LoRa.write((uint8_t*)&maxAccelX, sizeof(maxAccelX));
   LoRa.write((uint8_t*)&maxAccelY, sizeof(maxAccelY));

@@ -22,8 +22,8 @@ static const int adc_resolution = 4096; //12 BIT ADC
 static const double g = 9.81;
 const double noiseThreshold = 0.15;
 // CALIBRATION
-const double vRef = 3.3; //3.3V reference / supply
-// const double vRef = 3.0; // BATTERY CONNECTION
+// const double vRef = 3.3; //3.3V reference / supply
+const double vRef = 3.0; // BATTERY CONNECTION
 static const double sensitivity = 0.33; //330 mV/g at 3.3V
 //---------- Accelerometer Values ----------
 
@@ -31,13 +31,24 @@ static const double sensitivity = 0.33; //330 mV/g at 3.3V
 // static const int sample_rate = 4; //Want to capture 2Hz then need at least 4Hz but x 10 to get 20Hz
 static const int frequency = 2;
 // static const int maxFreq = 4;
-static const int maxFreq = 10; // THIS IS THE MAXIMUM FREQUENCY THAT THE FFT CAN DETECT
+static const int maxFreq = 25; // THIS IS THE MAXIMUM FREQUENCY THAT THE FFT CAN DETECT
 static const uint16_t sample_n = 128; //MUST BE EXP 2
 static const constexpr double sampling_rate = maxFreq * 2; // SAMPLING RATE MUST BE AT LEAST TWICE THE MAX FREQUENCY
 // static constexpr double sampling_rate = frequency * sample_n;
 static constexpr double sample_interval = ((1.0/sampling_rate) * 1000); //Gives sample interval in milliseconds
 static constexpr uint16_t window_size = (1.0/maxFreq) * sampling_rate;
 //To sample for 10 seconds -> N = 10/T = 10/(1/20) = 200 samples
+
+// ---------- FILTER VALUES ----------
+constexpr double HP_Fc = 0.5; // high pass cut-off frequency 
+constexpr double LP_Fc = 5; // low pass cut-off frequency
+constexpr double sampling_period = 1.0 / sampling_rate;
+
+constexpr double HP_alpha = (1 - (2 * pi * HP_Fc * sampling_period)) / (1 + (2 * pi * HP_Fc * sampling_period));
+constexpr double LP_alpha = 1 / (1 + (2 * pi * LP_Fc * sampling_period));
+
+const double alpha = 0.95;
+// ---------- FILTER VALUES ----------
 
 //FFT Function Values
 // #define window_type FFT_WIN_TYP_HAMMING
@@ -55,7 +66,8 @@ static constexpr uint16_t window_size = (1.0/maxFreq) * sampling_rate;
 double findMaxAbs(const double data[]);
 // void lowPassFilter(double *input, double *output, int windowSize);
 // void lowPassFilter(double arr[]);
-void lowPassFilter(double *data, double alpha);
+void lowPassFilter(double *data);
+void highPassFilter(double *data);
 void addGravity(double arr[]);
 int findMaxIndex(double arr[]);
 double findAvg(double arr[]);
