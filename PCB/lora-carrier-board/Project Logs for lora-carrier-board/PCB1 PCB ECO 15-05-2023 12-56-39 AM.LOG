@@ -1,0 +1,7 @@
+Added Component: Designator=MKRWAN(MKR_WAN_1300_Headers)
+Added Pin To Net: NetName=x_axis Pin=MKRWAN-2
+Added Pin To Net: NetName=y_axis Pin=MKRWAN-3
+Added Pin To Net: NetName=z_axis Pin=MKRWAN-4
+Added Pin To Net: NetName=GND Pin=MKRWAN-24
+Added Pin To Net: NetName=3v3 Pin=MKRWAN-25
+Added Member To Class: ClassName=sheet1 Member=Component MKRWAN MKR_WAN_1300_Symbol

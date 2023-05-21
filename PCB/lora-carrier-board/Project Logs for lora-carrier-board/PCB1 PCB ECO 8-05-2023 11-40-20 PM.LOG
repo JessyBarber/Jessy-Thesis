@@ -1,0 +1,12 @@
+Added Component: Designator=*(MKR_WAN_1300_Headers)
+Added Pin To Net: NetName=3v3 Pin=*-25
+Added Net: Name=3v3
+Added Pin To Net: NetName=GND Pin=*-24
+Added Net: Name=GND
+Added Pin To Net: NetName=x_axis Pin=*-2
+Added Net: Name=x_axis
+Added Pin To Net: NetName=y_axis Pin=*-3
+Added Net: Name=y_axis
+Added Pin To Net: NetName=z_axis Pin=*-4
+Added Net: Name=z_axis
+Added Class: Name=sheet1

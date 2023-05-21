@@ -1,0 +1,7 @@
+Added Component: Designator=ADXL335(ADXL335_HEADERS)
+Added Pin To Net: NetName=z_axis Pin=ADXL335-1
+Added Pin To Net: NetName=y_axis Pin=ADXL335-2
+Added Pin To Net: NetName=x_axis Pin=ADXL335-3
+Added Pin To Net: NetName=GND Pin=ADXL335-4
+Added Pin To Net: NetName=3v3 Pin=ADXL335-5
+Added Member To Class: ClassName=sheet1 Member=Component ADXL335 ADXL335_Symbol
