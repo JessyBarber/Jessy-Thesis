@@ -1,3 +1,5 @@
+#include <MKRWAN_v2.h>
+
 /*
   Lora Send And Receive
   This sketch demonstrates how to send and receive data with the MKR WAN 1300/1310 LoRa module.
