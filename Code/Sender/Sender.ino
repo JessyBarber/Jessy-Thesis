@@ -30,7 +30,7 @@ void loop() {
   double maxAccelX = 0.0; double maxAccelY = 0.0; double maxAccelZ = 0.0;
 
   // MAXIMUM DISPLACEMENT
-  double maxDispX = 0.0; double maxDispY = 0.0; double maxDispZ = 0.0;
+  // double maxDispX = 0.0; double maxDispY = 0.0; double maxDispZ = 0.0;
 
   // MAXIMUM FREQUENCY
   double xFreq = 0.0; double yFreq = 0.0; double zFreq = 0.0;

@@ -1,12 +1,10 @@
-#include <MKRWAN_v2.h>
-
 /*
   Lora Send And Receive
   This sketch demonstrates how to send and receive data with the MKR WAN 1300/1310 LoRa module.
   This example code is in the public domain.
 */
 
-#include <MKRWAN_v2.h>
+#include <MKRWAN.h>
 
 LoRaModem modem;
 
@@ -15,8 +13,8 @@ LoRaModem modem;
 
 #include "arduino_secrets.h"
 // Please enter your sensitive data in the Secret tab or arduino_secrets.h
-String appEui = "F5F8685554F87B5A";
-String appKey = "78474767344737693633517962384F50";
+String appEui = SECRET_APP_EUI;
+String appKey = SECRET_APP_KEY;
 
 void setup() {
   // put your setup code here, to run once:
@@ -40,8 +38,8 @@ void setup() {
 
   // Set poll interval to 60 secs.
   modem.minPollInterval(60);
-  // NOTE: independently by this setting the modem will
-  // not allow to send more than one message every 2 minutes,
+  // NOTE: independent of this setting, the modem will
+  // not allow sending more than one message every 2 minutes,
   // this is enforced by firmware and can not be changed.
 }
 
@@ -52,7 +50,8 @@ void loop() {
 
   while (!Serial.available());
   String msg = Serial.readStringUntil('\n');
-
+  byte msgBytes[msg.length()];
+  msg.getBytes(msgBytes, msg.length());
   Serial.println();
   Serial.print("Sending: " + msg + " - ");
   for (unsigned int i = 0; i < msg.length(); i++) {
@@ -62,9 +61,22 @@ void loop() {
   }
   Serial.println();
 
+  float val1 = 2.0;
+  float val2 = 3.0;
+
+  unsigned char bytes1[sizeof(float)];
+  unsigned char bytes2[sizeof(float)];
+
+  memcpy(bytes1, &val1, sizeof(float));
+  memcpy(bytes2, &val2, sizeof(float));
+
   int err;
   modem.beginPacket();
-  modem.print(msg);
+  modem.write(bytes1, sizeof(float));
+  modem.write(bytes2, sizeof(float));
+  // modem.print(msg);
+  // modem.write(msgBytes, msg.length());
+  // modem.write()
   err = modem.endPacket(true);
   if (err > 0) {
     Serial.println("Message sent correctly!");
