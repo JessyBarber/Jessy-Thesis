@@ -1,0 +1,27 @@
+function Decoder(bytes, port) {
+  function bytesToFloat(bytes) {
+    var floatBytes = bytes.slice(0, 4); // First 4 bytes for the first float
+    var floatBytes2 = bytes.slice(4, 8); // Next 4 bytes for the second float
+  
+    var bits = floatBytes[0] | floatBytes[1] << 8 | floatBytes[2] << 16 | floatBytes[3] << 24;
+    var sign = (bits >>> 31 === 0) ? 1.0 : -1.0;
+    var e = bits >>> 23 & 0xff;
+    var m = (e === 0) ? (bits & 0x7fffff) << 1 : (bits & 0x7fffff) | 0x800000;
+    var f = sign * m * Math.pow(2, e - 150);
+  
+    var bits2 = floatBytes2[0] | floatBytes2[1] << 8 | floatBytes2[2] << 16 | floatBytes2[3] << 24;
+    var sign2 = (bits2 >>> 31 === 0) ? 1.0 : -1.0;
+    var e2 = bits2 >>> 23 & 0xff;
+    var m2 = (e2 === 0) ? (bits2 & 0x7fffff) << 1 : (bits2 & 0x7fffff) | 0x800000;
+    var f2 = sign2 * m2 * Math.pow(2, e2 - 150);
+  
+    return [f, f2]; // Return an array of the decoded floats
+  }
+
+  var decodedValues = bytesToFloat(bytes);
+  
+  return {
+    value1: decodedValues[0],
+    value2: decodedValues[1]
+  };
+}

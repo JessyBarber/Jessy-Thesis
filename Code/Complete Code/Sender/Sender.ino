@@ -2,12 +2,14 @@
 
 double xZero = 0.0; double yZero = 0.0; double zZero = 0.0;
 
-int Iterations = 150;
-
-float max_accel_storage_x[sample_n]{}; float max_accel_storage_y[sample_n]{}; float max_accel_storage_z[sample_n]{};
-float max_freq_storage_x[sample_n]{}; float max_freq_storage_y[sample_n]{}; float max_freq_storage_z[sample_n]{};
-
-int count = 0;
+//Store total max values for averaging later
+float totalMaxAccelX = 0.0; float totalMaxAccelY = 0.0; float totalMaxAccelZ = 0.0;
+float totalMaxFreqX = 0.0; float totalMaxFreqY = 0.0; float totalMaxFreqZ = 0.0;
+//Record the number of computations within the time limit
+int computationCount = 0;
+//Timing variables
+unsigned long previousMillis = 0;
+const long interval = 60000; //test scenario 60 seconds
 
 void setup() {
   // //Initialise Serial connection
@@ -18,135 +20,136 @@ void setup() {
 
 void loop() {
   // ---------- VARIABLES ----------
-  if(count < Iterations){
-    // unsigned long StartTime = millis();
-    // FFT SAMPLING
-    double real_x_axis[sample_n]{}; double imag_x_axis[sample_n]{};
-    double real_y_axis[sample_n]{}; double imag_y_axis[sample_n]{};
-    double real_z_axis[sample_n]{}; double imag_z_axis[sample_n]{};
-    
-    // ACCELERATION SAMPLING
-    double xAccel[sample_n]{}; double yAccel[sample_n]{}; double zAccel[sample_n]{};
+  double real_x_axis[sample_n]{}; double imag_x_axis[sample_n]{};
+  double real_y_axis[sample_n]{}; double imag_y_axis[sample_n]{};
+  double real_z_axis[sample_n]{}; double imag_z_axis[sample_n]{};
+  
+  // ACCELERATION SAMPLING
+  double xAccel[sample_n]{}; double yAccel[sample_n]{}; double zAccel[sample_n]{};
 
-    // MAXIMUM ACCELERATION
-    float maxAccelX = 0.0; float maxAccelY = 0.0; float maxAccelZ = 0.0;
+  // MAXIMUM ACCELERATION
+  float maxAccelX = 0.0; float maxAccelY = 0.0; float maxAccelZ = 0.0;
 
-    // MAXIMUM FREQUENCY
-    float xFreq = 0.0; float yFreq = 0.0; float zFreq = 0.0;
-    // ---------- VARIABLES ----------
+  // MAXIMUM FREQUENCY
+  float xFreq = 0.0; float yFreq = 0.0; float zFreq = 0.0;
+  // ---------- VARIABLES ----------
 
-    // ---------- SAMPLE RAW DATA ----------
-    readRawData(real_x_axis, real_y_axis, real_z_axis);
-    // ---------- SAMPLE RAW DATA ----------
-    
-    // ---------- TURN RAW DATA INTO ACCELERATION (m/s/s) ----------
-    processRawData(xAccel, yAccel, zAccel, real_x_axis, real_y_axis, real_z_axis,
-                  xZero, yZero, zZero);
-    // ---------- TURN RAW DATA INTO ACCELERATION (m/s/s) ----------
-    
-    // ---------- REMOVE DC BIAS ----------
-    // removeBias(xAccel);
-    // removeBias(yAccel);
-    // removeBias(zAccel);
-    // ---------- REMOVE DC BIAS ----------
+  // ---------- SAMPLE RAW DATA ----------
+  readRawData(real_x_axis, real_y_axis, real_z_axis);
+  // ---------- SAMPLE RAW DATA ----------
+  
+  // ---------- TURN RAW DATA INTO ACCELERATION (m/s/s) ----------
+  processRawData(xAccel, yAccel, zAccel, real_x_axis, real_y_axis, real_z_axis,
+                xZero, yZero, zZero);
+  // ---------- TURN RAW DATA INTO ACCELERATION (m/s/s) ----------
 
-    // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
-    // printAxisValues(xAccel, yAccel, zAccel);
-    // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
+  // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
+  // printAxisValues(xAccel, yAccel, zAccel);
+  // ---------- SERIAL PRINT ACCELERATION (m/s/s) ----------
 
-    // ---------- FIND MAX ACCELERATION ----------
-    maxAccelX = float(findMaxAbs(xAccel));
-    maxAccelY = float(findMaxAbs(yAccel));
-    maxAccelZ = float(findMaxAbs(zAccel));
-    // ---------- FIND MAX ACCELERATION ----------
+  // ---------- FIND MAX ACCELERATION ----------
+  maxAccelX = float(findMaxAbs(xAccel));
+  maxAccelY = float(findMaxAbs(yAccel));
+  maxAccelZ = float(findMaxAbs(zAccel));
+  // ---------- FIND MAX ACCELERATION ----------
 
-    // ---------- REMOVE HIGH FREQUENCIES ----------
-    // double alpha = 0.3827;
-    // double alpha = 0.3394;
-    lowPassFilter(xAccel);
-    lowPassFilter(yAccel);
-    lowPassFilter(zAccel);
-    // ---------- REMOVE HIGH FREQUENCIES ----------
+  // ---------- REMOVE HIGH FREQUENCIES ----------
+  lowPassFilter(xAccel);
+  lowPassFilter(yAccel);
+  lowPassFilter(zAccel);
+  // ---------- REMOVE HIGH FREQUENCIES ----------
 
-    // ---------- COMPUTE FFT ----------
-    arduinoFFT xFFT(xAccel, imag_x_axis, sample_n, sampling_rate);
-    arduinoFFT yFFT(yAccel, imag_y_axis, sample_n, sampling_rate);
-    arduinoFFT zFFT(zAccel, imag_z_axis, sample_n, sampling_rate);
+  // ---------- COMPUTE FFT ----------
+  arduinoFFT xFFT(xAccel, imag_x_axis, sample_n, sampling_rate);
+  arduinoFFT yFFT(yAccel, imag_y_axis, sample_n, sampling_rate);
+  arduinoFFT zFFT(zAccel, imag_z_axis, sample_n, sampling_rate);
 
-    xFFT.Windowing(window_type, FFT_dir);
-    yFFT.Windowing(window_type, FFT_dir);
-    zFFT.Windowing(window_type, FFT_dir);
+  xFFT.DCRemoval();
+  yFFT.DCRemoval();
+  zFFT.DCRemoval();
 
-    xFFT.Compute(FFT_dir);
-    yFFT.Compute(FFT_dir);
-    zFFT.Compute(FFT_dir);
+  xFFT.Windowing(window_type, FFT_dir);
+  yFFT.Windowing(window_type, FFT_dir);
+  zFFT.Windowing(window_type, FFT_dir);
 
-    xFFT.ComplexToMagnitude();
-    yFFT.ComplexToMagnitude();
-    zFFT.ComplexToMagnitude();
-    // ---------- COMPUTE FFT ----------
+  xFFT.Compute(FFT_dir);
+  yFFT.Compute(FFT_dir);
+  zFFT.Compute(FFT_dir);
 
-    // ---------- FIND HIGHEST FREQUENCY ----------
-    xFreq = float(xFFT.MajorPeak());
-    yFreq = float(yFFT.MajorPeak());
-    zFreq = float(zFFT.MajorPeak());
-    // ---------- FIND HIGHEST FREQUENCY ----------
+  xFFT.ComplexToMagnitude();
+  yFFT.ComplexToMagnitude();
+  zFFT.ComplexToMagnitude();
+  // ---------- COMPUTE FFT ----------
 
-    // ---------- CONVERT NAN TO 0 ----------
-    checkNan(xFreq); 
-    checkNan(yFreq);
-    checkNan(zFreq);
-    // ---------- CONVERT NAN TO 0 ----------
+  // ---------- FIND HIGHEST FREQUENCY ----------
+  xFreq = float(xFFT.MajorPeak());
+  yFreq = float(yFFT.MajorPeak());
+  zFreq = float(zFFT.MajorPeak());
+  // ---------- FIND HIGHEST FREQUENCY ----------
 
-    max_accel_storage_x[count] = maxAccelX;
-    max_accel_storage_y[count] = maxAccelY;
-    max_accel_storage_z[count] = maxAccelZ;
+  // ---------- CONVERT NAN TO 0 ----------
+  checkNan(maxAccelX); 
+  checkNan(maxAccelY);
+  checkNan(maxAccelZ);
 
-    max_freq_storage_x[count] = xFreq;
-    max_freq_storage_y[count] = yFreq;
-    max_freq_storage_z[count] = zFreq;
+  checkNan(xFreq); 
+  checkNan(yFreq);
+  checkNan(zFreq);
+  // ---------- CONVERT NAN TO 0 ----------
 
-    count ++;
+  totalMaxAccelX += maxAccelX;
+  totalMaxAccelY += maxAccelY;
+  totalMaxAccelZ += maxAccelZ;
 
-    // unsigned long CurrentTime = millis();
-    // unsigned long ElapsedTime = CurrentTime - StartTime;
-    // Serial.println(ElapsedTime/1000);
-  }
-  else {
-    count = 0;
-    // for(int i = 0; i < sample_n; i++) {
-    //   Serial.print(max_accel_storage_x[i]);
-    //   Serial.print(" ");
-    //   Serial.print(max_accel_storage_y[i]);
-    //   Serial.print(" ");
-    //   Serial.print(max_accel_storage_z[i]);
-    //   Serial.print(" ");
-    //   Serial.print(max_freq_storage_x[i]);
-    //   Serial.print(" ");
-    //   Serial.print(max_freq_storage_y[i]);
-    //   Serial.print(" ");
-    //   Serial.println(max_freq_storage_z[i]);
-    // }
+  totalMaxFreqX += xFreq;
+  totalMaxFreqY += yFreq;
+  totalMaxFreqZ += zFreq;
 
-    float max_accel_x = findMax(max_accel_storage_x);
-    float max_accel_y = findMax(max_accel_storage_y);
-    float max_accel_z = findMax(max_accel_storage_z);
+  computationCount++;
 
-    float max_freq_x = findMax(max_freq_storage_x);
-    float max_freq_y = findMax(max_freq_storage_y);
-    float max_freq_z = findMax(max_freq_storage_z);
+  unsigned long currentMillis = millis();
+  if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
 
-    Serial.print(max_accel_x);
+    float averageMaxAccelX = totalMaxAccelX / computationCount;
+    float averageMaxAccelY = totalMaxAccelY / computationCount;
+    float averageMaxAccelZ = totalMaxAccelZ / computationCount;
+
+    float averageMaxFreqX = totalMaxFreqX / computationCount;
+    float averageMaxFreqY = totalMaxFreqY / computationCount;
+    float averageMaxFreqZ = totalMaxFreqZ / computationCount;
+
+    Serial.print(averageMaxAccelX);
     Serial.print(" ");
-    Serial.print(max_accel_y);
+    Serial.print(averageMaxAccelY);
     Serial.print(" ");
-    Serial.print(max_accel_z);
+    Serial.print(averageMaxAccelZ);
     Serial.print(" ");
-    Serial.print(max_freq_x);
+    Serial.print(averageMaxFreqX);
     Serial.print(" ");
-    Serial.print(max_freq_y);
+    Serial.print(averageMaxFreqY);
     Serial.print(" ");
-    Serial.println(max_freq_z);
+    Serial.println(averageMaxFreqZ);
+
+    LoRa.beginPacket();
+    LoRa.write((uint8_t*)&maxAccelX, sizeof(maxAccelX));
+    LoRa.write((uint8_t*)&maxAccelY, sizeof(maxAccelY));
+    LoRa.write((uint8_t*)&maxAccelZ, sizeof(maxAccelZ));
+
+    LoRa.write((uint8_t*)&xFreq, sizeof(xFreq));
+    LoRa.write((uint8_t*)&yFreq, sizeof(yFreq));  
+    LoRa.write((uint8_t*)&zFreq, sizeof(zFreq));
+    LoRa.endPacket();
+
+    totalMaxAccelX = 0.0;
+    totalMaxAccelY = 0.0;
+    totalMaxAccelZ = 0.0;
+
+    totalMaxFreqX = 0.0;
+    totalMaxFreqY = 0.0;
+    totalMaxFreqZ = 0.0;
+
+    computationCount = 0;
   }
 
   // IF COUNT IS~~~~~~~~
@@ -161,5 +164,4 @@ void loop() {
   // LoRa.write((uint8_t*)&maxAccelZ, sizeof(maxAccelZ));
   // LoRa.endPacket();
   // ---------- TRANSMIT LORA PACKET ----------
-
 }

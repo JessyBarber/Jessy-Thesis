@@ -13,13 +13,13 @@ void setup() {
 
 void loop() {
     if (LoRa.parsePacket()) {
-    double receivedFreqX;
-    double receivedFreqY;
-    double receivedFreqZ;
+    float receivedFreqX;
+    float receivedFreqY;
+    float receivedFreqZ;
 
-    double receviedAccelX;
-    double receviedAccelY;
-    double receviedAccelZ;
+    float receviedAccelX;
+    float receviedAccelY;
+    float receviedAccelZ;
 
     LoRa.readBytes((uint8_t*)&receivedFreqX, sizeof(receivedFreqX));
     LoRa.readBytes((uint8_t*)&receivedFreqY, sizeof(receivedFreqY));
