@@ -16,6 +16,13 @@
 % Custom packages
 \usepackage{comment}
 \usepackage[numbers]{natbib}
+\usepackage{booktabs}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{subcaption}
+
+\useunder{\uline}{\ul}{}
 
 \bibliographystyle{IEEEtran}
 
@@ -66,9 +73,10 @@ hmargin=3cm
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-\rfoot{\thepage}
+\fancyhead[R]{\MakeUppercase{6007ENG - Industry Affiliates Program, Trimester 1, 2023}}
+\fancyfoot[R]{Jessy Barber - Griffith University | \thepage}
 \fancypagestyle{plain}{\pagestyle{fancy}}
+\renewcommand{\headrulewidth}{0pt}
 
 % DESIGN OF THE TITLES of the parts of the work (chapters and epigraphs or sub-chapters)
 \usepackage{titlesec}
@@ -203,6 +211,7 @@ hmargin=3cm
 %----------
 %	COVER
 %----------	
+
 \begin{titlepage}
 	\begin{sffamily}
 	\color{azulUC3M}
@@ -214,82 +223,75 @@ hmargin=3cm
 		\end{comment}
 		\vspace{2.5cm}
 		\begin{Large}
-			Master Degree in...\\			
-			 2020-2021\\ % Academic year
+			Bachelor of Electrical and Electronic Engineering (Honours)\\			
+			 2023\\ % Academic year
 			\vspace{2cm}		
-			\textsl{Master Thesis}
+			\textsl{6007ENG - Industry Affiliates Program}
 			\bigskip
 			
 		\end{Large}
-		 	{\Huge ``Thesis title''}\\
+		 	{\Huge Structural Health Monitoring of the Griffith Footbridge Using LoRaWAN Technology}\\
 		 	\vspace*{0.5cm}
 	 		\rule{10.5cm}{0.1mm}\\
 			\vspace*{0.9cm}
-			{\LARGE Author's complete name}\\ 
+			{\LARGE Jessy Barber}\\ 
 			\vspace*{1cm}
 		\begin{Large}
-			1st Tutor complete name\\
-			2nd Tutor complete name\\
-			Place and date\\
+			Griffith University Internal Project\\
+			Yong Zhu
 		\end{Large}
 	\end{center}
 	\vfill
-	\color{black}
-	\fbox{
-	\begin{minipage}{\linewidth}
-    	\textbf{AVOID PLAGIARISM}\\
-    	\footnotesize{The University uses the \textbf{Turnitin Feedback Studio} for the delivery of student work. This program compares the originality of the work delivered by each student with millions of electronic resources and detects those parts of the text that are copied and pasted. Plagiarizing in a TFM is considered a  \textbf{\underline{Serious Misconduct}}, and may result in permanent expulsion from the University.}\end{minipage}}
-
-	% IF OUR WORK IS TO BE PUBLISHED UNDER A CREATIVE COMMONS LICENSE, INCLUDE THESE LINES. IS THE RECOMMENDED OPTION.
-\begin{comment}
-	\noindent\includegraphics[width=4.2cm]{creativecommons.png}\\ % Creative Commons Logo
-\end{comment}
-    \footnotesize{This work is licensed under Creative Commons \textbf{Attribution – Non Commercial – Non Derivatives}}
-	
+	\begin{figure}
+		\includegraphics{griffithlogo.png}
+	\end{figure}
 	\end{sffamily}
 \end{titlepage}
 
-\newpage % blank page
-\thispagestyle{empty}
-\mbox{}
-
-\newpage % blank page
-\thispagestyle{empty}
-\mbox{}
 
 %----------
 %	ABSTRACT AND KEYWORDS 
 %----------	
-\renewcommand\abstractname{\large\bfseries\filcenter\uppercase{Summary}}
+\renewcommand\abstractname{\large\bfseries\filcenter\uppercase{Executive Summary}}
 \begin{abstract}
 \thispagestyle{plain}
-\setcounter{page}{3}
+\setcounter{page}{1}
 	
 	% Write your abstract
+This research presents a novel approach for Structural Health Monitoring (SHM) of the Griffith University footbridge, harnessing the power of LoRaWAN technology within the framework of the Internet of Things (IoT). The study is undertaken in two phases. 
 	
-	\textbf{Keywords:} % add the keywords
+The first phase focuses on the software development and testing of the initial three layers of the IoT architecture: coding, perception and network. This involves the utilisation of two Arduino MKRWAN 1300 devices, where one serves as a LoRa node and the other as a LoRaWAN gateway. An ADXL335 3-axis accelerometer is integrated into the system to capture vibrational data, which is processed and visualized through Python scripts. 
+	
+The second phase extends the reach of the IoT architecture to incorporate middleware and application layers. It also includes hardware modifications like transitioning to a custom PCB and a 3D printed enclosure. The data captured is transmitted via a LoRaWAN connection to a WisGate Edge Lite 2 gateway and then relayed to the TNN cloud. Data visualization and analysis are facilitated using the Arduino IoT Cloud dashboard.
+	
+Each phase is guided by defined objectives, including hardware design and testing, software validation, and comprehensive field tests. The overall outcome is a potential new standard for bridge health monitoring using LoRaWAN technology, as exemplified by the Griffith University footbridge.
 	
 	\vfill
 \end{abstract}
-	\newpage % Blank page
-	\thispagestyle{empty}
-	\mbox{}
+
 
 
 %----------
 %	Dedication
 %----------	
-\chapter*{Dedication}
+\chapter*{Acknowledgements}
 
-\setcounter{page}{5}
+\setcounter{page}{2}
 	
 	% Write here	
-		
+	I would like this opportunity to acknowledge and thank the following people, without whom I would not be able to complete this project:
+
+My mother and father, for always supporting me every step of the way on my academic journey. For supporting me both mentally and financially during my studies, I thank you deeply. 
+
+My group of friends, for respecting the time required for my studies, and always being there to elevate my spirits. 
+
+My fellow peers at Griffith who I have met along the way, I thank you for being patient with me and always providing a fun learning experience. 
+
+My work staff and bosses, for allowing me to take time off from my dream job to complete my degree, and allowing me to come back full time the moment I finish. 
+
+And finally I would like to thank my supervisor Yong Zhu and project partner Huiyue Qiao for their countless hours in meetings and extensive laboratory testing. I hope you enjoyed the project as much as I did. 
 	\vfill
-	
-	\newpage % blank page
-	\thispagestyle{empty}
-	\mbox{}
+
 	
 
 %----------
@@ -302,9 +304,6 @@ hmargin=3cm
 \tableofcontents
 \thispagestyle{fancy}
 
-\newpage % blank page
-\thispagestyle{empty}
-\mbox{}
 
 %--
 % List of figures. If they are not included, comment the following lines
@@ -312,9 +311,6 @@ hmargin=3cm
 \listoffigures
 \thispagestyle{fancy}
 
-\newpage % blank page
-\thispagestyle{empty}
-\mbox{}
 
 %--
 % List of tables. If they are not included, comment the following lines
@@ -322,17 +318,13 @@ hmargin=3cm
 \listoftables
 \thispagestyle{fancy}
 
-\newpage % blankpage
-\thispagestyle{empty}
-\mbox{}
-
 
 %----------
 %	THESIS
 %----------	
 \clearpage
 \pagenumbering{arabic} % numbering with Arabic numerals for the rest of the document.	
-
+\pagestyle{fancy}
 \chapter{Introduction}
 \input{Sections/Introduction/Report-Structure}
 \input{Sections/Introduction/Project-Background}
@@ -340,6 +332,12 @@ hmargin=3cm
 \newpage
 \chapter{Review of Published Literature}
 \input{Sections/Literature-Review/Literature-Review}
+\chapter{Design Process}
+\input{Sections/Design-Process/Design-Specifications}
+\chapter{Prototype Testing}
+\input{Sections/Prototype-Testing/Testing-Methodology}
+\chapter{Discussions}
+\input{Sections/Discussions/Discussions}
 
 % IMPORTANT: Latex special characters are: # $ % & \ ^ _ { } ~. To avoid mistakes when compiling try writing \ before. For: \ use \textbackslash ; for ^ \textasciitilde and ~ \textasciicircum.
 
@@ -352,7 +350,7 @@ hmargin=3cm
 %     \end{figure}
     
 
-%     Example of table:
+%     Example of table:S
 % \begin{table}[H]
 % 	\ttabbox[\FBwidth]
 % 	{\caption{Lorem ipsum}}
@@ -383,7 +381,7 @@ hmargin=3cm
 % 		7.0 & 4.82 & 7.0 & 7.26 & 7.0 & 6.42 & 8.0 & 7.91 \\
 % 		\hline
 % 		5.0 & 5.68 & 5.0 & 4.74 & 5.0 & 5.73 & 8.0 & 6.89 \\
-% 		\hline
+% 		\hlineS
 % 		\multicolumn{5}{l}{Source: BOE}
 % 	\end{tabular}}
 % \end{table}
@@ -408,8 +406,9 @@ hmargin=3cm
 %----------	
 
 % If your work includes Appendix, you can uncomment the following lines
-%\chapter* {Appendix x}
-%\pagenumbering{gobble} % Appendix pages are not numbered
+\chapter {Appendix}
+\pagenumbering{gobble} % Appendix pages are not numbered
+\input{Sections/Appendix/Appendix}
 
 
 

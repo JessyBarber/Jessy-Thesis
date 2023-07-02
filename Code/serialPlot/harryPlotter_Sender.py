@@ -34,10 +34,10 @@ plt.plot(raw_yAccel, label="y_axis")
 plt.plot(raw_zAccel, label="z_axis")
 
 # Set plot labels and legend
-plt.title("Raw Acceleration")
-plt.xlabel("Samples")
-plt.ylabel("Acceleration (m/s/s)")
-plt.legend()
+plt.title("Raw Acceleration", fontsize=20)
+plt.xlabel("Samples", fontsize=20)
+plt.ylabel("Acceleration (m/s/s)", fontsize=20)
+plt.legend(fontsize=15)
 
 # Save the figure as a high-resolution PNG file
 plt.savefig(full_path2, dpi=300)

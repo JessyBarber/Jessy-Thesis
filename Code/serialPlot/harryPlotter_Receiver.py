@@ -54,10 +54,10 @@ if (plotType == "FFT"):
     plt.plot(zVar, label="z_axis")
 
     # Set plot labels and legend
-    plt.title("FFT")
-    plt.xlabel("N's")
-    plt.ylabel("Frequency (Hz)")
-    plt.legend()
+    plt.title("FFT", fontsize=20)
+    plt.xlabel("N's", fontsize=20)
+    plt.ylabel("Frequency (Hz)", fontsize=20)
+    plt.legend(fontsize=15)
 
     # Save the figure as a high-resolution PNG file
     plt.savefig(full_path2, dpi=300)
@@ -71,10 +71,10 @@ if (plotType == "FFT"):
     plt.plot(zAccel, label="z_axis")
 
     # Set plot labels and legend
-    plt.title("Maximum Acceleration")
-    plt.xlabel("N's")
-    plt.ylabel("Max Acceleration (m/s/s)")
-    plt.legend()
+    plt.title("Maximum Acceleration", fontsize=20)
+    plt.xlabel("N's", fontsize=20)
+    plt.ylabel("Max Acceleration (m/s/s)", fontsize=20)
+    plt.legend(fontsize=15)
 
     # Save the second figure as a high-resolution PNG files
     plt.savefig(full_path3, dpi=300)

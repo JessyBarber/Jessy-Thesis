@@ -18,7 +18,8 @@ def read_log_data():
     return raw_xAccel, raw_yAccel, raw_zAccel
 
 fname = input("Enter the name of the log file: ")
-fname2 = input("Enter the name of the raw acceleration plot file (with file extension): ")
+fname2 = input("Enter the name of the raw acceleration \
+               plot file (with file extension): ")
 
 dir_path = "serialPlot/logs/"
 full_path = os.path.join(dir_path, fname)

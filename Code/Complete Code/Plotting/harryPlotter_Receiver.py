@@ -29,8 +29,10 @@ def read_log_data():
 
 # Open and overwrite senderlog
 fname = input("Enter the name of the log file: ")
-fname2 = input("Enter the name of the FFT plot file (with file extension): ")
-fname3 = input("Enter the name of the accleration plot file (with file extension): ")
+fname2 = input("Enter the name of the FFT plot file \
+               (with file extension): ")
+fname3 = input("Enter the name of the accleration \
+               plot file (with file extension): ")
 
 dir_path = "serialPlot/logs/"
 full_path = os.path.join(dir_path, fname)

@@ -85,7 +85,7 @@ void loop() {
   xFreq = float(xFFT.MajorPeak());
   yFreq = float(yFFT.MajorPeak());
   zFreq = float(zFFT.MajorPeak());
-  // ---------- FIND HIGHEST FREQUENCY ----------
+  // ---------- FIND HIGHEST FREQUENCY ----------x
 
   // ---------- CONVERT NAN TO 0 ----------
   checkNan(maxAccelX); 

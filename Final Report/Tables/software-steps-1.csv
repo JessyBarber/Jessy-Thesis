@@ -1,0 +1,28 @@
+﻿Step,Process
+Sender,
+1,Relevant Arduino and CPP libraries are imported and varaibles are initialized. 
+2,LoRa and serial connection is initialized. 
+3,The accelerometer is calibrated and zero values are set for each axis. 
+4,The raw acceleration is sampled and processed. 
+5,The maximum acceleration is found. 
+6,Low pass filter is applied to the acceleration values. 
+7,FFT is computed and the peak frequency is found. 
+8,NaN values are converted to 0. 
+9,Max acceleration and frequency values for each axis are converted to bytes and sent via LoRa packet. 
+Receiver,
+10,Relevant Arduino and CPP libraries are imported and varaibles are initialized. 
+11,LoRa and serial connection is initialized. 
+12,Check whether there is a LoRa packet to read. The code loops until there is an available packet. 
+13,When there is an available packet the frequency and acceleration values are decoded and printed. 
+Logging ,
+14,Relevant Python modules are imported and serial connection is initialized. 
+15,The user enters the name of the log file. 
+16,Check whether there is serial data to read. The code loops until there is available data. 
+17,When there is data available it is parsed and validated. 
+18,Once validated the data is appended to a list and the serial connection is terminated. 
+19,The serial data is written to the specified file. 
+Plotting,
+20,Relevant Python modules are imported.
+21,The user enters the name of the log file and the plot file. 
+22,The data from the log file is read and plotted. 
+23,The plots are saved with the specified file names and displayed to the user. 

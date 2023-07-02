@@ -1,0 +1,90 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Report Structure}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Project Background}{1}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Wireless Sensor Networks}{1}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Structural Health Monitoring}{1}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Internet of Things}{2}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}LoRa and LoRaWAN}{3}{subsection.1.2.4}%
+\contentsline {section}{\numberline {1.3}Aims and Objectives}{3}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Prototype 1: Testing IoT Layers 1-3 and Software}{4}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Prototype 2: Implementing IoT Layers 4-5 and Hardware Deployment}{5}{subsection.1.3.2}%
+\contentsline {chapter}{\numberline {2}Review of Published Literature}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Review of the Published Literature}{6}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Design Process}{12}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Methodology}{12}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Design Specifications}{12}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}System Design}{12}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Data Processing}{13}{subsection.3.2.2}%
+\contentsline {subsubsection}{Sampling}{13}{subsection.3.2.2}%
+\contentsline {subsubsection}{Discretising the Accelerometer Readings}{15}{table.caption.15}%
+\contentsline {subsubsection}{Filtering}{15}{equation.3.2.1}%
+\contentsline {subsubsection}{Fast Fourier Transform}{15}{equation.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Design Resources}{16}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Software Design}{16}{subsection.3.2.4}%
+\contentsline {subsubsection}{Import Libraries and Modules}{16}{subsection.3.2.4}%
+\contentsline {subsubsection}{Program Parameters}{17}{subsection.3.2.4}%
+\contentsline {subsubsection}{Initializing LoRa and Serial Connection}{17}{subsection.3.2.4}%
+\contentsline {subsubsection}{Accelerometer Calibration}{17}{subsection.3.2.4}%
+\contentsline {subsubsection}{Prototype 1 Main Software Loop}{23}{table.caption.23}%
+\contentsline {subsubsection}{Arduino Cloud Initialization}{26}{table.caption.23}%
+\contentsline {subsubsection}{Prototype 2 Main Software Loop}{26}{table.caption.23}%
+\contentsline {subsection}{\numberline {3.2.5}Hardware Design}{27}{subsection.3.2.5}%
+\contentsline {subsubsection}{PCB Design}{27}{subsection.3.2.5}%
+\contentsline {subsubsection}{Enclosure Design}{30}{figure.caption.30}%
+\contentsline {subsection}{\numberline {3.2.6}Packet Transmission}{32}{subsection.3.2.6}%
+\contentsline {chapter}{\numberline {4}Prototype Testing}{33}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Testing Methodology and Criteria}{33}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Prototype 1: Beam Test}{33}{subsection.4.1.1}%
+\contentsline {subsubsection}{Prototype 1: Test 1}{34}{figure.caption.34}%
+\contentsline {subsubsection}{Prototype 1: Test 1 Results}{34}{figure.caption.35}%
+\contentsline {subsubsection}{Prototype 1: Test 2}{37}{figure.caption.40}%
+\contentsline {subsubsection}{Prototype 1: Test 2 Results}{37}{figure.caption.40}%
+\contentsline {subsubsection}{Prototype 1: Test 3}{39}{figure.caption.43}%
+\contentsline {subsubsection}{Prototype 1: Test 3 Results}{39}{figure.caption.43}%
+\contentsline {subsection}{\numberline {4.1.2}Prototype 2: Bridge Test}{40}{subsection.4.1.2}%
+\contentsline {subsubsection}{Prototype 2: Test 1}{41}{figure.caption.45}%
+\contentsline {subsubsection}{Prototype 2: Test 1 Results}{42}{figure.caption.46}%
+\contentsline {subsubsection}{Prototype 2: Test 2}{45}{figure.caption.50}%
+\contentsline {subsubsection}{Prototype 2: Test 2 Results}{45}{figure.caption.51}%
+\contentsline {subsubsection}{Prototype 2: Test 3}{48}{figure.caption.55}%
+\contentsline {subsubsection}{Prototype 2: Test 3 Results}{48}{figure.caption.55}%
+\contentsline {chapter}{\numberline {5}Discussions}{52}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Effectiveness of LoRa Node}{52}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}FFT Accuracy and Device Calibration}{52}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Low Power}{52}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Noise Thresholds and Response}{52}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Impact of Pedestrian Load}{53}{subsection.5.1.4}%
+\contentsline {section}{\numberline {5.2}LoRaWAN Signal Strength}{53}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Communication Range}{53}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Antenna Orientation and Placement}{54}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Data Corruption and Signal Resilience}{54}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Recommendations}{54}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Hardware Selection}{54}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Network Infrastructure}{55}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Data Analysis and Monitoring}{56}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Antenna and Gateway Upgrades}{56}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.3.5}Enclosure and PCB Design}{57}{subsection.5.3.5}%
+\contentsline {section}{\numberline {5.4}Conclusion}{57}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Appendix}{}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Bill of Materials}{}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Prototype 1 Bill of Materials}{}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Prototype 2 Bill of Materials}{}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}System Diagrams}{}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Python Sender Plotting Script}{}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Python Receiver Plotting Script}{}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Programs}{}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Prototype 1: Sender Main Program}{}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Prototype 1: Sender Header File}{}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Prototype 1: Sender Functions}{}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Prototype 1: Recevier Main Program}{}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}Prototype 1: Sender Logger Program}{}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}Prototype 1: Sender Plotter Program}{}{subsection.6.3.6}%
+\contentsline {subsection}{\numberline {6.3.7}Prototype 1: Receiver Logger Program}{}{subsection.6.3.7}%
+\contentsline {subsection}{\numberline {6.3.8}Prototype 1: Receiver Plotter Program}{}{subsection.6.3.8}%
+\contentsline {subsection}{\numberline {6.3.9}Prototype 2: Sender Main Program}{}{subsection.6.3.9}%
+\contentsline {subsection}{\numberline {6.3.10}Prototype 2: Sender Thing Properties Header File}{}{subsection.6.3.10}%
+\contentsline {section}{\numberline {6.4}Network Layer}{}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}TNN Live Data}{}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Arduino Iot Cloud Dashboard}{}{subsection.6.4.2}%
+\contentsfinish 

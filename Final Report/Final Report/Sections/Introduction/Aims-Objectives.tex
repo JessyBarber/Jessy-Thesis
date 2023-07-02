@@ -1,15 +1,48 @@
 \section{Aims and Objectives}
 
+The primary goal of this research is to establish an IoT-driven Structural Health Monitoring (SHM) system for Griffith University's footbridge. This project aims to develop, deploy, and test two iterative prototypes designed to monitor the bridge's health by assessing key indicators such as vibration frequency and acceleration. These prototypes incorporate the first five layers of the IoT architecture: coding, perception, network, middleware, and application layers.
+
+The development process for these two prototypes is progressive, with each prototype incorporating increasing complexity in components and software to ensure the efficient operation of the final system.
+
+\subsection{Prototype 1: Testing IoT Layers 1-3 and Software} 
+
+The first prototype primarily tests the software and the first three layers of the IoT architecture. This stage uses two Arduino MKRWAN1300 devices, one functioning as a LoRa node (layers one and two) and the other as a pseudo LoRaWAN gateway (layer 3). An ADXL335 3-axis accelerometer collects vibration data from the beam along the z-axis. This data is processed at the node, with the maximum frequency peak and acceleration values identified and transmitted via LoRa to the gateway. A Python script logs the received data, which is then visualized using a plotting script.
+
+Objectives for Prototype 1 include:
+
+\begin{enumerate}
+\item Validation of the MKRWAN devices' functionality and their compatibility with the LoRaWAN protocol.
+\item Integration of an accelerometer into the node and development of a software module to accurately sample and digitize raw acceleration values.
+\item Creation of a software algorithm to conduct FFT analysis on these discrete values, and identification and logging of the peak frequency.
+\item Development of software capable of accurately logging and plotting the raw acceleration data from the node.
+\item Successful transmission and reception of maximum acceleration and peak frequency data between the node and the gateway with a focus on data accuracy and minimal packet loss.
+\item Design and implementation of software for logging and visual display of the maximum acceleration and peak frequency data received from the gateway.
+\item Determination of the maximum effective range for LoRa packet transmission between the node and the gateway and identification of factors potentially affecting the range.
+\end{enumerate}
+
+\clearpage
+
+\subsection{Prototype 2: Implementing IoT Layers 4-5 and Hardware Deployment}
+
+The second prototype further develops the system by introducing the middleware and application layers. It replaces the breadboard with a custom PCB and encloses the setup within a 3D printed enclosure for durability and protection. The MKRWAN device operates as the LoRa node, while a RAK7268 WisGate Edge Lite 2 serves as the LoRaWAN gateway. The node samples the bridge's acceleration and transmits the average maximum acceleration and frequency to the gateway. The gateway then forwards the data to the TNN cloud (middleware layer). The Arduino IoT Cloud dashboard's advanced graph feature is utilized to visualize and analyze the received data (application layer).
+
+Objectives for Prototype 2 include:
+
+\begin{enumerate}
+\item Design, fabrication, and testing of a custom PCB to replace the breadboard used in Prototype 1.
+\item Design and fabrication of a durable enclosure that can be securely mounted on the Griffith University footbridge without interrupting its usage.
+\item Establishment of a reliable LoRaWAN connection between the node and the gateway, with consistent data transmission to the TNN cloud.
+\item Integration of Arduino IoT Cloud variables for data logging and visualization using the dashboard's advanced graphs feature.
+\item Execution of field testing on the bridge to validate complete system integration, including software functionality and signal strength.
+\end{enumerate}
+
+Overall, the project aims to advance the understanding and application of IoT in structural health monitoring systems, potentially contributing to improved maintenance and safety practices.
+
+
+\begin{comment}
 The aim of this project is to develop and deploy a prototype IoT architecture with the purpose of collecting data relevant to the health of the Griffith footbridge. This involves implementing the first five layers of the architecture which consist of the coding layer, perception layer, network layer, middle-ware layer and application layer. This deployment will be achieved through the testing and implementation of two prototypes.
 
 The first prototype is designed for testing the software and the first three layers of the IoT architecture. Two Arduino MKRWAN 1300 devices will be used, one acting as the LoRa node (layer one and two) and the other acting as a pseudo LoRaWAN gateway (layer three). The first MKRWAN 1300 is equipped with an ADXL335 3-axis accelerometer and is placed on a metal beam. The beam is vibrated along the z-axis and the device samples the acceleration. The device finds the maximum frequency peak and maximum acceleration and transmits the data via a LoRa packet. The second device receives the LoRa packet and logs the data via a serial connection. A python program is used to establish serial connection with the devices and log the output to a text file. Another python program is then used to plot the serial output data using matplot library pyplot. The high level system diagram in figure \ref{Proto1HLSD} presents the desired implementation of this prototype. 
-
-\begin{figure}[h]
-	\centering
-	\caption{Prototype 1 High Level System Diagram}
-	\label{Proto1HLSD}
-	\includegraphics[scale=0.8]{Sections/Introduction/Prototype-1-High-Level.drawio.pdf}
-\end{figure}
 
 The aims of prototype 1 will be satisfied once the following objectives are met.
 
@@ -26,13 +59,6 @@ The aims of prototype 1 will be satisfied once the following objectives are met.
 The second prototype is designed for testing the software, PCB, enclosure and first five layers of the IoT architecture. The two MKRWAN 1300 devices are now both nodes and are implemented onto a custom designed PCB. This PCB is enclosed in a custom 3D printed enclosure and sits behind the guard rail of the Griffith foot bridge. The two nodes sample the maximum frequency and maximum acceleration of the bridge and transmit this data via LoRa packets to a Wisgate Edge Lite 2 LoRaWAN gateway. This gateway uploads the data via WIFI or Ethernet to the TNN cloud which acts as the middle-ware layer. --- APPLICATION LAYER WHAT IS THE IMPLEMENTATION --- Figure \ref{Proto2HLSD}
 displays the high level system diagram for the second prototype. 
 
-\begin{figure}[h] 
-	\centering
-	\caption{Prototype 2 High Level System Diagram}
-	\label{Proto2HLSD}
-	\includegraphics[scale=0.8]{Sections/Introduction/Prototype-2-High-Level.drawio.pdf}
-\end{figure}
-
 --- ADD TO PROTO 2 OBJECTIVES ONCE I COMPLETE TESTING ---
 The aims of prototype 2 will be satisfied once the following objectives are met.
 
@@ -43,5 +69,5 @@ The aims of prototype 2 will be satisfied once the following objectives are met.
 	\item{Create a cloud application to log LoRa packets from the nodes}
 	\item{Verify software and range capabilities through system integration testing on the bridge}
 \end{enumerate}
-
+\end{comment}
 

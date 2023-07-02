@@ -10,8 +10,6 @@
 #include <stdio.h>
 #include <iostream> 
 
-// STATIC MEANS HAVE TO DELETE BUILD FILES IF I WANT TO REMOVE THE VARIABLE
-
 static constexpr double pi = 3.14159265358979323846;
 
 //---------- Accelerometer Values ----------
@@ -28,24 +26,27 @@ static const double sensitivity = 0.33; //330 mV/g at 3.3V
 //---------- Accelerometer Values ----------
 
 //---------- FFT Values ----------
-// static const int sample_rate = 4; //Want to capture 2Hz then need at least 4Hz but x 10 to get 20Hz
 static const int frequency = 2;
-// static const int maxFreq = 4;
-static const int maxFreq = 25; // THIS IS THE MAXIMUM FREQUENCY THAT THE FFT CAN DETECT
+// THIS IS THE MAXIMUM FREQUENCY THAT THE FFT CAN DETECT
+static const int maxFreq = 25; 
 static const uint16_t sample_n = 128; //MUST BE EXP 2
-static const constexpr double sampling_rate = maxFreq * 2; // SAMPLING RATE MUST BE AT LEAST TWICE THE MAX FREQUENCY
-// static constexpr double sampling_rate = frequency * sample_n;
-static constexpr double sample_interval = ((1.0/sampling_rate) * 1000); //Gives sample interval in milliseconds
-static constexpr uint16_t window_size = (1.0/maxFreq) * sampling_rate;
-//To sample for 10 seconds -> N = 10/T = 10/(1/20) = 200 samples
+// SAMPLING RATE MUST BE AT LEAST TWICE THE MAX FREQUENCY
+static const constexpr double sampling_rate = maxFreq * 2; 
+ //Gives sample interval in milliseconds
+static constexpr double sample_interval = ((1.0/sampling_rate) 
+                                            * 1000);
 
 // ---------- FILTER VALUES ----------
 constexpr double HP_Fc = 0.5; // high pass cut-off frequency 
 constexpr double LP_Fc = 5; // low pass cut-off frequency
 constexpr double sampling_period = 1.0 / sampling_rate;
 
-constexpr double HP_alpha = (1 - (2 * pi * HP_Fc * sampling_period)) / (1 + (2 * pi * HP_Fc * sampling_period));
-constexpr double LP_alpha = 1 / (1 + (2 * pi * LP_Fc * sampling_period));
+constexpr double HP_alpha = (1 - (2 * pi * HP_Fc 
+                                * sampling_period)) 
+                            / (1 + (2 * pi * HP_Fc 
+                                * sampling_period));
+constexpr double LP_alpha = 1 / (1 + (2 * pi * LP_Fc 
+                                * sampling_period));
 
 const double alpha = 0.95;
 // ---------- FILTER VALUES ----------
@@ -56,16 +57,8 @@ const double alpha = 0.95;
 #define FFT_dir FFT_FORWARD
 //---------- FFT Values ----------
 
-//---------- LoRa ----------
-//Transmission Values 
-// const int packetSize = 3 * sizeof(double); //Sending three doubles 
-//---------- LoRa ----------
-
 // ---------- FUNCTIONS ----------
-// double findMax(double arr[]);s
 double findMaxAbs(const double data[]);
-// void lowPassFilter(double *input, double *output, int windowSize);
-// void lowPassFilter(double arr[]);
 void lowPassFilter(double *data);
 void highPassFilter(double *data);
 void addGravity(double arr[]);
@@ -73,21 +66,29 @@ int findMaxIndex(double arr[]);
 double findAvg(double arr[]);
 void removeBias(double arr[]);
 void integrate(const double arr[], double dt, double integrated[]);
-void readRawData(double real_x_axis[], double real_y_axis[], double real_z_axis[]);
-void processRawData(double xAccel[], double yAccel[], double zAccel[], 
-                    const double real_x_axis[], const double real_y_axis[], 
-                    const double real_z_axis[], double xZero, double yZero, double zZero);
-void integrate(const double xIn[], const double yIn[], const double zIn[], 
-                double xOut[], double yOut[], double zOut[]);
+void readRawData(double real_x_axis[], double real_y_axis[], 
+                 double real_z_axis[]);
+void processRawData(double xAccel[], double yAccel[], 
+                    double zAccel[], 
+                    const double real_x_axis[], 
+                    const double real_y_axis[], 
+                    const double real_z_axis[], double xZero, 
+                    double yZero, 
+                    double zZero);
+void integrate(const double xIn[], const double yIn[], 
+                const double zIn[], double xOut[], 
+                double yOut[], double zOut[]);
 // ---------- FUNCTIONS ----------
 
 // ---------- TEST FUNCTIONS ----------
 void genSineWave(double arr[]);
 void genZeroWave(double arr[]);
-void printAxisValues(double xAccel[], double yAccel[], double zAccel[]);
+void printAxisValues(double xAccel[], double yAccel[], 
+                        double zAccel[]);
 void printAxisVal(double xFreq, double yFreq, double zFreq);
 void printAxisValueSingle(double accel[]);
-void callibrate(int callibration_samples, double& xZero, double& yZero, double& zZero);
+void callibrate(int callibration_samples, double& xZero, 
+                double& yZero, double& zZero);
 void checkNan(double& freq);
 // ---------- TEST FUNCTIONS ----------
 

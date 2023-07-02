@@ -1,0 +1,9 @@
+﻿Library/Module,Prototype,Program,Function
+Arduino,"1, 2",Sender,Provides core Arduino functionality such as reading analog input and serial printing. 
+Math.h,"1, 2 ",Sender,Standard C library for mathematical operations such as finding absolute max values and checking for NaN values.
+MKRWAN.h,1,"Sender, Receiver",Standard MKRWAN library for basic LoRa communication and channel masking. 
+LoRa.h,1,"Sender, Receiver",Used to control LoRa communication between devices such as writing to a LoRa packet. 
+ArduinoFFT.h,"1, 2","Sender, Receiver","Used to provide FFT functions suchg as FFT computing, windowing, DC removal and complex to magnitude conversion. "
+serial,1,Logging,Used for establishing serial connection to COM devices. 
+matplotlib.pyplot,1,Plotting,Library used for plotting serial log data. 
+os,1,"Logging, Plotting ",Used for attaching file paths to user specified files. 

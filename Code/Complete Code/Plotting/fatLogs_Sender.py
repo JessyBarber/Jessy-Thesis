@@ -53,4 +53,5 @@ full_path = os.path.join(dir_path, fname)
 
 f = open(full_path, "w")
 for i in range(len(raw_xAccel)):
-    f.writelines([str(raw_xAccel[i]), " ", str(raw_yAccel[i]), " ", str(raw_zAccel[i]), "\n"])
+    f.writelines([str(raw_xAccel[i]), " ", str(raw_yAccel[i]), \
+                    " ", str(raw_zAccel[i]), "\n"])

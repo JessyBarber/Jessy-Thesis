@@ -1,0 +1,17 @@
+﻿Step,Process
+1,Relevant Arduino and CPP libraries are imported and variables are initialized. 
+2,Connection to Arduino Cloud is established. 
+3,The accelerometer is calibrated and zero values are set for each axis. 
+4,The main loop starts and the Arduino Cloud is updated. 
+5,The raw acceleration is sampled and processed. 
+6,The maximum acceleration is found. 
+7,Low pass filter is applied to the acceleration values. 
+8,FFT is computed and the peak frequency is found. 
+9,NaN values are converted to 0. 
+10,Current max acceleration and frequency values are added to a running total. 
+11,The loop iteration value is incremented. 
+12,The time passed is checked. If less than timer value the loop resets. 
+13,If the time passed is equal to or greater than the timer value then the averages of the running total values are found using the loop iteration value. 
+14,The average values are printed and assigned to their respective cloud variables.
+15,Total values and loop iteration values are reset and the loop is restarted. 
+,

@@ -1,6 +1,7 @@
 #include "Sender.h"
 
-void callibrate (int callibration_samples, double& xZero, double& yZero, double& zZero) {
+void callibrate (int callibration_samples, double& xZero,
+                 double& yZero, double& zZero) {
     Serial.println("Calibrating Accelerometer...");
 
     double offsetX = 0;
@@ -67,10 +68,12 @@ double findMax(const float data[]) {
 }
 
 void lowPassFilter(double *data) {
-  double filteredData = data[0]; // Initialize with the first value of the data array
+  // Initialize with the first value of the data array
+  double filteredData = data[0];
 
   for (uint16_t i = 1; i < sample_n; i++) {
-    filteredData = LP_alpha * data[i] + (1.0 - LP_alpha) * filteredData;
+    filteredData = LP_alpha * data[i] + (1.0 - LP_alpha) 
+                    * filteredData;
     data[i] = filteredData;
   }
 }
@@ -90,7 +93,8 @@ void removeBias(double arr[]) {
   }
 }
 
-void readRawData(double real_x_axis[], double real_y_axis[], double real_z_axis[]) {
+void readRawData(double real_x_axis[], double real_y_axis[], 
+                  double real_z_axis[]) {
   for (int i = 0; i < sample_n; i++) {
     // READ RAW DATA FROM ANALOG PINS
     real_x_axis[i] = analogRead(x_axis);
@@ -101,9 +105,11 @@ void readRawData(double real_x_axis[], double real_y_axis[], double real_z_axis[
   }
 }
 
-void processRawData(double xAccel[], double yAccel[], double zAccel[], 
-                    const double real_x_axis[], const double real_y_axis[], 
-                    const double real_z_axis[], double xZero, double yZero, double zZero) {
+void processRawData(double xAccel[], double yAccel[], 
+                    double zAccel[], const double real_x_axis[], 
+                    const double real_y_axis[], 
+                    const double real_z_axis[], 
+                    double xZero, double yZero, double zZero) {
   for (int i = 0; i < sample_n; i++) {
     // CONVERT ADC LEVEL TO A VOLTAGE
     double voltageX = ((real_x_axis[i] * vRef) / (adc_resolution - 1));
@@ -112,7 +118,8 @@ void processRawData(double xAccel[], double yAccel[], double zAccel[],
 
     xAccel[i] = ((voltageX - vRef / 2) / sensitivity - xZero) * g;
     yAccel[i] = ((voltageY - vRef / 2) / sensitivity - yZero) * g;
-    zAccel[i] = ((voltageZ - vRef / 2) / sensitivity - zZero - 1) * g; // Subtract gravity
+    // Subtract gravity
+    zAccel[i] = ((voltageZ - vRef / 2) / sensitivity - zZero - 1) * g; 
 
     // // Apply threshold to remove noise
     xAccel[i] = (abs(xAccel[i]) <= 0.7) ? 0 : xAccel[i];
